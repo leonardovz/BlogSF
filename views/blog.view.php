@@ -1,5 +1,4 @@
 <?php require 'views/header.php';?>
-<?php require 'componentes/funciones.php';?>
 
 
 	
@@ -8,9 +7,7 @@
 		<h2 class="ltext-105 cl0 txt-center">
 			Blog
 		</h2>
-	</section>	
-	<!-- Sidebar -->
-	<?php Sidebar();?>
+	</section>
 
 	<!-- Content page -->
 	<section class="bg0 p-t-62 p-b-60">

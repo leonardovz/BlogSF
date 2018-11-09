@@ -11,14 +11,15 @@
 
 			<div class="sidebar-content flex-w w-full p-lr-65 js-pscroll">
 				<ul class="sidebar-link w-full">
+					
+
 					<li class="p-b-13">
-						<a href="index.html" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="index.php" class="stext-102 cl2 hov-cl1 trans-04">
 							Inicio
 						</a>
 					</li>
-
 					<li class="p-b-13">
-						<a href="#" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="Blog.php" class="stext-102 cl2 hov-cl1 trans-04">
 							Blog
 						</a>
 					</li>
@@ -30,21 +31,24 @@
 					</li>
 
 					<li class="p-b-13">
-						<a href="#" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="Compras.php" class="stext-102 cl2 hov-cl1 trans-04">
 							Planes
 						</a>
 					</li>
 
 					<li class="p-b-13">
-						<a href="#" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="Acerca_de.php" class="stext-102 cl2 hov-cl1 trans-04">
 							¿Qué Somos?
 						</a>
 					</li>
 
 					<li class="p-b-13">
-						<a href="#" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="Contacto.php" class="stext-102 cl2 hov-cl1 trans-04">
 							Contactanos
 						</a>
+					</li>
+					<li id = "contenedor_alertas" class="p-b-13">
+						
 					</li>
 				</ul>
 
@@ -122,4 +126,12 @@
 			</div>
 		</div>
 	</aside>
+<?php } ?>
+
+<?php function login(){ ?>
+	
+<?php } ?>
+
+<?php function registro(){ ?>
+	
 <?php } ?>

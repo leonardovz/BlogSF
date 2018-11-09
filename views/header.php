@@ -9,8 +9,6 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<!-- <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css"> -->
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="fonts/linearicons-v1.0.0/icon-font.min.css">
@@ -34,10 +32,15 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	<!-- Firebase -->
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
 <!--===============================================================================================-->
 </head>
+<?php require 'componentes/funciones.php';?>
 <body class="animsition">
-<header class="header-v3">
+	
+	<header class="header-v3">
 		<!-- Header desktop -->
 		<div class="container-menu-desktop trans-03">
 			<div class="wrap-menu-desktop">
@@ -73,6 +76,10 @@
 							<li>
 								<a href="Contacto.php">Contactanos</a>
 							</li>
+							<li id="loguearse">
+								<a href="Login.php"><button type="button" class="btn btn-outline-success" >Iniciar Sesión</button></a>
+							</li>
+							
 						</ul>
 					</div>	
 
@@ -138,6 +145,12 @@
 				<li>
 					<a href="Contacto.php">Contactanos</a>
 				</li>
+				<li id="loguearse">
+					<a href="Login.php">Iniciar Sesión</a>
+				</li>
+				<li id = "contenedor_alertas">
+
+				</li>
 			</ul>
 		</div>
 
@@ -158,3 +171,5 @@
 			</form>
 		</div>
 	</header>
+
+	<?php Sidebar();?>

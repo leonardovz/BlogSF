@@ -1,14 +1,11 @@
 <?php require 'views/header.php';?>
-<?php require 'componentes/funciones.php';?>
 
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
 			¡Encuentra tu plan Perfecto!
 		</h2>
-	</section>	
-	<!-- Sidebar -->
-	<?php Sidebar();?>
+	</section>
 
 	<!-- breadcrumb -->
 	<div class="container">

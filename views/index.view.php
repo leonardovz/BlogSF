@@ -1,7 +1,4 @@
 <?php require 'views/header.php';?>
-<?php require 'componentes/funciones.php';?>
-	<!-- Sidebar -->
-	<?php Sidebar(); ?>
 
 	<!-- Slider -->
 	<section class="section-slide">
@@ -301,7 +298,7 @@
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 					<!-- Block2 -->
 					<div class="p-b-63">
-							<a href="blog-detail.html" class="hov-img0 how-pos5-parent">
+							<a href="Publicaciones.php" class="hov-img0 how-pos5-parent">
 								<img src="images/banner-01.jpg" alt="IMG-BLOG">
 
 								<div class="flex-col-c-m size-123 bg9 how-pos5">

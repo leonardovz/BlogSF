@@ -1,14 +1,11 @@
 <?php require 'views/header.php';?>
-<?php require 'componentes/funciones.php';?>
 
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
 			Resultados
 		</h2>
-	</section>	
-	<!-- Sidebar -->
-	<?php Sidebar();?>
+	</section>
 
 
 	<!-- breadcrumb -->
@@ -43,7 +40,7 @@
                             <div class="col-sm-6 col-md-4 col-lg-4 p-b-10 isotope-item women">
                                 <!-- Block2 -->
                                 <div class="p-b-10">
-                                    <a href="Serv_details.php" class="hov-img0 how-pos5-parent">
+                                    <a href="Serv_Details.php" class="hov-img0 how-pos5-parent">
                                         <img src="images/blog-04.jpg" alt="IMG-BLOG">
                                     </a>
 

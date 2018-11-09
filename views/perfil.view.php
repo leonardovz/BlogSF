@@ -1,14 +1,11 @@
 <?php require 'views/header.php';?>
-<?php require 'componentes/funciones.php';?>
 
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
 			Perfil
 		</h2>
-	</section>	
-	<!-- Sidebar -->
-	<?php Sidebar();?>
+	</section>
 	
 	<section class="bg-img1 txt-center p-t-30" >
 		<h2 class="ltext-105 c9 txt-center">

@@ -1,14 +1,11 @@
 <?php require 'views/header.php';?>
-<?php require 'componentes/funciones.php';?>
 
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
 			Detalles
 		</h2>
-	</section>	
-	<!-- Sidebar -->
-	<?php Sidebar();?>
+	</section>
 
 
 	<!-- breadcrumb -->
@@ -23,7 +20,6 @@
 				Blog
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
-
 			<span class="stext-109 cl4">
 				Titulo de la publicación
 			</span>
