@@ -1,4 +1,7 @@
-<?php require 'views/header.php';?>
+<?php 
+    require 'views/header.php';
+    // include ('config/sesiones.php'); 
+?>
 
 <!-- Title page -->
 <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');">
@@ -29,12 +32,12 @@
                             <p>¿Aún no tienes cuenta? <a href="Registro.php"> Registrate </a></p>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-secondary btn-lg btn-block rounded-0" onclick="ingreso();">Login</button>
+                    <button type="button" class="btn btn-secondary btn-lg btn-block rounded-0">Login</button>
                 </form>
             </div>
         </div>
     </div>
 </section>
 
-<!-- <script src="js/app.js"></script> -->
+<script src="js/validar.js"></script>
 <?php require 'views/footer.php'; ?>

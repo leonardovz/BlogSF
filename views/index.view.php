@@ -20,7 +20,7 @@
 							</div>
 								
 							<div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-								<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+								<a href="<?php echo $links_contenido['blog'];?>" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
 									Visitar
 								</a>
 							</div>
@@ -44,7 +44,7 @@
 							</div>
 								
 							<div class="layer-slick1 animated visible-false" data-appear="slideInUp" data-delay="1600">
-								<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+								<a href="<?php echo $links_contenido['registro'];?>" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
 									Registrarme
 								</a>
 							</div>
@@ -68,7 +68,7 @@
 							</div>
 								
 							<div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1600">
-								<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+								<a href="<?php echo $links_contenido['servicios'];?>" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn2 p-lr-15 trans-04">
 									Buscar
 								</a>
 							</div>
@@ -91,7 +91,7 @@
 					<div class="block1 wrap-pic-w">
 						<img src="images/banner-04.jpg" alt="IMG-BANNER">
 
-						<a href="blog.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+						<a href="<?php echo $links_contenido['blog'];?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
 									Blog
@@ -116,7 +116,7 @@
 					<div class="block1 wrap-pic-w">
 						<img src="images/banner-05.jpg" alt="IMG-BANNER">
 
-						<a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+						<a href="<?php echo $links_contenido['servicios'];?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
 									Servicios
@@ -141,7 +141,7 @@
 					<div class="block1 wrap-pic-w">
 						<img src="images/banner-07.jpg" alt="IMG-BANNER">
 
-						<a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+						<a href="<?php echo $links_contenido['serviciosDetalles'];?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
 									Estilista
@@ -166,7 +166,7 @@
 					<div class="block1 wrap-pic-w">
 						<img src="images/banner-08.jpg" alt="IMG-BANNER">
 
-						<a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+						<a href="<?php echo $links_contenido['serviciosDetalles'];?>?search=construccion" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
 									Construcción
@@ -191,7 +191,7 @@
 					<div class="block1 wrap-pic-w">
 						<img src="images/banner-09.jpg" alt="IMG-BANNER">
 
-						<a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+						<a href="<?php echo $links_contenido['serviciosDetalles'];?>?search=comida" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
 									Comida
@@ -229,7 +229,7 @@
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 					<!-- Block2 -->
 					<div class="p-b-63">
-							<a href="blog-detail.html" class="hov-img0 how-pos5-parent">
+							<a href="<?php echo $links_contenido['publicaciones'] . '?id='. $i;?>" class="hov-img0 how-pos5-parent">
 								<img src="images/blog-04.jpg" alt="IMG-BLOG">
 
 								<div class="flex-col-c-m size-123 bg9 how-pos5">
@@ -245,7 +245,7 @@
 
 							<div class="p-t-32">
 								<h4 class="p-b-15">
-									<a href="blog-detail.html" class="ltext-108 cl2 hov-cl1 trans-04">
+									<a href="<?php echo $links_contenido['publicaciones'] . '?id='. $i;?>" class="ltext-108 cl2 hov-cl1 trans-04">
 										8 Inspiring Ways to Wear Dresses in the Winter
 									</a>
 								</h4>
@@ -262,7 +262,7 @@
 										</span>
 									</span>
 
-									<a href="blog-detail.html" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
+									<a href="<?php echo $links_contenido['publicaciones'] . '?id='. $i;?>" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
 										Continue Reading 
 										<i class="fas fa-book-open"></i>
 									</a>
@@ -298,7 +298,7 @@
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 					<!-- Block2 -->
 					<div class="p-b-63">
-							<a href="Publicaciones.php" class="hov-img0 how-pos5-parent">
+							<a href="<?php echo $links_contenido['perfil'];?>?id=1" class="hov-img0 how-pos5-parent">
 								<img src="images/banner-01.jpg" alt="IMG-BLOG">
 
 								<div class="flex-col-c-m size-123 bg9 how-pos5">
@@ -314,7 +314,7 @@
 
 							<div class="p-t-16">
 								<h4 class="p-b-6">
-									<a href="blog-detail.html" class="ltext-96 cl2 hov-cl1 trans-04">
+									<a href="<?php echo $links_contenido['perfil'];?>?id=1" class="ltext-96 cl2 hov-cl1 trans-04">
 										Construcción
 									</a>
 								</h4>
@@ -326,7 +326,7 @@
 										</span>
 									</span>
 
-									<a href="blog-detail.html" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
+									<a href="<?php echo $links_contenido['perfil'];?>?id=1" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
 										Ver Información
 										<i class="fa fa-long-arrow-right m-l-9"></i>
 									</a>

@@ -1,4 +1,20 @@
-<?php function Sidebar(){ ?>
+<?php 
+	$links_contenido = array(
+		'index' => 'index.php',
+		'blog' => 'Blog.php',
+		'publicaciones' => 'Publicaciones.php',
+		'servicios' => 'Servicios.php',
+		'serviciosDetalles' => 'Servicios_Detalles.php',
+		'compras' => 'Compras.php',
+		'perfil' => 'Perfil.php',
+		'login' => 'Login.php',
+		'registro' => 'Registro.php',
+		'acercade' => 'Acerca_de.php',
+		'contacto' => 'Contacto.php'
+	);
+?>
+
+<?php function Sidebar($links_contenido){ ?>
     <aside class="wrap-sidebar js-sidebar">
 		<div class="s-full js-hide-sidebar"></div>
 
@@ -14,36 +30,36 @@
 					
 
 					<li class="p-b-13">
-						<a href="index.php" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="<?php echo $links_contenido['index'];?>" class="stext-102 cl2 hov-cl1 trans-04">
 							Inicio
 						</a>
 					</li>
 					<li class="p-b-13">
-						<a href="Blog.php" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="<?php echo $links_contenido['blog'];?>" class="stext-102 cl2 hov-cl1 trans-04">
 							Blog
 						</a>
 					</li>
 
 					<li class="p-b-13">
-						<a href="Perfil.php" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="<?php echo $links_contenido['perfil'];?>" class="stext-102 cl2 hov-cl1 trans-04">
 							Mi Cuenta
 						</a>
 					</li>
 
 					<li class="p-b-13">
-						<a href="Compras.php" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="<?php echo $links_contenido['compras'];?>" class="stext-102 cl2 hov-cl1 trans-04">
 							Planes
 						</a>
 					</li>
 
 					<li class="p-b-13">
-						<a href="Acerca_de.php" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="<?php echo $links_contenido['acercade'];?>" class="stext-102 cl2 hov-cl1 trans-04">
 							¿Qué Somos?
 						</a>
 					</li>
 
 					<li class="p-b-13">
-						<a href="Contacto.php" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="<?php echo $links_contenido['contacto'];?>" class="stext-102 cl2 hov-cl1 trans-04">
 							Contactanos
 						</a>
 					</li>

@@ -54,7 +54,7 @@
                             <div class="col-sm-6 col-md-6 col-lg-6 p-b-10 isotope-item women">
                                 <!-- Block2 -->
                                 <div class="p-b-10">
-                                    <a href="Serv_details.php" class="hov-img0 how-pos5-parent">
+                                    <a href="<?php echo $links_contenido['publicaciones'] .'?idPub='.$i;?>" class="hov-img0 how-pos5-parent">
                                         <img src="images/blog-04.jpg" alt="IMG-BLOG">
                                     </a>
 
@@ -75,7 +75,7 @@
 													Ramon Vazquez Carrillo
 													<span class="cl12 m-l-4 m-r-6">|</span>
 												</span>
-												<span><a href="Perfil.php"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a></span>
+												<span><a href="<?php echo $links_contenido['publicaciones'] .'?idPub='.$i;?>"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a></span>
 											</span>
                                         </h4>
                                     </div>
@@ -137,7 +137,7 @@
 										<!-- Block1 -->
 										<div class="block1 wrap-pic-w">
 											<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');"></section>
-											<a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+											<a href="<?php echo $links_contenido['publicaciones'] .'?idPub=1';?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 												<div class="block1-txt-child1 flex-col-l">
 													<span class="block1-name ltext-102 trans-04 p-b-8">
 														Estilista
@@ -162,7 +162,7 @@
 										<!-- Block1 -->
 										<div class="block1 wrap-pic-w">
 											<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');"></section>
-											<a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+											<a href="<?php echo $links_contenido['serviciosDetalles'] .'?Search=1';?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 												<div class="block1-txt-child1 flex-col-l">
 													<span class="block1-name ltext-102 trans-04 p-b-8">
 														Estilista

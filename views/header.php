@@ -1,3 +1,4 @@
+<?php require 'componentes/funciones.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,12 +33,12 @@
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	<link rel="stylesheet" type="text/css" href="vendor/sweetalert/sweetalert2.min.css">
 	<!-- Firebase -->
 	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
 <!--===============================================================================================-->
 </head>
-<?php require 'componentes/funciones.php';?>
 <body class="animsition">
 	
 	<header class="header-v3">
@@ -55,29 +56,29 @@
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li>
-								<a href="index.php">Inicio</a>
+								<a href="<?php echo $links_contenido['index'];?>">Inicio</a>
 							</li>
 							<li>
-								<a href="Blog.php">Blog</a>
+								<a href="<?php echo $links_contenido['blog'];?>">Blog</a>
 							</li>
 
 							<li>
-								<a href="Servicios.php">Servicios</a>
-							</li>
-
-							<li class="label1" data-label1="Sale">
-								<a href="Compras.php">Planes</a>
+								<a href="<?php echo $links_contenido['servicios'];?>">Servicios</a>
 							</li>
 
 							<li>
-								<a href="Acerca_de.php">¿Qué Somos?</a>
+								<a href="<?php echo $links_contenido['compras'];?>">Planes</a>
 							</li>
 
 							<li>
-								<a href="Contacto.php">Contactanos</a>
+								<a href="<?php echo $links_contenido['acercade'];?>">¿Qué Somos?</a>
+							</li>
+
+							<li>
+								<a href="<?php echo $links_contenido['contacto'];?>">Contactanos</a>
 							</li>
 							<li id="loguearse">
-								<a href="Login.php"><button type="button" class="btn btn-outline-success" >Iniciar Sesión</button></a>
+								<a href="<?php echo $links_contenido['login'];?>"><button type="button" class="btn btn-outline-success" >Iniciar Sesión</button></a>
 							</li>
 							
 						</ul>
@@ -99,7 +100,7 @@
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="index.html"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
+				<a href="<?php echo $links_contenido['index'];?>"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
 			</div>
 
 			<!-- Icon header -->
@@ -124,29 +125,29 @@
 		<div class="menu-mobile">
 			<ul class="main-menu-m">
 				<li>
-					<a href="index.php">Inicio</a>
+					<a href="<?php echo $links_contenido['index'];?>">Inicio</a>
 				</li>
 				<li>
-					<a href="Blog.php">Blog</a>
+					<a href="<?php echo $links_contenido['blog'];?>">Blog</a>
 				</li>
 
 				<li>
-					<a href="Servicios.php">Servicios</a>
+					<a href="<?php echo $links_contenido['servicios'];?>">Servicios</a>
 				</li>
 
 				<li class="label1" data-label1="Sale">
-					<a href="Compras.php">Planes</a>
+					<a href="<?php echo $links_contenido['compras'];?>">Planes</a>
 				</li>
 
 				<li>
-					<a href="Acerca_de.php">¿Qué Somos?</a>
+					<a href="<?php echo $links_contenido['acercade'];?>">¿Qué Somos?</a>
 				</li>
 
 				<li>
-					<a href="Contacto.php">Contactanos</a>
+					<a href="<?php echo $links_contenido['contacto'];?>">Contactanos</a>
 				</li>
 				<li id="loguearse">
-					<a href="Login.php">Iniciar Sesión</a>
+					<a href="<?php echo $links_contenido['login'];?>">Iniciar Sesión</a>
 				</li>
 				<li id = "contenedor_alertas">
 
@@ -172,4 +173,4 @@
 		</div>
 	</header>
 
-	<?php Sidebar();?>
+	<?php Sidebar($links_contenido);?>

@@ -10,7 +10,7 @@
 		<!-- breadcrumb -->
 	<div class="container">
 		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-			<a href="index.html" class="stext-109 cl8 hov-cl1 trans-04">
+			<a href="<?php echo $links_contenido['index'];?>" class="stext-109 cl8 hov-cl1 trans-04">
 				Inicio
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
@@ -31,7 +31,7 @@
                             <div class="col-6 col-sm-6 col-md-4 col-lg-4 p-b-10 isotope-item women">
                                 <!-- Block2 -->
                                 <div class="p-b-10">
-                                    <a href="Serv_Details.php" class="hov-img0 how-pos5-parent">
+                                    <a href="<?php echo $links_contenido['serviciosDetalles'] .'?Search='.$i;?>" class="hov-img0 how-pos5-parent">
                                         <img src="images/blog-04.jpg" alt="IMG-BLOG">
                                     </a>
 
@@ -54,7 +54,7 @@
 													<span class="cl12 m-l-4 m-r-6">| </span>
 												</span>
 												<span>
-												 	<a href="Serv_details.php" class="cl12 m-l-4 m-r-6"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
+												 	<a href="<?php echo $links_contenido['serviciosDetalles'] .'?Search='.$i;?>" class="cl12 m-l-4 m-r-6"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
 												</span>
 											</span>
                                         </h4>

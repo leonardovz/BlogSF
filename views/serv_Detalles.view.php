@@ -11,12 +11,12 @@
 	<!-- breadcrumb -->
 	<div class="container">
 		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-			<a href="index.php" class="stext-109 cl8 hov-cl1 trans-04">
+			<a href="<?php echo $links_contenido['index'];?>" class="stext-109 cl8 hov-cl1 trans-04">
 				Inicio
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
 
-			<a href="Servicios.php" class="stext-109 cl8 hov-cl1 trans-04">
+			<a href="<?php echo $links_contenido['servicios'] ;?>" class="stext-109 cl8 hov-cl1 trans-04">
 				Servicios
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
@@ -37,10 +37,10 @@
 						<!--  -->
 						<div class="row isotope-grid">
                             <?php for ($i=0; $i < 12; $i++) { ?>
-                            <div class="col-sm-6 col-md-4 col-lg-4 p-b-10 isotope-item women">
+                            <div class="col-sm-12 col-md-6 col-lg-6 p-b-10 isotope-item women">
                                 <!-- Block2 -->
                                 <div class="p-b-10">
-                                    <a href="Serv_Details.php" class="hov-img0 how-pos5-parent">
+                                    <a href="<?php echo $links_contenido['perfil'] .'?id='.$i;?>" class="hov-img0 how-pos5-parent">
                                         <img src="images/blog-04.jpg" alt="IMG-BLOG">
                                     </a>
 
@@ -61,7 +61,7 @@
 													Ramon Vazquez Carrillo
 													<span class="cl12 m-l-4 m-r-6">|</span>
 												</span>
-												<span><a href="Perfil.php"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a></span>
+												<span><a href="<?php echo $links_contenido['perfil'] .'?id='.$i;?>"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a></span>
 											</span>
                                         </h4>
                                     </div>
@@ -126,34 +126,15 @@
 							</h4>
 
 							<ul>
+								<?php for ($i=0; $i < 3 ; $i++) :?>
 								<li class="flex-w flex-t p-b-2">
                                     <div class="p-b-10">
-                                        <a href="blog-detail.html" class="hov-img0 how-pos5-parent">
+                                        <a href="<?php echo $links_contenido['publicaciones'] .'?idPub='.$i;?>" class="hov-img0 how-pos5-parent">
                                             <img src="images/blog-04.jpg" alt="IMG-BLOG">
                                         </a>
                                     </div>
 								</li>
-                                <li class="flex-w flex-t p-b-2">
-                                    <div class="p-b-10">
-                                        <a href="blog-detail.html" class="hov-img0 how-pos5-parent">
-                                            <img src="images/blog-04.jpg" alt="IMG-BLOG">
-                                        </a>
-                                    </div>
-								</li>
-                                <li class="flex-w flex-t p-b-2">
-                                    <div class="p-b-10">
-                                        <a href="blog-detail.html" class="hov-img0 how-pos5-parent">
-                                            <img src="images/blog-04.jpg" alt="IMG-BLOG">
-                                        </a>
-                                    </div>
-								</li>
-                                <li class="flex-w flex-t p-b-2">
-                                    <div class="p-b-10">
-                                        <a href="blog-detail.html" class="hov-img0 how-pos5-parent">
-                                            <img src="images/blog-04.jpg" alt="IMG-BLOG">
-                                        </a>
-                                    </div>
-								</li>
+								<?php endfor;?>
 							</ul>
 						</div>
 
@@ -199,13 +180,13 @@
 						<div class="col-6 col-sm-6 col-md-4 col-lg-4 p-b-10 isotope-item women">
 							<!-- Block2 -->
 							<div class="p-b-10">
-								<a href="Serv_details.php" class="hov-img0 how-pos5-parent">
+								<a href="<?php echo $links_contenido['serviciosDetalles'] .'?Search='.$i;?>" class="hov-img0 how-pos5-parent">
 									<img src="images/blog-04.jpg" alt="IMG-BLOG">
 								</a>
 
 								<div class="p-t-15">
 									<h4 class="p-b-5">
-										<a href="Serv_details.php" class="ltext-95 cl2 hov-cl1 trans-04">
+										<a href="<?php echo $links_contenido['serviciosDetalles'] .'?Search='.$i;?>" class="ltext-95 cl2 hov-cl1 trans-04">
 											Construcción
 										</a>
 									</h4>
