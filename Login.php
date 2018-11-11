@@ -32,12 +32,12 @@
                             <p>¿Aún no tienes cuenta? <a href="Registro.php"> Registrate </a></p>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-secondary btn-lg btn-block rounded-0">Login</button>
+                    <button   id="inLogin"  type="button" class="btn btn-secondary btn-lg btn-block rounded-0">Login</button>
                 </form>
             </div>
         </div>
     </div>
 </section>
 
-<script src="js/validar.js"></script>
+<!-- <script src="js/validar.js"></script> -->
 <?php require 'views/footer.php'; ?>

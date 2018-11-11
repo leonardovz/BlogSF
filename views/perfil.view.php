@@ -1,4 +1,7 @@
-<?php require 'views/header.php';?>
+<?php 
+	// include('config/sesiones.php');
+	require 'views/header.php';
+?>
 
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');">
@@ -48,41 +51,22 @@
 			<div class="row">
 				<div class="col-md-7 col-lg-8 p-b-80">
 					<div class="p-r-45 p-r-0-lg">
-						<!--  -->
-						<div class="row isotope-grid">
-                            <?php for ($i=0; $i < 12; $i++) { ?>
-                            <div class="col-sm-6 col-md-6 col-lg-6 p-b-10 isotope-item women">
-                                <!-- Block2 -->
-                                <div class="p-b-10">
-                                    <a href="<?php echo $links_contenido['publicaciones'] .'?idPub='.$i;?>" class="hov-img0 how-pos5-parent">
-                                        <img src="images/blog-04.jpg" alt="IMG-BLOG">
-                                    </a>
-
-                                    <div class="p-t-15">
-                                        <h4 class="p-b-5">
-                                            <span class="flex-w flex-m stext-111 cl2 p-b-19">
-												<span>
-													Construcción  
-													<span class="cl12 m-l-4 m-r-6">|</span>
-												</span>
-
-												<span>
-													22 Jun, 2018
-													<span class="cl12 m-l-4 m-r-6">|</span>
-												</span>
-
-												<span>
-													Ramon Vazquez Carrillo
-													<span class="cl12 m-l-4 m-r-6">|</span>
-												</span>
-												<span><a href="<?php echo $links_contenido['publicaciones'] .'?idPub='.$i;?>"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a></span>
-											</span>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php } ?>
-                        </div>
+						<ul class="nav nav-pills mb-3  stext-115" id="pills-tab" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Publicaciones</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Profile</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contact</a>
+							</li>
+						</ul>
+						<div class="tab-content" id="pills-tabContent">
+							<div class="tab-pane fade show active p-t-45" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><?php require 'perfil/publicaciones.php';?></div>
+							<div class="tab-pane fade stext-115" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><?php require 'perfil/publicar.php';?></div>	
+							<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
+						</div>
 					</div>
 				</div>
 
