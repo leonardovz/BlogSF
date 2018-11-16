@@ -23,11 +23,11 @@
 
 									<div class="flex-col-c-m size-123 bg9 how-pos5">
 										<span class="ltext-107 cl2 txt-center">
-											22
+											15
 										</span>
 
 										<span class="stext-109 cl3 txt-center">
-											Jan 2018
+											Nov 2018
 										</span>
 									</div>
 								</a>
@@ -113,7 +113,7 @@
 
 								<li class="bor18">
 									<a href="#" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
-										Estetica
+										Estética
 									</a>
 								</li>
 

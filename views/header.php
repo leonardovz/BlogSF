@@ -103,14 +103,6 @@
 				<a href="<?php echo $links_contenido['index'];?>"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
 			</div>
 
-			<!-- Icon header -->
-			<div class="wrap-icon-header flex-w flex-r-m h-full m-r-15">
-				<div class="flex-c-m h-full p-r-5">
-					<div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="2">
-						<i class="zmdi zmdi-shopping-cart"></i>
-					</div>
-				</div>
-			</div>
 
 			<!-- Button show menu -->
 			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
@@ -145,6 +137,9 @@
 
 				<li>
 					<a href="<?php echo $links_contenido['contacto'];?>">Contactanos</a>
+				</li>
+				<li id="loguearse">
+					<a href="<?php echo $links_contenido['perfil'];?>">Perfil</a>
 				</li>
 				<li id="loguearse">
 					<a href="<?php echo $links_contenido['login'];?>">Iniciar Sesión</a>

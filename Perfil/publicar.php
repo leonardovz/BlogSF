@@ -24,7 +24,7 @@
         <textarea class="form-control m-b-12" id="descripcionProducto" name = "descripcionProducto" rows="5" placeholder="Ingresa el texto que describe tu producto"></textarea>
     </div>
     
-    <button class="bflex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04" type="submit">Guardar Producto</button>
+    <button class="bflex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04" type="submit">Publicar</button>
 </form>
 
 

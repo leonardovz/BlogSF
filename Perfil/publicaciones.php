@@ -1,4 +1,3 @@
-<!--  -->
 <div class="row isotope-grid">
     <?php for ($i=0; $i < 12; $i++) { ?>
     <div class="col-sm-6 col-md-6 col-lg-6 p-b-10 isotope-item women">
