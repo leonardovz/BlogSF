@@ -7,18 +7,18 @@
     </h2>
 </section>
 <!-- Content page -->
-<section class="bg0 p-t-52 p-b-20">
+<section class="bg0 p-t-52 p-b-20 ltext-101">
     <div class="container">
         <div class="row">
             <div class="col-md-8 m-auto">
                 <form>
-                    <div class="form-row " >
+                    <div class="form-row fs-20 " >
                         <div class="form-group col">
                             <label for="inCorreo">Correo Electronico</label>
                             <input type="text" class="form-control rounded-0" id="inCorreo" placeholder="e-mail">
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row fs-20">
                         <div class="form-group col-md-6">
                             <label for="inPass">Contraseña</label>
                             <input type="password" class="form-control" id="inPass" placeholder="Contraseña">
@@ -28,7 +28,7 @@
                             <input type="password" class="form-control" id="inPassR" placeholder="Repetir">
                         </div>
                     </div>
-                    <div class="form-row">
+                    <div class="form-row fs-20">
                         <div class="form-group col-md-4">
                             <label for="inNombre">Nombre</label>
                             <input type="text" class="form-control" id="inNombre" placeholder="Nombre(s)">
@@ -42,7 +42,7 @@
                             <input type="text" class="form-control" id="inMaterno" placeholder="Materno">
                         </div>
                     </div>
-                    <button type="button" class="btn btn-secondary btn-lg btn-block rounded-0" onclick="registrar();">Crear Registro</button>
+                    <button type="button" class="btn btn-outline-dark btn-lg btn-block" onclick="registrar();">Crear Registro</button>
                 </form>
                 <div id="" class ="m-t-20 m-b-20"> 
                 <div class="container">

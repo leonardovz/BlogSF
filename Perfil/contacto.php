@@ -1,39 +1,69 @@
-<header style= "background: #4C9AFF;">
-		<div class="contenedor">
-			<div class="contenedor-texto">
-				<div class="texto">
-					<h1 class="nombre">Leonardo Vázquez Angulo</h1>
-					<h2 class="profesion">Desarrollador Web</h2>
-				</div>
-			</div>
+<header style= "">
+	<div class="contenedor">
+		<div class="contenedor-texto">
 		</div>
-	</header>
+	</div>
+</header>
 
-	<section class="main">
-		<section class="acerca-de">
-			<div class="contenedor">
-				<div class="foto">
-					<img src="images/banner-05.jpg" width="115" height="115" alt="Carlos Arturo">
+<section class="main">
+	<section class="acerca-de">
+		<div class="contenedor">
+			<div class="foto">
+				<img src="images/premiumprofile.png" width="115" height="115" alt="Carlos Arturo">
+			</div>
+	</section>
+	<section class="container-fluid p-t-20 stext-115">
+		<form>
+			<div class="form-row">
+				<div class="col-12 text-center fs-40">
+					Leonardo Vázquez Angulo
 				</div>
-				
-				<div class="texto">
-					<h3 class="titulo">Acerca de</h3>
-					<p>This is <span class="bold">Photoshop's version</span> of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis <span class="bold">bibendum auctor<span>, nisi elit consequat ipsum.</p>
-				</div>
-				<div class="card" >
-					<div class="card-header fs-45">
-						Datos De Contacto
-					</div>
-					<ul class="list-group list-group-flush text-left stext-113">
-							<li class="list-group-item">Correo:    <span class="text-primary">leonardovazquez81@gmail.com</span></li>
-							<li class="list-group-item">Telefono:  <span class="text-primary">333-333-2145</span></li>
-							<li class="list-group-item">Localidad: <span class="text-primary">San Francisco de Asís</span></li>
-							<li class="list-group-item">Colonia:   <span class="text-primary">Centro</span></li>
-							<li class="list-group-item">Domicilio:  <span class="text-primary">Direccion #4</span></li>
-							<li class="list-group-item">Horarios Lunes a Viernes:  <span class="text-primary">8:00 am a 6:00pm</span></li>
-							<li class="list-group-item">Fin de semana: <span class="text-primary">9:00 am a 2:00pm</span></li>
-					</ul>
+				<div class="col-12 text-center fs-25">
+					Desarrollador Web
 				</div>
 			</div>
-		</section>
+			<div class="form-row p-t-30">
+				<div class="col-12 text-center fs-37">
+					Acerca de
+				</div>
+				<div class="col-12 text-center fs-18 p-b-20">
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus doloribus in ut esse cumque quae fugit? Necessitatibus labore, dolore eligendi tempore repudiandae quod voluptates error, doloremque numquam nostrum perferendis cupiditate.
+				</div>
+			</div>
+			<div class="form-row bor18">
+				<div class="col-md-2 fs-37">
+					<i class="fas fa-envelope-square"></i>
+				</div>
+				<div class="col-md-9 text-right fs-16 m-auto">
+					Leonardovazquez81@gmail.com
+				</div>
+			</div>
+			<div class="form-row bor18">
+				<div class="col-md-2 fs-37">
+					<i class="fas fa-phone-volume"></i>
+				</div>
+				<div class="col-md-9 text-right fs-18 m-auto">
+					333-333-1254
+				</div>
+			</div>
+			<div class="form-row bor18">
+				<div class="col-12 text-center fs-26 font-weight-bold">
+					Dirección
+				</div>
+				<div class="col-12 text-center fs-18">
+					San Francisco de Asís, Jal.<br>
+					Las Torres # 3 Col. Centro
+				</div>
+			</div>
+			<div class="form-row bor18">
+				<div class="col-12 text-center fs-26 font-weight-bold">
+					Horarios de atención
+				</div>
+				<div class="col-12 text-center fs-18">
+					Lunes a Viernes de 9:00 am a 6:00pm <br>
+					Sabados de 8:00 am a 2:00pm
+				</div>
+			</div>
+		</form>
 	</section>
+</section>

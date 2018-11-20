@@ -153,6 +153,23 @@
 
 <!--===============================================================================================-->	
 <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<script>
+    (function(){
+        function filePreview(input) {
+            if (input.files&&input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function(e){
+                    $('#vistaPrevia').html("<img src='"+e.target.result+"' class='rounded mx-auto d-block'>");
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $('#thumb').change(function(){
+            filePreview(this);
+        });
+    })();
+</script>
 <script src="js/app.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
 <!--===============================================================================================-->

@@ -5,6 +5,8 @@
 	<title>San Francisco de Asis</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Aquí encontraras los servicios que ofrece San Francisco se Asís, municipio de Atotonilco el alto, Jalisco. Entra y encuentra lo que necesitas">
+	<meta name="keywords" content="Trabajos y Servicios, Construcción, Estilistas en San Francisco,Albañiles, Troqueros, Venta de Terrenos">
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
 <!--===============================================================================================-->
@@ -77,10 +79,6 @@
 							<li>
 								<a href="<?php echo $links_contenido['contacto'];?>">Contactanos</a>
 							</li>
-							<li id="loguearse">
-								<a href="<?php echo $links_contenido['login'];?>"><button type="button" class="btn btn-outline-success" >Iniciar Sesión</button></a>
-							</li>
-							
 						</ul>
 					</div>	
 
@@ -116,6 +114,9 @@
 		<!-- Menu Mobile -->
 		<div class="menu-mobile">
 			<ul class="main-menu-m">
+				<li id="loguearse">
+					<a href="<?php echo $links_contenido['login'];?>">Iniciar Sesión</a>
+				</li>
 				<li>
 					<a href="<?php echo $links_contenido['index'];?>">Inicio</a>
 				</li>
@@ -127,7 +128,7 @@
 					<a href="<?php echo $links_contenido['servicios'];?>">Servicios</a>
 				</li>
 
-				<li class="label1" data-label1="Sale">
+				<li>
 					<a href="<?php echo $links_contenido['compras'];?>">Planes</a>
 				</li>
 
@@ -140,9 +141,6 @@
 				</li>
 				<li id="loguearse">
 					<a href="<?php echo $links_contenido['perfil'];?>">Perfil</a>
-				</li>
-				<li id="loguearse">
-					<a href="<?php echo $links_contenido['login'];?>">Iniciar Sesión</a>
 				</li>
 				<li id = "contenedor_alertas">
 

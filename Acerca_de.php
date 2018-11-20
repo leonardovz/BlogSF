@@ -19,16 +19,15 @@
 						</h3>
 
 						<p class="stext-113 cl6 p-b-26">
-							En realidad no hay mucha historia detraz de este sitio web, lo que hay son muchas ganas de trabajar y salir adelante aprobechando las nuevas tecnologias para el avance y cecimiento de nuestro pueblo. <br>
-                            Esta pagína web, se desarrolla para hacer una vista generar de los errvicios que ofrece nuestro pueblo a nosotros mismos como a los visitantes. 
+							“San Francisco de Asís, Noticias y Servicios” es una plataforma digital actualmente en desarrollo que trata de ayudar a enfocar y centrar en un lugar la información de todas aquellas personas que ofrecen un servicio en nuestra comunidad. 
 						</p>
 
 						<p class="stext-113 cl6 p-b-26">
-							Donec gravida lorem elit, quis condimentum ex semper sit amet. Fusce eget ligula magna. Aliquam aliquam imperdiet sodales. Ut fringilla turpis in vehicula vehicula. Pellentesque congue ac orci ut gravida. Aliquam erat volutpat. Donec iaculis lectus a arcu facilisis, eu sodales lectus sagittis. Etiam pellentesque, magna vel dictum rutrum, neque justo eleifend elit, vel tincidunt erat arcu ut sem. Sed rutrum, turpis ut commodo efficitur, quam velit convallis ipsum, et maximus enim ligula ac ligula. 
+							Emprendedores, empresas, docentes estudiantes o cualquier persona que ofrezca algún servicio podrá registrarse y mostrar lo que hace aquí, gracias a que es una plataforma digital será más fácil que las personas encuentren lo que haces u ofreces y así poder contactarte de una manera más ágil.  
 						</p>
 
 						<p class="stext-113 cl6 p-b-26">
-							Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+							San Francisco de asís es una localidad de gran capacidad laboral y muchas veces las personas que necesitan algún servicio o tienen una necesidad, no saben dónde encontrar información de manera más fácil y rápida, lo que ofrece este sistema es agilizar el contacto entre los usuarios y los prestadores de servicios.
 						</p>
 					</div>
 				</div>
@@ -48,7 +47,7 @@
 						</h3>
 
 						<p class="stext-113 cl6 p-b-26">
-							Da a conocer a más publico tu comercio y establecerlo en la WEB. 
+							Ofrecer nuestros productos y servicios no solo de forma local si no llevar a que otras personas que buscan información de nuestro pueblo se den cuenta de que pueden encontrar muchos servicios aquí. Salir de la zona de confort y llevar más haya la forma en la que hacemos las cosas.
 						</p>
 
 						<div class="bor16 p-l-29 p-b-9 m-t-22">

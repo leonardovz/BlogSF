@@ -28,7 +28,9 @@
 			<div class="sidebar-content flex-w w-full p-lr-65 js-pscroll">
 				<ul class="sidebar-link w-full">
 					
-
+					<li id="loguearse" class="ltext-105 m-b-30">
+						<a href="<?php echo $links_contenido['login'];?>"><button type="button" class="btn btn-outline-dark btn-lg btn-block" >Iniciar Sesión</button></a>
+					</li>
 					<li class="p-b-13">
 						<a href="<?php echo $links_contenido['index'];?>" class="stext-102 cl2 hov-cl1 trans-04">
 							Inicio

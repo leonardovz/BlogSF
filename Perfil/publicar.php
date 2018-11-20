@@ -1,5 +1,5 @@
 <form  action="php/crearProducto.php" enctype="multipart/form-data" method="post" >
-<div class="form-row">
+    <div class="form-row">
         <div class="col m-t-35 text-right">
             <label for="nombreProducto"><?php echo fechadate();?></label>
         </div>
@@ -14,9 +14,15 @@
     <div class="form-row m-t-10">
         <div class="col-md-12 m-b-6">
             <div class="custom-file m-b-12">
-                <label for="thumb">Selecciona tu imagen</label>
-                <input type="file" name="thumb" id="thumb">
+                <label for="thumb" class="btn btn-outline-dark btn-lg btn-block" id="updateImage">
+                    <i class="fs-20 fas fa-upload"></i> 
+                    <span class="p-l-5 sf-16">Selecciona tu imagen</span>
+                </label>
+                <input type="file" name="thumb" id="thumb" hidden>
             </div>
+        </div>
+        <div id="vistaPrevia">
+
         </div>
     </div>
     <div class="form-row m-t-12">
