@@ -9,9 +9,12 @@ var config = {
 firebase.initializeApp(config);
 observador();
 
-// document.getElementById('inLogin').addEventListener('click', function(){
-//     validarLogin();
-// });
+if (document.getElementById('inLogin')) {
+    document.getElementById('inLogin').addEventListener('click', function(){
+        validarLogin();
+    });
+}
+
 
 function validarLogin(e){
 
@@ -32,8 +35,9 @@ function validarLogin(e){
             text: 'El correo no esta ingresado de forma Correcta'
           })
     }else{
+        console.log("hay");
         ingreso();
-        
+        event
     }
 
 }
@@ -70,6 +74,7 @@ function ingreso(){
     console.log(correo);
     console.log(password);
     firebase.auth().signInWithEmailAndPassword(correo, password).then(function(){
+        return true;
     }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
@@ -81,8 +86,10 @@ function ingreso(){
             text: 'Usuario y Contraseña Incorrectos'
           })
       });
+      
 }
 function observador(){
+    var usuario = null;
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
           console.log("Existe usuario Activo");
@@ -98,11 +105,12 @@ function observador(){
           var isAnonymous = user.isAnonymous;
           var uid = user.uid;
           var providerData = user.providerData;
-          
+         usuario = user;
         } else {
           console.log("no exixte usuario Activo");
         }
       });
+      return usuario;
 }
 
 

@@ -1,11 +1,19 @@
 <?php 
-function conexion($config){
-
+function conexion($bd_config){
+    try {
+		$conexion = new PDO('mysql:host='.$bd_config['host'].';dbname='.$bd_config['database'], $bd_config['usuario'], $bd_config['pass']);
+		return $conexion;
+	} catch (PDOException $e) {
+		return false;
+	}
 }
 // =========================== Servicios =========================== 
-function searchService($conexion,$Servicio){
-
+function searchService($conexion){
+    $sentencia = $conexion->prepare("SELECT * FROM servicios");
+	$sentencia->execute();
+	return $sentencia->fetchAll();
 }
+
 function addService($conexion,$Servicio){
 
 }

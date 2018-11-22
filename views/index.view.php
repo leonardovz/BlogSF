@@ -110,7 +110,7 @@
 						</a>
 					</div>
 				</div>
-
+				
 				<div class="col-md-6 p-b-30 m-lr-auto">
 					<!-- Block1 -->
 					<div class="block1 wrap-pic-w">
@@ -135,81 +135,32 @@
 						</a>
 					</div>
 				</div>
+				<?php for ($i=0; $i < 3; $i++):?>
+					<div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
+						<!-- Block1 -->
+						<div class="block1 wrap-pic-w">
+							<img src="Users_images/servicios/<?php echo $servicios[$i]['image'];?>" alt="IMG-BANNER">
 
-				<div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
-					<!-- Block1 -->
-					<div class="block1 wrap-pic-w">
-						<img src="images/banner-07.jpg" alt="IMG-BANNER">
+							<a href="<?php echo $links_contenido['serviciosDetalles'];?>?result=<?php echo $servicios[$i]['nombre'];?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+								<div class="block1-txt-child1 flex-col-l">
+									<span class="block1-name ltext-102 trans-04 p-b-8">
+										<?php echo $servicios[$i]['nombre'];?>
+									</span>
 
-						<a href="<?php echo $links_contenido['serviciosDetalles'];?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l">
-								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Belleza 
-								</span>
-
-								<span class="block1-info stext-102 trans-04">
-									Relacionados
-								</span>
-							</div>
-
-							<div class="block1-txt-child2 p-b-4 trans-05">
-								<div class="block1-link stext-101 cl0 trans-09">
-									Información...
+									<span class="block1-info stext-102 trans-04">
+										Relacionados
+									</span>
 								</div>
-							</div>
-						</a>
-					</div>
-				</div>
 
-				<div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
-					<!-- Block1 -->
-					<div class="block1 wrap-pic-w">
-						<img src="images/banner-08.jpg" alt="IMG-BANNER">
-
-						<a href="<?php echo $links_contenido['serviciosDetalles'];?>?search=construccion" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l">
-								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Construcción
-								</span>
-
-								<span class="block1-info stext-102 trans-04">
-									Relacionados
-								</span>
-							</div>
-
-							<div class="block1-txt-child2 p-b-4 trans-05">
-								<div class="block1-link stext-101 cl0 trans-09">
-									Información...
+								<div class="block1-txt-child2 p-b-4 trans-05">
+									<div class="block1-link stext-101 cl0 trans-09">
+										Información...
+									</div>
 								</div>
-							</div>
-						</a>
+							</a>
+						</div>
 					</div>
-				</div>
-
-				<div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
-					<!-- Block1 -->
-					<div class="block1 wrap-pic-w">
-						<img src="images/banner-09.jpg" alt="IMG-BANNER">
-
-						<a href="<?php echo $links_contenido['serviciosDetalles'];?>?search=comida" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l">
-								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Comida
-								</span>
-
-								<span class="block1-info stext-102 trans-04">
-									Encontrar
-								</span>
-							</div>
-
-							<div class="block1-txt-child2 p-b-4 trans-05">
-								<div class="block1-link stext-101 cl0 trans-09">
-									Información...
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
+				<?php endfor?>
 			</div>
 		</div>
 	</div>

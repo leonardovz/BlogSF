@@ -25,44 +25,38 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-lg-9 p-b-80">
-					<div class="p-r-45 p-r-0-lg">
-                        <div class="row isotope-grid">
-                            <?php for ($i=0; $i < 25; $i++) { ?>
-                            <div class="col-6 col-sm-6 col-md-4 col-lg-4 p-b-10 isotope-item women">
-                                <!-- Block2 -->
-                                <div class="p-b-10">
-                                    <a href="<?php echo $links_contenido['serviciosDetalles'] .'?Search='.$i;?>" class="hov-img0 how-pos5-parent">
-                                        <img src="images/blog-04.jpg" alt="IMG-BLOG">
-                                    </a>
+					<div class="sec-banner bg0 p-t-95 p-b-55">
+						<div class="container-fluid">
+							<div class="row">
 
-                                    <div class="p-t-15">
-                                        <h4 class="p-b-5">
-											<span class="flex-w flex-m stext-111 cl2 p-b-19">
-												
-												<span>
-													Trabajo  
-													<span class="cl12 m-l-4 m-r-6">|</span>
+								<?php  foreach ($servicios as $servicio) :?>
+								<div class="col-md-6 col-lg-6 p-b-30 m-lr-auto">
+									<!-- Block1 -->
+									<div class="block1 wrap-pic-w">
+										<img src="Users_images/servicios/<?php echo $servicio['image'];?>" alt="IMG-BANNER">
+
+										<a href="<?php echo $links_contenido['serviciosDetalles'];?>?search=<?php echo $servicio['nombre'];?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+											<div class="block1-txt-child1 flex-col-l">
+												<span class="block1-name ltext-102 trans-04 p-b-8">
+													<?php echo $servicio['nombre'];?>
 												</span>
 
-												<span>
-													(Hogar)
-													<span class="cl12 m-l-4 m-r-6">|</span>
+												<span class="block1-info stext-102 trans-04">
+													Encontrar
 												</span>
+											</div>
 
-												<span>
-													Ingenieria
-													<span class="cl12 m-l-4 m-r-6">| </span>
-												</span>
-												<span>
-												 	<a href="<?php echo $links_contenido['serviciosDetalles'] .'?Search='.$i;?>" class="cl12 m-l-4 m-r-6"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></a>
-												</span>
-											</span>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php } ?>
-                        </div>
+											<div class="block1-txt-child2 p-b-4 trans-05">
+												<div class="block1-link stext-101 cl0 trans-09">
+													Información...
+												</div>
+											</div>
+										</a>
+									</div>
+								</div>
+								<?php endforeach;?>
+							</div>
+						</div>
 					</div>
 				</div>
 
