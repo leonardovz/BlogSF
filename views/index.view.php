@@ -139,7 +139,7 @@
 					<div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
 						<!-- Block1 -->
 						<div class="block1 wrap-pic-w">
-							<img src="Users_images/servicios/<?php echo $servicios[$i]['image'];?>" alt="IMG-BANNER">
+							<img src="Users_images/servicios/<?php echo $servicios[$i]['imagen'];?>" alt="IMG-BANNER">
 
 							<a href="<?php echo $links_contenido['serviciosDetalles'];?>?result=<?php echo $servicios[$i]['nombre'];?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 								<div class="block1-txt-child1 flex-col-l">
@@ -176,52 +176,57 @@
 			</div>
 			<div class="row isotope-grid">
 				
-				<?php  for ($i = 0; $i < 8;$i++) :?>
+				<?php  
+				$post = searchPost($conexion);
+				for ($i = 0; $i < sizeof($post) ;$i++) {
+					$fecha =fechaPub($post[$i]['fecha']);?>
+				
+
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 					<!-- Block2 -->
 					<div class="p-b-63">
-							<a href="<?php echo $links_contenido['publicaciones'] . '?id='. $i;?>" class="hov-img0 how-pos5-parent">
-								<img src="images/blog-04.jpg" alt="IMG-BLOG">
+							<a href="<?php echo $links_contenido['publicaciones'] . '?id='. $post[$i]['id'];?>" class="hov-img0 how-pos5-parent">
+								<img src="Users_images/usuarios/<?php echo $post[$i]['imagen'];?>" alt="IMG-BLOG">
 
 								<div class="flex-col-c-m size-123 bg9 how-pos5">
 									<span class="ltext-107 cl2 txt-center">
-										22
+										<?php echo $fecha[2];?>
 									</span>
 
 									<span class="stext-109 cl3 txt-center">
-										Jan 2018
+									<?php echo $fecha[1] .'-'. $fecha[0];?>
 									</span>
 								</div>
 							</a>
 
 							<div class="p-t-32">
 								<h4 class="p-b-15">
-									<a href="<?php echo $links_contenido['publicaciones'] . '?id='. $i;?>" class="ltext-108 cl2 hov-cl1 trans-04">
-										8 Inspiring Ways to Wear Dresses in the Winter
+									<a href="<?php echo $links_contenido['publicaciones'] . '?id='. $post[$i]['id'];?>" class="ltext-108 cl2 hov-cl1 trans-04">
+										<?php echo $post[$i]['titulo'];?>
 									</a>
 								</h4>
 
 								<div class="flex-w flex-sb-m p-t-18">
 									<span class="flex-w flex-m stext-111 cl2 p-r-30 m-tb-10">
 										<span>
-											<span class="cl4">By</span> Admin  
+											<span class="cl4">By</span> <?php echo $post[$i]['nombre'];?>
 											<span class="cl12 m-l-4 m-r-6">|</span>
 										</span>
 
 										<span>
-											StreetStyle, Fashion, Couple
+											<?php echo $post[$i]['apellidos'];?>
 										</span>
 									</span>
 
-									<a href="<?php echo $links_contenido['publicaciones'] . '?id='. $i;?>" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
-										Continue Reading 
+									<a href="<?php echo $links_contenido['publicaciones'] . '?id='. $post[$i]['id'];?>" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
+										Continua Leyendo...
 										<i class="fas fa-book-open"></i>
 									</a>
 								</div>
 							</div>
 						</div>
 				</div>
-				<?php endfor; ?>
+				<?php }; ?>
 				
 				
 			</div>
@@ -238,6 +243,7 @@
 			</div> -->
 		</div>
 	</section>
+	<!-- Perfiles -->
 	<section class="bg0 p-t-23 p-b-130">
 		<div class="container">
 			<div class="p-b-55">
@@ -246,47 +252,51 @@
 				</h3>
 			</div>
 			<div class="row isotope-grid">
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-					<!-- Block2 -->
-					<div class="p-b-63">
-							<a href="<?php echo $links_contenido['perfil'];?>?id=1" class="hov-img0 how-pos5-parent">
-								<img src="images/banner-01.jpg" alt="IMG-BLOG">
+				<?php 
+				$servicios= searchUserService($conexion);
+				for ($i=0; $i < sizeof($servicios); $i++){
+					$fecha =fechaPub($servicios[$i]['fechaRegistro']);?>
+					<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+						<!-- Block2 -->
+						<div class="p-b-63">
+								<a href="<?php echo $links_contenido['perfil']. "?id=".$servicios[$i]['idUsuario'];?>" class="hov-img0 how-pos5-parent">
+									<img src="Users_images/usuarios/<?php echo $servicios[$i]['imagenServicio'];?>" alt="IMG-BLOG">
 
-								<div class="flex-col-c-m size-123 bg9 how-pos5">
-									<span class="ltext-107 cl2 txt-center">
-										22
-									</span>
-
-									<span class="stext-109 cl3 txt-center">
-										Jun 2018
-									</span>
-								</div>
-							</a>
-
-							<div class="p-t-16">
-								<h4 class="p-b-6">
-									<a href="<?php echo $links_contenido['perfil'];?>?id=1" class="ltext-96 cl2 hov-cl1 trans-04">
-										Construcción
-									</a>
-								</h4>
-
-								<div class="flex-w flex-sb-m p-t-8">
-									<span class="flex-w flex-m stext-111 cl2 p-r-30 m-tb-10">
-										<span>
-											Arquitecto, Ramón Vázquez
+									<div class="flex-col-c-m size-123 bg9 how-pos5">
+										<span class="ltext-107 cl2 txt-center">
+											<?php echo $fecha[2];?>
 										</span>
-									</span>
 
-									<a href="<?php echo $links_contenido['perfil'];?>?id=1" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
-										Ver Información
-										<i class="fa fa-long-arrow-right m-l-9"></i>
-									</a>
+										<span class="stext-109 cl3 txt-center">
+											<?php echo $fecha[1] .'-'. $fecha[0];?>
+										</span>
+									</div>
+								</a>
+
+								<div class="p-t-16">
+									<h4 class="p-b-6">
+										<a href="<?php echo $links_contenido['perfil']. "?id=".$servicios[$i]['idUsuario'];?>" class="ltext-96 cl2 hov-cl1 trans-04">
+											<?php echo $servicios[$i]['servicio'];?>
+										</a>
+									</h4>
+
+									<div class="flex-w flex-sb-m p-t-8">
+										<span class="flex-w flex-m stext-111 cl2 p-r-30 m-tb-10">
+											<span>
+												<?php echo $servicios[$i]['nameU'] . " " . $servicios[$i]['apellidos'];?>
+											</span>
+										</span>
+										
+										<a href="<?php echo $links_contenido['perfil']. "?id=".$servicios[$i]['idUsuario'];?>" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
+											Ver Información
+											<i class="fa fa-long-arrow-right m-l-9"></i>
+										</a>
+									</div>
 								</div>
 							</div>
-						</div>
-				</div>
+					</div>
+				<?}?>
 			</div>
-
 			<!-- Pagination -->
 			<!-- <div class="flex-c-m flex-w w-full p-t-38">
 				<a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7 active-pagination1">
