@@ -1,4 +1,5 @@
-<?php require 'views/header.php';?>
+<?php require 'views/header.php';
+$publicacion = obtenerPostId($conexion,$_GET['idPub']);?>
 
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');">
@@ -20,7 +21,7 @@
 				Blog
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
-			<a href="<?php echo $links_contenido['perfil'] .'?id='. $_GET['idPub'];?>" class="stext-109 cl8 hov-cl1 trans-04">
+			<a href="<?php echo $links_contenido['perfil'] .'?id='. $publicacion['idUsuario'];?>" class="stext-109 cl8 hov-cl1 trans-04">
 				Perfil
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
@@ -30,66 +31,66 @@
 		</div>
 	</div>
 
-
+	<?php 
+		
+		$fecha =fechaPub($publicacion['fecha']);
+		?>
 	<!-- Content page -->
 	<section class="bg0 p-t-52 p-b-20">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-lg-9 p-b-80">
-					<div class="p-r-45 p-r-0-lg">
-						<!--  -->
-						<div class="wrap-pic-w how-pos5-parent">
-							<img src="images/blog-04.jpg" alt="IMG-BLOG">
+					<?php if ($publicacion['idPub']!='') {?>
+						<div class="p-r-45 p-r-0-lg">
+							<!--  -->
+							<div class="wrap-pic-w how-pos5-parent">
+								<img src="Users_images/usuarios/<?php echo $publicacion['imagen'];?>" alt="IMG-BLOG">
 
-							<div class="flex-col-c-m size-123 bg9 how-pos5">
-								<span class="ltext-107 cl2 txt-center">
-									22
-								</span>
+								<div class="flex-col-c-m size-123 bg9 how-pos5">
+									<span class="ltext-107 cl2 txt-center">
+										<?php echo $fecha[2];?>
+									</span>
 
-								<span class="stext-109 cl3 txt-center">
-									Jan 2018
-								</span>
+									<span class="stext-109 cl3 txt-center">
+										<?php echo $fecha[1] .'-'. $fecha[0];?>
+									</span>
+								</div>
 							</div>
+
+							<div class="p-t-32">
+								<span class="flex-w flex-m stext-111 cl2 p-b-19">
+									<span>
+										<span class="cl4">By</span> <?php echo $publicacion['nameU'] .' '. $publicacion['apellidos'] ;?>  
+										<span class="cl12 m-l-4 m-r-6">|</span>
+									</span>
+
+									<span>
+										<?php echo $fecha[2] . " de " .obtenerMes($fecha[1]) . " de ". $fecha[0];?>
+										<span class="cl12 m-l-4 m-r-6">|</span>
+									</span>
+
+									<span>
+										<?php echo $publicacion['servicio'];?>
+										<span class="cl12 m-l-4 m-r-6">|</span>
+									</span>
+								</span>
+
+								<h4 class="ltext-109 cl2 p-b-28">
+									<?php echo $publicación['titulo'];?>
+								</h4>
+
+								<p class="stext-117 cl6 p-b-26">
+									<?php echo $publicacion['descripcion'];?>
+								</p>
+							</div>
+
 						</div>
-
-						<div class="p-t-32">
-							<span class="flex-w flex-m stext-111 cl2 p-b-19">
-								<span>
-									<span class="cl4">By</span> Admin  
-									<span class="cl12 m-l-4 m-r-6">|</span>
-								</span>
-
-								<span>
-									22 Jan, 2018
-									<span class="cl12 m-l-4 m-r-6">|</span>
-								</span>
-
-								<span>
-									StreetStyle, Fashion, Couple  
-									<span class="cl12 m-l-4 m-r-6">|</span>
-								</span>
-
-								<span>
-									8 Comments
-								</span>
-							</span>
-
-							<h4 class="ltext-109 cl2 p-b-28">
-								8 Inspiring Ways to Wear Dresses in the Winter
-							</h4>
-
-							<p class="stext-117 cl6 p-b-26">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet est vel orci luctus sollicitudin. Duis eleifend vestibulum justo, varius semper lacus condimentum dictum. Donec pulvinar a magna ut malesuada. In posuere felis diam, vel sodales metus accumsan in. Duis viverra dui eu pharetra pellentesque. Donec a eros leo. Quisque sed ligula vitae lorem efficitur faucibus. Praesent sit amet imperdiet ante. Nulla id tellus auctor, dictum libero a, malesuada nisi. Nulla in porta nibh, id vestibulum ipsum. Praesent dapibus tempus erat quis aliquet. Donec ac purus id sapien condimentum feugiat.
-							</p>
-
-							<p class="stext-117 cl6 p-b-26">
-								Praesent vel mi bibendum, finibus leo ac, condimentum arcu. Pellentesque sem ex, tristique sit amet suscipit in, mattis imperdiet enim. Integer tempus justo nec velit fringilla, eget eleifend neque blandit. Sed tempor magna sed congue auctor. Mauris eu turpis eget tortor ultricies elementum. Phasellus vel placerat orci, a venenatis justo. Phasellus faucibus venenatis nisl vitae vestibulum. Praesent id nibh arcu. Vivamus sagittis accumsan felis, quis vulputate
-							</p>
+					<?php }else{?>
+						<div class="alert alert-danger" role="alert">
+							Revisa la publicacíon puede estar bloqueada o te estas direccionando mal
 						</div>
-
-					</div>
+					<?php }?>
 				</div>
-
 				<div class="col-md-4 col-lg-3 p-b-80 float-right" >
 					<div class="side-menu">
 						<div class="bor17 of-hidden pos-relative">

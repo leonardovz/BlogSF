@@ -1,4 +1,48 @@
 <?php 
+function obtenerMes($mes){
+    switch ($mes) {
+        case 1:
+            return "Enero";
+            break;
+        case 2:
+            return "Febrero";
+            break;
+        case 3:
+            return "Marzo";
+            break;
+        case 4:
+            return "Abril";
+            break;
+        case 5:
+            return "Mayo";
+            break;
+        case 6:
+            return "Junio";
+            break;
+        case 7:
+            return "Julio";
+            break;
+        case 8:
+            return "Agosto";
+            break;
+        case 9:
+            return "Septiembre";
+            break;
+        case 10:
+            return "Octubre";
+            break;
+        case 11:
+            return "Noviembre";
+            break;
+        case 12:
+            return "Diciembre";
+            break;
+        
+        default:
+            return 0;
+            break;
+    }
+}
 function conexion($bd_config){
     try {
 		$conexion = new PDO('mysql:host='.$bd_config['host'].';dbname='.$bd_config['database'], $bd_config['usuario'], $bd_config['pass']);
@@ -39,7 +83,7 @@ function delService($conexion,$servicio){
 	$resultado = $sentencia->fetchAll();
 }
 
-// =========================== POSTS =========================== 
+// =========================== POSTS De Inicio=========================== 
 function addPost($conexion,$Post){
 	$iduser			= $Post['iduser'];
 	$fecha 			= $Post['fecha'];
@@ -57,7 +101,7 @@ function delPost($conexion,$Post){
 
 }
 function searchPost($conexion){
-	$sql = "SELECT pub.*,user.idUsuario, user.nombre,user.apellidos FROM publicacion AS pub INNER JOIN usuarios AS user ON pub.iduser=user.idUsuario;";
+	$sql = "SELECT pub.*,user.idUsuario, user.nombre,user.apellidos FROM publicacion AS pub INNER JOIN usuarios AS user ON pub.iduser=user.idUsuario ORDER BY pub.fecha DESC;";
 	$sentencia = $conexion->prepare($sql);
 	$sentencia->execute();
 	$resultado = $sentencia->fetchAll();
@@ -74,10 +118,74 @@ function modPost($conexion,$Post){
  	$sql 			= "UPDATE `publicacion` SET `iduser`=$iduser,`fecha`=$fecha,`titulo`=$titulo,`imagen`=$imagen,`descripcion`=$descripcion,`estado`=$estado WHERE id=$id AND idUser = $idUser;";
 }
 
-// =========================== Usuarios =========================== 
+// =========================== Mostrar datos de publicación  =========================== 
+function obtenerPostId($conexion,$datos){
+	
+	$sql	= "SELECT 
+	serv.id, 
+	serv.nombre AS servicio ,
+	user.idUsuario, 
+	user.nombre AS nameU, 
+	user.apellidos,
+	Uinf.imagenServicio,
+	pub.id AS idPub,
+	pub.fecha,
+	pub.titulo,
+	pub.imagen,
+	pub.estado,
+	pub.descripcion
+	FROM 	
+		servicios AS serv INNER JOIN 
+		usuarios AS user INNER JOIN 
+		trabajadores AS tb INNER JOIN 
+		usersinfo AS Uinf INNER JOIN
+		publicacion AS pub
+	WHERE 
+		tb.idUsuario = user.idUsuario AND 
+		tb.idServicio = serv.id AND 
+		user.idUsuario = Uinf.idUser AND
+		pub.iduser = user.idUsuario AND
+		pub.id=$datos
+		";
 
-function searchUser($conexion,$User){
- $sql ="SELECT * FROM usuarios ";
+ 	$sentencia = $conexion->prepare($sql);
+	$sentencia->execute();
+	$resultado = $sentencia->fetchAll();
+	return $resultado[0];
+}
+function mostrarPost($conexion){
+	
+	$sql	= "SELECT 
+	serv.id, 
+	serv.nombre AS servicio ,
+	user.idUsuario, 
+	user.nombre AS nameU, 
+	user.apellidos,
+	Uinf.imagenServicio,
+	pub.id AS idPub,
+	pub.fecha,
+	pub.titulo,
+	pub.imagen,
+	pub.estado,
+	pub.descripcion
+	FROM 	
+		servicios AS serv INNER JOIN 
+		usuarios AS user INNER JOIN 
+		trabajadores AS tb INNER JOIN 
+		usersinfo AS Uinf INNER JOIN
+		publicacion AS pub
+	WHERE 
+		tb.idUsuario = user.idUsuario AND 
+		tb.idServicio = serv.id AND 
+		user.idUsuario = Uinf.idUser AND
+		pub.iduser = user.idUsuario 
+		ORDER BY 
+		tb.fechaRegistro ASC;";
+
+ 	$sentencia = $conexion->prepare($sql);
+	$sentencia->execute();
+	$resultado = $sentencia->fetchAll();
+	return $resultado;
 }
 function addUser($conexion,$User){
 	$id 		= $User['idUsuario'];
@@ -102,14 +210,15 @@ function modUser($conexion,$User){
 function delUser($conexion,$User){
  	$sql 	= "DELETE FROM usuario WHERE id = $id";
 }
-// =========================== Usuarios Servicios que Ofrecen =========================== 
+// =========================== Usuarios Servicios que Ofrecen ordenados por =========================== Terminado el de mostrar
 function searchUserService($conexion){
-	 $sql	= "SELECT serv.id, serv.nombre AS servicio ,user.idUsuario, user.nombre AS nameU, user.apellidos , user.correo ,tb.fechaRegistro, Uinf.imagenServicio FROM servicios AS serv INNER JOIN usuarios as user INNER JOIN trabajadores AS tb INNER JOIN usersinfo AS Uinf WHERE tb.idUsuario =user.idUsuario AND tb.idServicio = serv.id;";
-	 $sentencia = $conexion->prepare($sql);
-	 $sentencia->execute();
-	 $resultado = $sentencia->fetchAll();
-	 return $resultado;
-	}
+	$sql	= "SELECT serv.id, serv.nombre AS servicio ,user.idUsuario, user.nombre AS nameU, user.apellidos , user.correo ,tb.fechaRegistro, Uinf.imagenServicio FROM servicios AS serv INNER JOIN usuarios as user INNER JOIN trabajadores AS tb INNER JOIN usersinfo AS Uinf WHERE tb.idUsuario = user.idUsuario AND tb.idServicio = serv.id AND user.idUsuario = Uinf.idUser ORDER BY tb.fechaRegistro DESC";
+
+	$sentencia = $conexion->prepare($sql);
+	$sentencia->execute();
+	$resultado = $sentencia->fetchAll();
+	return $resultado;
+}
 
 function addUserService($conexion,$usuario){
  	$sql	="INSERT INTO ";

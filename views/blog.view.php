@@ -16,59 +16,70 @@
 				<div class="col-md-8 col-lg-9 p-b-80">
 					<div class="p-r-45 p-r-0-lg">
 						<!-- item blog -->
-						<?php for ($i=0; $i <4 ; $i++):?>
+						<?php 
+							$publicacion = mostrarPost($conexion);
+							for ($i=0; $i <sizeof($publicacion) ; $i++){
+							$fecha =fechaPub($publicacion[$i]['fecha']);
+							?>
 							<div class="p-b-63">
-								<a href="<?php echo $links_contenido['publicaciones'] .'?idPub='.$i;?>" class="hov-img0 how-pos5-parent">
-									<img src="images/blog-04.jpg" alt="IMG-BLOG">
+								<a href="<?php echo $links_contenido['publicaciones'] .'?idPub='.$publicacion[$i]['idPub'];?>" class="hov-img0 how-pos5-parent">
+									<img src="Users_images/usuarios/<?php echo $publicacion[$i]['imagen'];?>" alt="IMG-BLOG">
 
 									<div class="flex-col-c-m size-123 bg9 how-pos5">
 										<span class="ltext-107 cl2 txt-center">
-											15
+											<?php echo $fecha[2];?>
 										</span>
 
 										<span class="stext-109 cl3 txt-center">
-											Nov 2018
+											<?php echo $fecha[1] .'-'. $fecha[0];?>
 										</span>
 									</div>
 								</a>
 
 								<div class="p-t-32">
 									<h4 class="p-b-15">
-										<a href="<?php echo $links_contenido['publicaciones'] .'?idPub='.$i;?>" class="ltext-108 cl2 hov-cl1 trans-04">
-											8 Inspiring Ways to Wear Dresses in the Winter
+										<a href="<?php echo $links_contenido['publicaciones'] .'?idPub='.$publicacion[$i]['idPub'];?>" class="ltext-108 cl2 hov-cl1 trans-04">
+											<?php echo $publicacion[$i]['titulo'];?>
 										</a>
 									</h4>
 
 									<p class="stext-117 cl6">
-										Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce eget dictum tortor. Donec dictum vitae sapien eu varius
+										<?php $texto= $publicacion[$i]['descripcion'];
+												$concatenado ="";
+												for ($j=0; $j < strlen($texto) && $j<100; $j++) { 
+													$concatenado .= $texto[$j];
+												}
+												echo $concatenado . " ... ";
+											?>
+
 									</p>
 
 									<div class="flex-w flex-sb-m p-t-18">
 										<span class="flex-w flex-m stext-111 cl2 p-r-30 m-tb-10">
 											<span>
-												<span class="cl4">By</span> Admin  
+												<span class="cl4">By</span> <?php echo $publicacion[$i]['nameU'];?>  
 												<span class="cl12 m-l-4 m-r-6">|</span>
 											</span>
 
 											<span>
-												StreetStyle, Fashion, Couple  
+												<?php echo $publicacion[$i]['apellidos'];?> 
 												<span class="cl12 m-l-4 m-r-6">|</span>
 											</span>
 
 											<span>
-												8 Comments
+												<?php echo $publicacion[$i]['servicio'];?> 
 											</span>
 										</span>
 
-										<a href="<?php echo $links_contenido['publicaciones'] .'?idPub='.$i;?>" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
-											Continue Reading
+										<a href="<?php echo $links_contenido['publicaciones'] .'?idPub='.$publicacion[$i]['idPub'];?>" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
+											Ver publicación Completa
 
 											<i class="fa fa-long-arrow-right m-l-9"></i>
 										</a>
 									</div>
 								</div>
 							</div>
-						<?php endfor;?>
+						<?php }?>
 
 						<!-- Pagination -->
 						<div class="flex-l-m flex-w w-full p-t-10 m-lr--7">
