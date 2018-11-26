@@ -211,6 +211,22 @@ function delUser($conexion,$User){
  	$sql 	= "DELETE FROM usuario WHERE id = $id";
 }
 // =========================== Usuarios Servicios que Ofrecen ordenados por =========================== Terminado el de mostrar
+function servicioUnico($conexion,$id){
+	$sql = "SELECT serv.nombre FROM servicios as serv WHERE serv.id = $id";
+	$sentencia = $conexion->prepare($sql);
+	$sentencia->execute();
+	$resultado = $sentencia->fetchAll();
+	return $resultado[0];
+}
+
+function obtenerServicios($conexion,$idServicio){
+	$sql	= "SELECT serv.id, serv.nombre AS servicio ,user.idUsuario, user.nombre AS nameU, user.apellidos , user.correo ,tb.fechaRegistro, Uinf.imagenServicio FROM servicios AS serv INNER JOIN usuarios as user INNER JOIN trabajadores AS tb INNER JOIN usersinfo AS Uinf WHERE tb.idUsuario = user.idUsuario AND tb.idServicio = serv.id AND user.idUsuario = Uinf.idUser AND serv.id = $idServicio ORDER BY tb.fechaRegistro DESC";
+
+	$sentencia = $conexion->prepare($sql);
+	$sentencia->execute();
+	$resultado = $sentencia->fetchAll();
+	return $resultado;
+}
 function searchUserService($conexion){
 	$sql	= "SELECT serv.id, serv.nombre AS servicio ,user.idUsuario, user.nombre AS nameU, user.apellidos , user.correo ,tb.fechaRegistro, Uinf.imagenServicio FROM servicios AS serv INNER JOIN usuarios as user INNER JOIN trabajadores AS tb INNER JOIN usersinfo AS Uinf WHERE tb.idUsuario = user.idUsuario AND tb.idServicio = serv.id AND user.idUsuario = Uinf.idUser ORDER BY tb.fechaRegistro DESC";
 

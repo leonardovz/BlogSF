@@ -3,7 +3,15 @@
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
-			Resultados
+			<?php 
+				$titulo = servicioUnico($conexion,$_GET['search']);
+				if (sizeof($titulo) >0) {
+					echo $titulo['nombre'];
+				} else {
+					echo "Servicios";
+				}
+				
+				?>
 		</h2>
 	</section>
 
@@ -36,38 +44,50 @@
 					<div class="p-r-45 p-r-0-lg">
 						<!--  -->
 						<div class="row isotope-grid">
-                            <?php for ($i=0; $i < 12; $i++) { ?>
+						<?php 
+							$publicacion = obtenerServicios($conexion,$_GET['search']);
+							if(sizeof($publicacion)>0){
+							for ($i=0; $i <sizeof($publicacion) ; $i++){
+							$fecha =fechaPub($publicacion[$i]['fechaRegistro']);
+							?>
                             <div class="col-sm-12 col-md-6 col-lg-6 p-b-10 isotope-item women">
                                 <!-- Block2 -->
                                 <div class="p-b-10">
-                                    <a href="<?php echo $links_contenido['perfil'] .'?id='.$i;?>" class="hov-img0 how-pos5-parent">
-                                        <img src="images/blog-04.jpg" alt="IMG-BLOG">
+                                    <a href="<?php echo $links_contenido['perfil'] .'?id='.$publicacion[$i]['idUsuario'];?>" class="hov-img0 how-pos5-parent">
+                                        <img src="Users_images/usuarios/<?php echo $publicacion[$i]['imagenServicio'];?>" alt="IMG-BLOG">
                                     </a>
 
                                     <div class="p-t-15">
                                         <h4 class="p-b-5">
                                             <span class="flex-w flex-m stext-111 cl2 p-b-19">
 												<span>
-													Construcción  
+													<?php echo $publicacion['servicios'];?>
 													<span class="cl12 m-l-4 m-r-6">|</span>
 												</span>
 
 												<span>
-													22 Jun, 2018
+													<?php echo $fecha[2] . " de " . obtenerMes($fecha[1]) . " de " . $fecha[0];?>
 													<span class="cl12 m-l-4 m-r-6">|</span>
 												</span>
 
 												<span>
-													Ramon Vazquez Carrillo
+													<?php echo $publicacion[$i]['nameU'] . ", " .$publicacion[$i]['apellidos'];?>
 													<span class="cl12 m-l-4 m-r-6">|</span>
 												</span>
-												<span><a href="<?php echo $links_contenido['perfil'] .'?id='.$i;?>"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a></span>
+												<span><a href="<?php echo $links_contenido['perfil'] .'?id=' .$publicacion[$i]['idUsuario'];?>"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a></span>
 											</span>
                                         </h4>
                                     </div>
                                 </div>
                             </div>
-                            <?php } ?>
+                            <?php } }else{?>
+								<div class="alert alert-success" role="alert">
+									Aun no se encuentran Servicios Registrados como <a href="<?php echo $links_contenido['serviciosDetalles'];?>?search=<?php echo $_GET['search'];?>" class="alert-link"><?php 
+									$titulo = servicioUnico($conexion,$_GET['search']);
+									echo $titulo['nombre'];
+									?></a> Si te gustaria registrar tu servicio Por favor Contactanos
+								</div>
+							<?php }?>
                         </div>
 					</div>
 				</div>
