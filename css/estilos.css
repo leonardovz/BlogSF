@@ -105,13 +105,12 @@ main .caracteristicas {
 }
 
 /* ----- ----- HEADER ----- ----- */
-header {
-  background: url('../images/premium.png') #ddb146;
+.header {
   background-repeat: no-repeat;
   background-position: center;
   max-height: 600px;
 }
-header .contenedor-texto {
+.header .contenedor-texto {
   display: flex;
   justify-content:center;
   align-content:center;
@@ -149,7 +148,6 @@ header .contenedor-texto {
 
 .main .acerca-de .foto img {
   width: 20vw;
-  height: 20vw;
   vertical-align: top;
   border-radius: 50%;
   border: 5px solid rgba(255,255,255,0.2);

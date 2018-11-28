@@ -1,4 +1,42 @@
 <?php 
+function fechadate(){
+    ini_set('date.timezone','America/Mexico_City');
+    $año = date('Y',time());
+    $diaSemana = (string)date('w',time());
+    $dia = date('d',time());
+    $mes = date('m',time());
+    $fecha = obtenerDia($diaSemana).' '.$dia .' de '. obtenerMes($mes) . ' del '. $año;
+    return ($fecha);
+}
+function obtenerDia($dia){
+    switch ($dia) {
+        case 1:
+            return "Lunes";
+            break;
+        case 2:
+            return "Martes";
+            break;
+        case 3:
+            return "Miercoles";
+            break;
+        case 4:
+            return "Jueves";
+            break;
+        case 5:
+            return "Viernes";
+            break;
+        case 6:
+            return "Sabado";
+            break;
+        case 0:
+            return "Domingo";
+            break;
+        
+        default:
+            return 0;
+            break;
+    }
+}
 function obtenerMes($mes){
     switch ($mes) {
         case 1:
@@ -120,7 +158,6 @@ function modPost($conexion,$Post){
 
 // =========================== Mostrar datos de publicación  =========================== 
 function obtenerPostId($conexion,$datos){
-	
 	$sql	= "SELECT 
 	serv.id, 
 	serv.nombre AS servicio ,
@@ -210,15 +247,114 @@ function modUser($conexion,$User){
 function delUser($conexion,$User){
  	$sql 	= "DELETE FROM usuario WHERE id = $id";
 }
-// =========================== Usuarios Servicios que Ofrecen ordenados por =========================== Terminado el de mostrar
-function servicioUnico($conexion,$id){
-	$sql = "SELECT serv.nombre FROM servicios as serv WHERE serv.id = $id";
+
+// =========================== Mostrar necesarios en el perfil  =========================== 
+function obtenerPostPerfil($conexion,$idUser){
+	
+	$sql	= "SELECT 
+	serv.id, 
+	serv.nombre AS servicio ,
+	user.idUsuario, 
+	user.nombre AS nameU, 
+	user.apellidos,
+	Uinf.imagenServicio,
+	pub.id AS idPub,
+	pub.fecha,
+	pub.titulo,
+	pub.imagen,
+	pub.estado,
+	pub.descripcion
+	FROM 	
+		servicios AS serv INNER JOIN 
+		usuarios AS user INNER JOIN 
+		trabajadores AS tb INNER JOIN 
+		usersinfo AS Uinf INNER JOIN
+		publicacion AS pub
+	WHERE 
+		tb.idUsuario = user.idUsuario AND 
+		tb.idServicio = serv.id AND 
+		user.idUsuario = Uinf.idUser AND
+		pub.iduser = user.idUsuario AND
+		user.idUsuario=$idUser
+		";
+
+ 	$sentencia = $conexion->prepare($sql);
+	$sentencia->execute();
+	$resultado = $sentencia->fetchAll();
+	return $resultado;
+}
+//Aqui busco todos los datos que se necesitan para mostrar de el perfil
+function obtenerPerfil($conexion,$idUser){
+	$sql = "SELECT 
+	user.idUsuario,
+	user.nombre,
+	user.apellidos,
+	user.correo,
+	user.tipoUser,
+	Uinfo.telefono,
+	Uinfo.celular,
+	Uinfo.nombreServicio,
+	Uinfo.imagenServicio,
+	Uinfo.domicilio,
+	Uinfo.descripcion,
+	serv.id,
+	serv.nombre AS servNombre,
+	serv.imagen AS servImagen,
+	rg.nombre AS rgNombre,
+	rg.imagen AS rgImagen
+	FROM
+		trabajadores AS tb,
+		usuarios AS user,
+		servicios AS serv,
+		usersinfo AS Uinfo,
+		rango AS rg
+	WHERE
+		user.idUsuario = tb.idUsuario AND
+		serv.id = tb.idServicio AND
+		Uinfo.idUser = user.idUsuario AND
+		user.tipoUser = rg.id AND
+		user.idUsuario = $idUser
+	";
 	$sentencia = $conexion->prepare($sql);
 	$sentencia->execute();
 	$resultado = $sentencia->fetchAll();
 	return $resultado[0];
 }
-
+// Aqui se obtienen las fechas de los posts
+function fechaPosts($conexion, $idUser){
+	$sql = "SELECT 
+	pub.fecha
+	FROM 	
+		servicios AS serv INNER JOIN 
+		usuarios AS user INNER JOIN 
+		trabajadores AS tb INNER JOIN 
+		usersinfo AS Uinf INNER JOIN
+		publicacion AS pub
+	WHERE 
+		tb.idUsuario = user.idUsuario AND 
+		tb.idServicio = serv.id AND 
+		user.idUsuario = Uinf.idUser AND
+		pub.iduser = user.idUsuario AND
+		user.idUsuario=$idUser";
+		$sentencia = $conexion->prepare($sql);
+		$sentencia->execute();
+		$resultado = $sentencia->fetchAll();
+		return $resultado;
+}
+// =========================== Usuarios Servicios que Ofrecen ordenados por =========================== Terminado el de mostrar
+//Te muestra los servicios pero solo los que se relacionan con la tabla de servicios con el id que recibe 
+function servicioUnico($conexion){
+	$servicios=  searchService($conexion);
+	for ($j=0; $j < sizeof($servicios); $j++) { 
+		$idServicio = $servicio[$j]['id'];
+		$sql = "SELECT count(*) AS contador FROM trabajadores WHERE idServicio=$idservicio";
+		$sentencia = $conexion->prepare($sql);
+		$sentencia->execute();
+		$resultado = $sentencia->fetchAll();
+		$servicios[$j]['conteo']=$resultado[0];
+	}
+	return $servicios;
+}
 function obtenerServicios($conexion,$idServicio){
 	$sql	= "SELECT serv.id, serv.nombre AS servicio ,user.idUsuario, user.nombre AS nameU, user.apellidos , user.correo ,tb.fechaRegistro, Uinf.imagenServicio FROM servicios AS serv INNER JOIN usuarios as user INNER JOIN trabajadores AS tb INNER JOIN usersinfo AS Uinf WHERE tb.idUsuario = user.idUsuario AND tb.idServicio = serv.id AND user.idUsuario = Uinf.idUser AND serv.id = $idServicio ORDER BY tb.fechaRegistro DESC";
 
@@ -226,6 +362,9 @@ function obtenerServicios($conexion,$idServicio){
 	$sentencia->execute();
 	$resultado = $sentencia->fetchAll();
 	return $resultado;
+}
+function contadorServicios($conexion){
+	$sql = "SELECT * FROM servicios AS serv, trabajadores AS tb WHERE serv.id = tb.idServicio";
 }
 function searchUserService($conexion){
 	$sql	= "SELECT serv.id, serv.nombre AS servicio ,user.idUsuario, user.nombre AS nameU, user.apellidos , user.correo ,tb.fechaRegistro, Uinf.imagenServicio FROM servicios AS serv INNER JOIN usuarios as user INNER JOIN trabajadores AS tb INNER JOIN usersinfo AS Uinf WHERE tb.idUsuario = user.idUsuario AND tb.idServicio = serv.id AND user.idUsuario = Uinf.idUser ORDER BY tb.fechaRegistro DESC";

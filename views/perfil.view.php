@@ -1,27 +1,37 @@
 <?php 
-	// include('config/sesiones.php');
-	require 'views/header.php';
+	require_once 'views/header.php';
+	if ($_GET['id']!='') {
+		$perfil = obtenerPerfil($conexion,$_GET['id']);
+	} else {
+		$_GET['id']=1;
+		$perfil = obtenerPerfil($conexion,$_GET['id']);	
+	}
+
+	$sesion= true;
+	
+	
 ?>
 
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
-			Perfil
+			<?php echo $perfil['nombreServicio'];?>
 		</h2>
 	</section>
-	
+	<?php if($sesion){?>
 	<section class="bg-img1 txt-center p-t-30" >
 		<h2 class="ltext-105 c9 txt-center">
 			<div class="p-t-2">
 				<h4 class="fs-50">
-					Diamante
+						<?php echo $perfil['rgNombre']?>
 					<span class="style_profile">
-						<img src="images/icons/Diamante.svg" style="width:10vh;">
+						<img src="images/icons/<?php echo $perfil['rgImagen'];?>" style="width:10vh;">
 					</span>
 				</h4>
 			</div>
 		</h2>
 	</section>
+	<?php } ?>
 
 	<!-- breadcrumb -->
 	<div class="container">
@@ -31,12 +41,12 @@
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
 
-			<a href="Servicios.php" class="stext-109 cl8 hov-cl1 trans-04">
+			<a href="<?php echo $links_contenido['servicios']; ?>" class="stext-109 cl8 hov-cl1 trans-04">
 				Servicios
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
-			<a href="Servicios.php" class="stext-109 cl8 hov-cl1 trans-04">
-				Construcción
+			<a href="<?php echo $links_contenido['serviciosDetalles'] ."?search=". $perfil['id']  ;?>" class="stext-109 cl8 hov-cl1 trans-04">
+				<?php echo $perfil['servNombre'];?>
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
 
@@ -50,6 +60,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-7 col-lg-8 p-b-80">
+					<?php if ($sesion) {?>
 					<div class="p-r-45 p-r-0-lg">
 						<ul class="nav nav-pills mb-3  stext-115" id="pills-tab" role="tablist">
 							<li class="nav-item">
@@ -63,18 +74,23 @@
 							</li>
 						</ul>
 						<div class="tab-content" id="pills-tabContent">
-							<div class="tab-pane fade show active p-t-45" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><?php require 'Perfil/publicaciones.php';?></div>
-							<div class="tab-pane fade stext-115" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><?php include('Perfil/publicar.php');?></div>	
-							<div class="tab-pane fade " id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"><?php include('Perfil/contacto.php') ?></div>
+							<div class="tab-pane fade show active p-t-45" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><?php require_once 'Perfil/publicaciones.php';?></div>
+							<div class="tab-pane fade stext-115" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><?php require_once 'Perfil/publicar.php';?></div>	
+							<div class="tab-pane fade " id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"><?php require_once 'Perfil/contacto.php'; ?></div>
 						</div>
 					</div>
+					<?php } else{ ?>
+						<?php require_once 'Perfil/contacto.php'; ?>
+						<h4 class="m-t-15 p-b-20 text-center fs-30">Publicaciones</h4>
+						<?php require_once 'Perfil/publicaciones.php'; ?>
+					<?php }?>
 				</div>
 
 				<div class="col-md-5 col-lg-4 p-b-80 float-right" >
 					<div class="side-menu">
                         <div class="p-t-2">
 							<h4 class="mtext-112 cl2 p-b-33">
-								Estetica Kristy
+								<?php echo $perfil['nombreServicio']?>
 							</h4>
 
 							<ul>
@@ -221,23 +237,21 @@
 
 						<div class="p-t-55">
 							<h4 class="mtext-112 cl2 p-b-20">
-								Servicios
+								Publicaciones
 							</h4>
 
 							<ul>
-                                <?php for ($i=0; $i < 10; $i++) :?>
+								<?php $fechaP =fechaPosts($conexion, $_GET['id']);
+								for ($i=0; $i < sizeof($fechaP); $i++) {
+									$fecha =fechaPub($fechaP[$i]['fecha']);?>
 								<li class="p-b-7">
 									<a href="#" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
 										<span>
-											<?php echo $i;?> feb 2018
-										</span>
-
-										<span>
-											(<?php echo $i + 2; ?>)
+											<?php echo $fecha[2] . " de " . obtenerMes($fecha[1]) . " de " . $fecha[0];?>
 										</span>
 									</a>
 								</li>
-                                <?php endfor; ?>
+                                <?php } ?>
 							</ul>
 						</div>
 					</div>

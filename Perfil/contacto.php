@@ -1,25 +1,24 @@
-<header style= "">
-	<div class="contenedor">
-		<div class="contenedor-texto">
-		</div>
-	</div>
-</header>
+<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('Users_images/servicios/<?php echo $perfil['servImagen'];?>');">
+	<h2 class="ltext-105 cl0 txt-center">
+		<?php echo $perfil['nombreServicio'];?>
+	</h2>
+</section>
 
 <section class="main">
 	<section class="acerca-de">
 		<div class="contenedor">
 			<div class="foto">
-				<img src="images/premiumprofile.png" width="115" height="115" alt="Carlos Arturo">
+				<img src="Users_images/usuarios/<?php echo $perfil['imagenServicio'];?>" width="115" height="115" alt="Carlos Arturo">
 			</div>
 	</section>
 	<section class="container-fluid p-t-20 stext-115">
 		<form>
 			<div class="form-row">
 				<div class="col-12 text-center fs-40">
-					Leonardo Vázquez Angulo
+					<?php echo $perfil['nombre'] ." ".$perfil['apellidos'];?>
 				</div>
 				<div class="col-12 text-center fs-25">
-					Desarrollador Web
+					<?php echo $perfil['servNombre'];?>
 				</div>
 			</div>
 			<div class="form-row p-t-30">
@@ -27,7 +26,7 @@
 					Acerca de
 				</div>
 				<div class="col-12 text-center fs-18 p-b-20">
-					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Minus doloribus in ut esse cumque quae fugit? Necessitatibus labore, dolore eligendi tempore repudiandae quod voluptates error, doloremque numquam nostrum perferendis cupiditate.
+					<?php echo $perfil['descripcion'];?>
 				</div>
 			</div>
 			<div class="form-row bor18">
@@ -35,27 +34,40 @@
 					<i class="fas fa-envelope-square"></i>
 				</div>
 				<div class="col-md-9 text-right fs-16 m-auto">
-					Leonardovazquez81@gmail.com
+					<?php echo $perfil['correo'];?>
 				</div>
 			</div>
-			<div class="form-row bor18">
-				<div class="col-md-2 fs-37">
-					<i class="fas fa-phone-volume"></i>
+			<?php if($perfil['celular']!=''){?>
+				<div class="form-row bor18">
+					<div class="col-md-2 fs-37">
+						<i class="fas fa-phone-volume"></i>
+					</div>
+					<div class="col-md-9 text-right fs-18 m-auto">
+						<?php echo $perfil['celular'];?>
+					</div>
 				</div>
-				<div class="col-md-9 text-right fs-18 m-auto">
-					333-333-1254
+			<?php } ?>
+			<?php if($perfil['telefono']!=''){?>
+				<div class="form-row bor18">
+					<div class="col-md-2 fs-37">
+						<i class="fas fa-home"></i>
+					</div>
+					<div class="col-md-9 text-right fs-18 m-auto">
+						<?php echo $perfil['telefono'];?>
+					</div>
 				</div>
-			</div>
+			<?php } ?>
+			
 			<div class="form-row bor18">
 				<div class="col-12 text-center fs-26 font-weight-bold">
+				
 					Dirección
 				</div>
 				<div class="col-12 text-center fs-18">
-					San Francisco de Asís, Jal.<br>
-					Las Torres # 3 Col. Centro
+					<?php echo $perfil['domicilio'];?>
 				</div>
 			</div>
-			<div class="form-row bor18">
+			<!-- <div class="form-row bor18">
 				<div class="col-12 text-center fs-26 font-weight-bold">
 					Horarios de atención
 				</div>
@@ -63,7 +75,7 @@
 					Lunes a Viernes de 9:00 am a 6:00pm <br>
 					Sabados de 8:00 am a 2:00pm
 				</div>
-			</div>
+			</div> -->
 		</form>
 	</section>
 </section>

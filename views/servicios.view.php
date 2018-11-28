@@ -151,11 +151,13 @@
 							</h4>
 
 							<ul>
-                                <?php for ($i=0; $i < 10; $i++) :?>
+								<?php $serviciosC = servicioUnico($conexion);
+								echo json_encode($serviciosC); ?>
+                                <?php for ($i=0; $i < sizeof($serviciosC); $i++) {?>
 								<li class="p-b-7">
 									<a href="#" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
 										<span>
-											Numero de Sercicio <?php echo $i;?>
+										
 										</span>
 
 										<span>
@@ -163,7 +165,7 @@
 										</span>
 									</a>
 								</li>
-                                <?php endfor; ?>
+								<?php } ?>
 							</ul>
 						</div>
 					</div>
