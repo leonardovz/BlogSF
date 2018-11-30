@@ -164,19 +164,21 @@
 							</h4>
 
 							<ul>
-                                <?php for ($i=0; $i < 10; $i++) :?>
+								<?php $serviciosC = searchService($conexion);?>
+                                <?php for ($i=0; $i < sizeof($serviciosC); $i++) {
+									$contador=servicioUnico($conexion,$serviciosC[$i]['id']); ?>
 								<li class="p-b-7">
-									<a href="#" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
+									<a href="<?php echo $links_contenido['serviciosDetalles'] .'?search='.$serviciosC[$i]['id'];?>" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
 										<span>
-											Publicadores  <?php echo $i;?>
+											<?php echo $serviciosC[$i]['nombre'];?>
 										</span>
 
 										<span>
-											(<?php echo $i + 2; ?>)
+											( <?php echo  ' ' .$contador[0] . ' '; ?> )
 										</span>
 									</a>
 								</li>
-                                <?php endfor; ?>
+								<?php } ?>
 							</ul>
 						</div>
 					</div>

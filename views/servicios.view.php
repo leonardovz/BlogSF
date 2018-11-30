@@ -40,7 +40,6 @@
 												<span class="block1-name ltext-102 trans-04 p-b-8">
 													<?php echo $servicio['nombre'];?>
 												</span>
-
 												<span class="block1-info stext-102 trans-04">
 													Encontrar
 												</span>
@@ -151,17 +150,17 @@
 							</h4>
 
 							<ul>
-								<?php $serviciosC = servicioUnico($conexion);
-								echo json_encode($serviciosC); ?>
-                                <?php for ($i=0; $i < sizeof($serviciosC); $i++) {?>
+								<?php $serviciosC = searchService($conexion);?>
+                                <?php for ($i=0; $i < sizeof($serviciosC); $i++) {
+									$contador=servicioUnico($conexion,$serviciosC[$i]['id']); ?>
 								<li class="p-b-7">
-									<a href="#" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
+									<a href="<?php echo $links_contenido['serviciosDetalles'] .'?search='.$serviciosC[$i]['id'];?>" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
 										<span>
-										
+											<?php echo $serviciosC[$i]['nombre'];?>
 										</span>
 
 										<span>
-											(<?php echo $i + 2; ?>)
+											( <?php echo  ' ' .$contador[0] . ' '; ?> )
 										</span>
 									</a>
 								</li>

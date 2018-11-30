@@ -224,6 +224,9 @@ function mostrarPost($conexion){
 	$resultado = $sentencia->fetchAll();
 	return $resultado;
 }
+function mostrarFechas($conexion){
+	$sql = "SELECT * FROM ";
+}
 function addUser($conexion,$User){
 	$id 		= $User['idUsuario'];
 	$nombre 	= $User['nombre'];
@@ -343,17 +346,12 @@ function fechaPosts($conexion, $idUser){
 }
 // =========================== Usuarios Servicios que Ofrecen ordenados por =========================== Terminado el de mostrar
 //Te muestra los servicios pero solo los que se relacionan con la tabla de servicios con el id que recibe 
-function servicioUnico($conexion){
-	$servicios=  searchService($conexion);
-	for ($j=0; $j < sizeof($servicios); $j++) { 
-		$idServicio = $servicio[$j]['id'];
-		$sql = "SELECT count(*) AS contador FROM trabajadores WHERE idServicio=$idservicio";
-		$sentencia = $conexion->prepare($sql);
-		$sentencia->execute();
-		$resultado = $sentencia->fetchAll();
-		$servicios[$j]['conteo']=$resultado[0];
-	}
-	return $servicios;
+function servicioUnico($conexion,$id){
+	$sql = "SELECT count(*) AS contador FROM trabajadores WHERE idServicio=$id";
+	$sentencia = $conexion->prepare($sql);
+	$sentencia->execute();
+	$resultado = $sentencia->fetchAll();
+	return $resultado[0];
 }
 function obtenerServicios($conexion,$idServicio){
 	$sql	= "SELECT serv.id, serv.nombre AS servicio ,user.idUsuario, user.nombre AS nameU, user.apellidos , user.correo ,tb.fechaRegistro, Uinf.imagenServicio FROM servicios AS serv INNER JOIN usuarios as user INNER JOIN trabajadores AS tb INNER JOIN usersinfo AS Uinf WHERE tb.idUsuario = user.idUsuario AND tb.idServicio = serv.id AND user.idUsuario = Uinf.idUser AND serv.id = $idServicio ORDER BY tb.fechaRegistro DESC";
