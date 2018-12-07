@@ -11,34 +11,28 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 m-auto">
-                <form>
+                <form >
                     <div class="form-row fs-20 " >
                         <div class="form-group col">
-                            <label for="inCorreo">Correo Electronico</label>
-                            <input type="text" class="form-control rounded-0" id="inCorreo" placeholder="e-mail">
+                            <input type="text" class="form-control" id="inCorreo" placeholder="e-mail">
                         </div>
                     </div>
                     <div class="form-row fs-20">
                         <div class="form-group col-md-6">
-                            <label for="inPass">Contraseña</label>
                             <input type="password" class="form-control" id="inPass" placeholder="Contraseña">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="inPassR">Repetir Contraseña</label>
                             <input type="password" class="form-control" id="inPassR" placeholder="Repetir">
                         </div>
                     </div>
                     <div class="form-row fs-20">
                         <div class="form-group col-md-4">
-                            <label for="inNombre">Nombre</label>
                             <input type="text" class="form-control" id="inNombre" placeholder="Nombre(s)">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inPaterno">Apellido Paterno</label>
                             <input type="text" class="form-control" id="inPaterno" placeholder="Paterno">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="inMaterno">Apellido Materno</label>
                             <input type="text" class="form-control" id="inMaterno" placeholder="Materno">
                         </div>
                     </div>

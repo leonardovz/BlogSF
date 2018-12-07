@@ -2,7 +2,7 @@ document.getElementById('inLogin').addEventListener('click', function(){
     validarLogin();
 });
 
-function validarLogin(e){
+function validarLogin(){
 
     emailRegex = /^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i;
     var correo =document.getElementById('inCorreoLog').value,
@@ -13,7 +13,6 @@ function validarLogin(e){
             title: 'Oops...',
             text: 'Exixten Campos Vacios'
           })
-          e.preventDefault();
     }else if(!emailRegex.test(correo)){
         swal({
             type: 'error',
