@@ -11,32 +11,35 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 m-auto">
-                <form >
+                <form name= "crearUser" id="crearUser" action="componentes/registro-user.php" method="POST">
                     <div class="form-row fs-20 " >
                         <div class="form-group col">
-                            <input type="text" class="form-control" id="inCorreo" placeholder="e-mail">
+                            <input type="email" class="form-control" name="inCorreo" id="inCorreo" placeholder="e-mail">
                         </div>
                     </div>
                     <div class="form-row fs-20">
                         <div class="form-group col-md-6">
-                            <input type="password" class="form-control" id="inPass" placeholder="Contraseña">
+                            <input type="password" class="form-control" name="inPass" id="inPass" placeholder="Contraseña">
                         </div>
                         <div class="form-group col-md-6">
-                            <input type="password" class="form-control" id="inPassR" placeholder="Repetir">
+                            <input type="password" class="form-control" name="inPassR" id="inPassR" placeholder="Repetir">
                         </div>
                     </div>
                     <div class="form-row fs-20">
                         <div class="form-group col-md-4">
-                            <input type="text" class="form-control" id="inNombre" placeholder="Nombre(s)">
+                            <input type="text" class="form-control" name="inNombre" id="inNombre" placeholder="Nombre(s)">
                         </div>
-                        <div class="form-group col-md-4">
-                            <input type="text" class="form-control" id="inPaterno" placeholder="Paterno">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <input type="text" class="form-control" id="inMaterno" placeholder="Materno">
+                        <div class="form-group col-md-8">
+                            <input type="text" class="form-control" name="inApellidos" id="inApellidos" placeholder="Paterno">
                         </div>
                     </div>
-                    <button type="button" class="btn btn-outline-dark btn-lg btn-block" onclick="registrar();">Crear Registro</button>
+                    <div class="form-row  m-t-20">
+                        <div class="form-group col text-center fs-21">
+                            <p>¿Ya tienes cuenta? <a href="Login.php"> Ingresa </a></p>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-outline-dark btn-lg btn-block">Crear Registro</button>
+                    
                 </form>
                 <div id="" class ="m-t-20 m-b-20"> 
                 <div class="container">
@@ -50,5 +53,4 @@
     </div>
 </section>
 
-<!-- <script src="js/app.js"></script> -->
 <?php require 'views/footer.php'; ?>

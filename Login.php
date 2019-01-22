@@ -30,7 +30,6 @@
                         </div>
                     </div>
                     <button   id="inLogin"  type="submit" class="btn btn-outline-dark btn-lg btn-block ">Iniciar Sesión</button>
-                    <button   id="cerrarSesion"  type="button" class="btn btn-outline-danger btn-lg btn-block ">Cerrar Sesión</button>
                 </form>
             </div>
         </div>

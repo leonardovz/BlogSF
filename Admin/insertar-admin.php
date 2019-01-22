@@ -2,7 +2,8 @@
     require_once '../config/config.php';
     require_once 'functions.php';
 try {
-   $conexion = new mysqli($bd_config['host'],$bd_config['usuario'],$bd_config['pass'],$bd_config['database']);
+        $conexion=mysqli_connect('localhost','root','data1122','sanfrancisco');
+        $conexion->set_charset("utf8");
     
     if (isset($_POST['crearAdmin'])) {
         $nombre= $_POST['inNombre'];
@@ -14,25 +15,23 @@ try {
             'cost' => 12
         ];
         $passhash = password_hash($pass, PASSWORD_BCRYPT, $opciones);
-        $sql = "INSERT INTO `usuarios`(`nombre`, `apellidos`, `correo`, `contraseña`, `tipoUser`) VALUES ('$nombre','$apellidos','$correo','$passhash',$tUser)";
-        $stmt = $conexion->prepare($sql);
-        $stmt->execute();
-        $idRegistro = $stmt->insert_id;
-        if ($idRegistro>0) {
-            $respuesta = array(
-                'respuesta'=> 'exito',
-                'idUsuario'=> $idRegistro
-            );
-        } else if ($stmt->errno == 1062){
-            $respuesta = array(
-                'respuesta'=> 'error',
-                'Texto'=> 'El correo ya a sido registrado'
-            );
+        ////////////////////////////
+        if(!correo_exixtente($conexion,$correo)){
+            $sql = "INSERT INTO `usuarios`(`nombre`, `apellidos`, `correo`, `contraseña`, `tipoUser`,`validar`) VALUES ('$nombre','$apellidos','$correo','$pass',$tUser,1)";
+            if(!$conexion->query($sql)){
+                $respuesta = array(
+                    'respuesta'=> 'error',
+                    'Texto'=> $conexion->errno
+                );
+                exit;
+            }else{
+                $respuesta = array(
+                    'respuesta'=> 'exito',
+                    'idUsuario'=> $codigo_usuario
+                );
+            }
         }else{
-            $respuesta = array(
-                'respuesta'=> 'error',
-                'Texto'=> 'No se pueden insertar más Registros'
-            );
+            echo 'Error: Ya existe un usuario con codigo '.$codigo_usuario.' por favor use otro codigo de usuario.';
         }
 
     }
@@ -80,4 +79,14 @@ try {
     
 }
     die(json_encode($respuesta));
+
+    function correo_exixtente($conexion, $correo){
+		$sql="SELECT correo FROM usuarios WHERE correo = $correo";
+		$result = $conexion->query($sql);
+		if(mysqli_num_rows($result)<=0){
+			return false;
+		}else{
+			return true;
+		}
+	}
 ?>

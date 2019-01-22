@@ -145,11 +145,3 @@
 		</div>
 	</aside>
 <?php } ?>
-
-<?php function login(){ ?>
-	
-<?php } ?>
-
-<?php function registro(){ ?>
-	
-<?php } ?>

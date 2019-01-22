@@ -250,6 +250,6 @@
 </div>
 <!-- ./wrapper -->
 <?php require_once 'templates/footer.php';?>
-<script src="js/admin-ajax.js"></script>
+<!-- <script src="js/admin-ajax.js"></script> -->
 </body>
 </html>
