@@ -12,7 +12,7 @@
 <section class=" p-tb-50 ltext-101" style="background: #e1e1e1;">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 m-auto p-tb-92"style="background: #fff;">
+            <div class="col-md-6 m-auto p-tb-45"style="background: #fff;">
                 <form role="form" action="config/sesiones.php" name= "loginAdmin-form" id="loginAdmin" method="POST">
                     <div class="form-group row">
                         <div class="col-sm-12">
@@ -22,6 +22,14 @@
                     <div class="form-group row">
                         <div class="col-sm-12">
                         <input type="password" class="form-control form-control-lg" name="inPassLog" id="inPassLog" placeholder="Contraseña">
+                        </div>
+                    </div>
+                    <div class="form-row fs-20">
+                        <div class="form-group col-md-6 text-center btn" id="facebook">
+                            <i class="zmdi zmdi-facebook-box"> Facebook</i>
+                        </div>
+                        <div class="form-group col-md-6 text-center btn" id="google">
+                            <i class="zmdi zmdi-google"> Google</i>
                         </div>
                     </div>
                     <div class="form-row  m-t-20">

@@ -22,13 +22,11 @@ else {
 	if(revisarCorreo($conexion,$correo)){
 		$respuesta = array(
 			'respuesta'=> 'error',
-			'Texto'=> 'El correo Electronico ya ha sido registrado'
+			'Texto'=> 'El correo ya ha sido registrado'
 		);
 		$errores += 1;
-		echo 'Correo existentñññ';
 	}else{
 		//Si pasa todas las validaciones se genera el registro
-		
 		$respuesta = registrarUsuarios($conexion);
 	}
 

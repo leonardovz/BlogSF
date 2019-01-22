@@ -178,3 +178,26 @@ main .caracteristicas {
   height: 40vw;
   }
 }
+
+
+/* Botones de redes sociales */
+
+#facebook{
+  background: #3b5998;
+  padding-top: 5px;
+  font-size: 1.5em;
+  color: #fff;
+  font-style: normal;
+  
+}
+#google{
+  background: #C30907;
+  padding-top: 5px;
+  font-size: 1.5em;
+  color: #fff;
+  font-style: oblique;
+}
+#facebook:hover , #google:hover{
+  opacity: .7;
+  cursor: pointer;
+}
