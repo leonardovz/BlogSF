@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 m-auto p-tb-45"style="background: #fff;">
-                <form role="form" action="config/sesiones.php" name= "loginAdmin-form" id="loginAdmin" method="POST">
+                <form role="form" action="componentes/login.php" name= "loginUser" id="loginUser" method="POST">
                     <div class="form-group row">
                         <div class="col-sm-12">
                         <input type="email" class="form-control form-control-lg" name ="inCorreoLog" id="inCorreoLog" placeholder="Correo">
@@ -32,8 +32,8 @@
                             <i class="zmdi zmdi-google"> Google</i>
                         </div>
                     </div>
-                    <div class="form-row  m-t-20">
-                        <div class="form-group col text-center fs-21">
+                    <div class="form-row  m-t-20" >
+                        <div class="form-group col text-center fs-21" id="toRegistro">
                             <p>¿Aún no tienes cuenta? <a href="Registro.php"> Registrate </a></p>
                         </div>
                     </div>
@@ -44,6 +44,6 @@
     </div>
 </section>
 
-<!-- <script src="js/validar.js"></script> -->
+<script src="js/login.js"></script>
 
 <?php require 'views/footer.php'; ?>

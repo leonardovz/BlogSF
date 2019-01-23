@@ -87,6 +87,71 @@ $(document).ready(function() {
                 dataType: 'json',
                 success: function (data) {
                     if (data.respuesta == 'exito') {
+                        Swal.fire({
+                            type: 'success',
+                            title: 'Registrado',
+                            text: data.Texto
+                          })
+                    } else {
+                        swal({
+                            type: 'error',
+                            title: 'Oops...',
+                            text: data.Texto
+                        })
+                    }
+                    console.log(data);
+                }
+            });
+        }
+        console.log(errores);
+    });
+
+    $('#loginUser').on('submit',function(e){
+        e.preventDefault();
+        console.log("click");
+        $(".alert").remove();
+        var errores = 0;
+        var formulario = $(this).serializeArray();
+        var correo = $("#inCorreoLog").val();
+        var pass = $("#inPassLog").val();
+        // ------------------------ //
+        //-----Validar contraseña-- //
+        // ------------------------ //
+        if(pass != ""){
+            var expresion = /^[a-zA-Z0-9]*$/;
+            if(!expresion.test(pass)){
+                errores +=1;
+                $("#toRegistro").parent().before('<div class="alert alert-warning fs-16" role="alert"> <small class="fs-18">ERROR: </small> No se permiten Caracteres especiales solo @ </div>');
+            }
+        }else{
+            errores +=1;
+            $("#toRegistro").parent().before('<div class="alert alert-warning fs-16" role="alert"> <small class="fs-18">ERROR: </small> Contraseña obligatoria </div>');
+        }
+
+        // ------------------------ //
+        //-----Validar correo------ //
+        // ------------------------ //
+        if(correo != ""){
+            var expresion = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+            if(!expresion.test(correo)){
+                errores +=1;
+                $("#toRegistro").parent().before('<div class="alert alert-warning fs-16" role="alert"> <small class="fs-18">ERROR: </small> El correo no esta escrito de forma correcta</div>');
+            }
+        }else{
+            errores +=1;
+            $("#toRegistro").parent().before('<div class="alert alert-warning fs-16" role="alert"> <small class="fs-18">ERROR: </small> Correo obligatoria </div>');
+        }
+        
+        if(errores == 0){ 
+        var formulario = $(this).serializeArray();
+        
+            $.ajax({
+                type: $(this).attr('method'),
+                url: $(this).attr('action'),
+                data: formulario,
+                dataType: 'json',
+                success: function (data) {
+                    if (data.respuesta == 'exito') {
                         swal({
                             position: 'top-end',
                             type: 'success',
@@ -103,38 +168,8 @@ $(document).ready(function() {
                     }
                     console.log(data);
                 }
+            
             });
         }
-        console.log(errores);
-    });
-    $('#loginAdmin').on('submit',function(e){
-        e.preventDefault();
-
-        var formulario = $(this).serializeArray();
-        
-        $.ajax({
-            type: $(this).attr('method'),
-            url: $(this).attr('action'),
-            data: formulario,
-            dataType: 'json',
-            success: function (data) {
-                if (data.respuesta == 'exito') {
-                    swal({
-                        position: 'top-end',
-                        type: 'success',
-                        title: 'Tu registro a sido guardado con exito',
-                        showConfirmButton: false,
-                        timer: 1500
-                      })
-                } else {
-                    swal({
-                        type: 'error',
-                        title: 'Oops...',
-                        text: data.Texto
-                      })
-                }
-                console.log(data);
-            }
-        });
     });
 });

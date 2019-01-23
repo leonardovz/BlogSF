@@ -1,6 +1,5 @@
-<?php
+<?php 
 	require_once '../config/conexion.php';
- $errores = 0;
 if ($conexion->connect_errno){
 	$respuesta = array(
 		'respuesta'=> 'error',
@@ -8,7 +7,9 @@ if ($conexion->connect_errno){
 	);
 	exit;
 } 
-else {
+
+if(isset($_POST)) {
+
 	$nombre 	= $_POST['inNombre'];
 	$apellidos 	= $_POST['inApellidos'];
 	$correo		= $_POST['inCorreo'];
@@ -18,18 +19,30 @@ else {
 	//--------------------------------- //
 	//-----------VALIDACION ----------- //
 	//--------------------------------- //
-
-	if(revisarCorreo($conexion,$correo)){
+	if(preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$/',$nombre) && preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$/',$apellidos) && preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/',$correo)&& preg_match('/^[a-zA-Z0-9]*$/',$pass)){
+		if(revisarCorreo($conexion,$correo)){
+			$respuesta = array(
+				'respuesta'=> 'error',
+				'Texto'=> 'El correo ya ha sido registrado'
+			);
+		}else{
+			//Si pasa todas las validaciones se genera el registro
+			$respuesta = registrarUsuarios($conexion);
+		}
+	}else{
 		$respuesta = array(
 			'respuesta'=> 'error',
-			'Texto'=> 'El correo ya ha sido registrado'
+			'Texto'=> 'No puede enviar Caracteres especiales Revice la información'
 		);
-		$errores += 1;
-	}else{
-		//Si pasa todas las validaciones se genera el registro
-		$respuesta = registrarUsuarios($conexion);
 	}
 
+	
+
+}else{
+	$respuesta = array(
+		'respuesta'=> 'error',
+		'Texto'=> 'El formulario no se envio de forma correcta'
+	);
 }
 
 	//---------------------------------------------- //
@@ -50,7 +63,9 @@ function revisarCorreo($conexion,$correo){
 		}
 	}
 }
-
+	//---------------------------------------------- //
+	//----------- Registrar USUARIOS --------------- //
+	//---------------------------------------------- //
 function registrarUsuarios($conexion){
 	$statement = $conexion->prepare("INSERT INTO usuarios(idUsuario, nombre, apellidos, correo, password, tipoUser, validar, encriptado, fecha) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 	
@@ -70,8 +85,8 @@ function registrarUsuarios($conexion){
 	$validar = 1;
 	$fecha = NULL;
 
-	$validarCorreo = $correo;
-	$encriptarPass= $pass;
+	$validarCorreo = md5($correo);
+	$encriptarPass= crypt($pass,'$2a$07$usesomesillystringforsalt$');
 	
 
 	//---------------------------------------------- //
@@ -82,7 +97,7 @@ function registrarUsuarios($conexion){
 	if($conexion->affected_rows >= 1){
 		$respuesta = array(
 			'respuesta'=> 'exito',
-			'Texto'=> 'Registro realizado Satisfactoriamente'
+			'Texto'=> 'Registro realizado Satisfactoriamente,por favor revise la bandeja de entrada o la carpeta de SPAM de su correo electronico '. $correo .' para verificar su correo '
 		);
 	} else {
 		$respuesta = array(
@@ -93,6 +108,5 @@ function registrarUsuarios($conexion){
 	return $respuesta;
 }
 
-//Final de el archivo
 die(json_encode($respuesta));
 ?>
