@@ -1,7 +1,8 @@
 <?php 
 require_once 'config/config.php';
 require_once 'Admin/functions.php';
-// $conexion = conexion($bd_config);
+$conexion = conexion($bd_config);
+
 if(!isset($conexion)){
     echo "error al conectar a la base de datos" .json_encode($bd_config);
     exit;

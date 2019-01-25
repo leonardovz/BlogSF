@@ -10,6 +10,7 @@ $bd_config = array(
 	'usuario' => 'root',
 	'pass' => 'data1122'
 );
+
 $productos = array(
 	'post_por_pagina' => '32'
 );
