@@ -154,7 +154,7 @@
 <!--===============================================================================================-->	
 
 <!-- <script src="js/app.js"></script> -->
-<script>
+<!-- <script>
     (function(){
         function filePreview(input) {
             if (input.files&&input.files[0]) {
@@ -170,45 +170,45 @@
             filePreview(this);
         });
     })();
-</script>
+</script> -->
 
 <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
 <!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<script src="<?php echo $ruta?>vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="<?php echo $ruta?>vendor/bootstrap/js/popper.js"></script>
+	<script src="<?php echo $ruta?>vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/select2/select2.min.js"></script>
-	<script>
+	<script src="<?php echo $ruta?>vendor/select2/select2.min.js"></script>
+	<!-- <script>
 		$(".js-select2").each(function(){
 			$(this).select2({
 				minimumResultsForSearch: 20,
 				dropdownParent: $(this).next('.dropDownSelect2')
 			});
 		})
-	</script>
+	</script> -->
 <!--===============================================================================================-->
-	<script src="vendor/daterangepicker/moment.min.js"></script>
-	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="<?php echo $ruta?>vendor/daterangepicker/moment.min.js"></script>
+	<script src="<?php echo $ruta?>vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/slick/slick.min.js"></script>
-	<script src="js/slick-custom.js"></script>
+	<script src="<?php echo $ruta?>vendor/slick/slick.min.js"></script>
+	<script src="<?php echo $ruta?>js/slick-custom.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/parallax100/parallax100.js"></script>
+	<script src="<?php echo $ruta?>vendor/parallax100/parallax100.js"></script>
 	<script>
         $('.parallax100').parallax100();
 	</script>
 <!--===============================================================================================-->
-	<script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+	<script src="<?php echo $ruta?>vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
 
 <!--===============================================================================================-->
-	<script src="vendor/isotope/isotope.pkgd.min.js"></script>
+	<script src="<?php echo $ruta?>vendor/isotope/isotope.pkgd.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/sweetalert/sweetalert2.all.min.js"></script>
+	<script src="<?php echo $ruta?>vendor/sweetalert/sweetalert2.all.min.js"></script>
 
-	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
-	<script>
+	<script src="<?php echo $ruta?>vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<!-- <script>
 		$('.js-pscroll').each(function(){
 			$(this).css('position','relative');
 			$(this).css('overflow','hidden');
@@ -222,9 +222,9 @@
 				ps.update();
 			})
 		});
-	</script>
+	</script> -->
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
+	<script src="<?php echo $ruta?>js/main.js"></script>
 
 </body>
 </html>
