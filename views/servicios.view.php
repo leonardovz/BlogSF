@@ -1,7 +1,16 @@
-<?php require 'views/header.php';?>
+<?php 
+require_once 'views/header.php';
+require_once 'config/config.php';
+require_once 'Admin/functions.php';
+
+$conexion = conexion($bd_config);
+$servicios = searchService($conexion);
+
+?>
+
 
 	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');">
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('<?php echo $ruta;?>images/bg-02.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
 			Servicios
 		</h2>
@@ -10,7 +19,7 @@
 		<!-- breadcrumb -->
 	<div class="container">
 		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-			<a href="<?php echo $links_contenido['index'];?>" class="stext-109 cl8 hov-cl1 trans-04">
+			<a href="<?php echo $ruta . $links_contenido['index'];?>" class="stext-109 cl8 hov-cl1 trans-04">
 				Inicio
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
@@ -35,7 +44,7 @@
 									<div class="block1 wrap-pic-w">
 										<img src="Users_images/servicios/<?php echo $servicio['imagen'];?>" alt="IMG-BANNER">
 
-										<a href="<?php echo $links_contenido['serviciosDetalles'];?>?search=<?php echo $servicio['id'];?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+										<a href="<?php echo $ruta . $links_contenido['serviciosDetalles'];?>/<?php echo $servicio['id'];?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 											<div class="block1-txt-child1 flex-col-l">
 												<span class="block1-name ltext-102 trans-04 p-b-8">
 													<?php echo $servicio['nombre'];?>
@@ -154,7 +163,7 @@
                                 <?php for ($i=0; $i < sizeof($serviciosC); $i++) {
 									$contador=servicioUnico($conexion,$serviciosC[$i]['id']); ?>
 								<li class="p-b-7">
-									<a href="<?php echo $links_contenido['serviciosDetalles'] .'?search='.$serviciosC[$i]['id'];?>" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
+									<a href="<?php echo $ruta . $links_contenido['serviciosDetalles'] .'/'.$serviciosC[$i]['id'];?>" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
 										<span>
 											<?php echo $serviciosC[$i]['nombre'];?>
 										</span>

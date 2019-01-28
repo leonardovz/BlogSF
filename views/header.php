@@ -40,7 +40,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>css/estilos.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/sweetalert/sweetalert2.min.css">
 	<!-- Firebase -->
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="<?php echo $ruta?>vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
@@ -53,33 +53,33 @@
 					
 					<!-- Logo desktop -->		
 					<a href="#" class="logo">
-						<img src="images/icons/logo-02.png" alt="IMG-LOGO">
+						<img src="<?php echo $ruta?>images/icons/logo-02.png" alt="IMG-LOGO">
 					</a>
 
 					<!-- Menu desktop -->
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li>
-								<a href="<?php echo $links_contenido['index'];?>">Inicio</a>
+								<a href="<?php echo $ruta . $links_contenido['index'];?>">Inicio</a>
 							</li>
 							<li>
-								<a href="<?php echo $links_contenido['blog'];?>">Blog</a>
-							</li>
-
-							<li>
-								<a href="<?php echo $links_contenido['servicios'];?>">Servicios</a>
+								<a href="<?php echo $ruta . $links_contenido['blog'];?>">Blog</a>
 							</li>
 
 							<li>
-								<a href="<?php echo $links_contenido['compras'];?>">Planes</a>
+								<a href="<?php echo $ruta . $links_contenido['servicios'];?>">Servicios</a>
 							</li>
 
 							<li>
-								<a href="<?php echo $links_contenido['acercade'];?>">¿Qué Somos?</a>
+								<a href="<?php echo $ruta . $links_contenido['compras'];?>">Planes</a>
 							</li>
 
 							<li>
-								<a href="<?php echo $links_contenido['contacto'];?>">Contactanos</a>
+								<a href="<?php echo $ruta . $links_contenido['acercade'];?>">¿Qué Somos?</a>
+							</li>
+
+							<li>
+								<a href="<?php echo $ruta . $links_contenido['contacto'];?>">Contactanos</a>
 							</li>
 						</ul>
 					</div>	
@@ -100,7 +100,7 @@
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="<?php echo $links_contenido['index'];?>"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
+				<a href="<?php echo $ruta . $links_contenido['index'];?>"><img src="<?php echo $ruta?>images/icons/logo-01.png" alt="IMG-LOGO"></a>
 			</div>
 
 
@@ -117,32 +117,32 @@
 		<div class="menu-mobile">
 			<ul class="main-menu-m">
 				<li id="loguearse">
-					<a href="<?php echo $links_contenido['login'];?>">Iniciar Sesión</a>
+					<a href="<?php echo $ruta . $links_contenido['login'];?>">Iniciar Sesión</a>
 				</li>
 				<li>
-					<a href="<?php echo $links_contenido['index'];?>">Inicio</a>
+					<a href="<?php echo $ruta . $links_contenido['index'];?>">Inicio</a>
 				</li>
 				<li>
-					<a href="<?php echo $links_contenido['blog'];?>">Blog</a>
-				</li>
-
-				<li>
-					<a href="<?php echo $links_contenido['servicios'];?>">Servicios</a>
+					<a href="<?php echo $ruta . $links_contenido['blog'];?>">Blog</a>
 				</li>
 
 				<li>
-					<a href="<?php echo $links_contenido['compras'];?>">Planes</a>
+					<a href="<?php echo $ruta . $links_contenido['servicios'];?>">Servicios</a>
 				</li>
 
 				<li>
-					<a href="<?php echo $links_contenido['acercade'];?>">¿Qué Somos?</a>
+					<a href="<?php echo $ruta . $links_contenido['compras'];?>">Planes</a>
 				</li>
 
 				<li>
-					<a href="<?php echo $links_contenido['contacto'];?>">Contactanos</a>
+					<a href="<?php echo $ruta . $links_contenido['acercade'];?>">¿Qué Somos?</a>
+				</li>
+
+				<li>
+					<a href="<?php echo $ruta . $links_contenido['contacto'];?>">Contactanos</a>
 				</li>
 				<li id="loguearse">
-					<a href="<?php echo $links_contenido['perfil'];?>">Perfil</a>
+					<a href="<?php echo $ruta . $links_contenido['perfil'];?>">Perfil</a>
 				</li>
 				<li id = "contenedor_alertas">
 
@@ -168,4 +168,4 @@
 		</div>
 	</header>
 
-	<?php Sidebar($links_contenido);?>
+	<?php Sidebar($links_contenido, $ruta);?>

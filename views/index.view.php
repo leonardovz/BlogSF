@@ -89,7 +89,7 @@
 				<div class="col-md-6 p-b-30 m-lr-auto">
 					<!-- Block1 -->
 					<div class="block1 wrap-pic-w">
-						<img src="images/banner-04.jpg" alt="IMG-BANNER">
+						<img src="<?php echo $ruta ;?>images/banner-04.jpg" alt="IMG-BANNER">
 
 						<a href="<?php echo $links_contenido['blog'];?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
@@ -114,7 +114,7 @@
 				<div class="col-md-6 p-b-30 m-lr-auto">
 					<!-- Block1 -->
 					<div class="block1 wrap-pic-w">
-						<img src="images/banner-05.jpg" alt="IMG-BANNER">
+						<img src="<?php echo $ruta ;?>images/banner-05.jpg" alt="IMG-BANNER">
 
 						<a href="<?php echo $links_contenido['servicios'];?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
@@ -141,9 +141,9 @@
 					<div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
 						<!-- Block1 -->
 						<div class="block1 wrap-pic-w">
-							<img src="Users_images/servicios/<?php echo $servicios[$i]['imagen'];?>" alt="IMG-BANNER">
+							<img src="<?php echo $ruta .'Users_images/servicios/' . $servicios[$i]['imagen'];?>" alt="IMG-BANNER">
 
-							<a href="<?php echo $links_contenido['serviciosDetalles'];?>?search=<?php echo $servicios[$i]['nombre'];?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+							<a href="<?php echo $links_contenido['serviciosDetalles'] . '/'. $servicios[$i]['nombre'];?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 								<div class="block1-txt-child1 flex-col-l">
 									<span class="block1-name ltext-102 trans-04 p-b-8">
 										<?php echo $servicios[$i]['nombre'];?>
@@ -186,8 +186,8 @@
 					<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 						<!-- Block2 -->
 						<div class="p-b-63">
-								<a href="<?php echo $links_contenido['publicaciones'] . '?id='. $post[$i]['id'];?>" class="hov-img0 how-pos5-parent">
-									<img src="Users_images/usuarios/<?php echo $post[$i]['imagen'];?>" alt="IMG-BLOG">
+								<a href="<?php echo $links_contenido['publicaciones'] . '/'. $post[$i]['id'];?>" class="hov-img0 how-pos5-parent">
+									<img src="<?php echo $ruta .'Users_images/usuarios/' . $post[$i]['imagen'];?>" alt="IMG-BLOG">
 
 									<div class="flex-col-c-m size-123 bg9 how-pos5">
 										<span class="ltext-107 cl2 txt-center">
@@ -202,7 +202,7 @@
 
 								<div class="p-t-32">
 									<h4 class="p-b-15">
-										<a href="<?php echo $links_contenido['publicaciones'] . '?id='. $post[$i]['id'];?>" class="ltext-108 cl2 hov-cl1 trans-04">
+										<a href="<?php echo $links_contenido['publicaciones'] . '/'. $post[$i]['id'];?>" class="ltext-108 cl2 hov-cl1 trans-04">
 											<?php echo $post[$i]['titulo'];?>
 										</a>
 									</h4>
@@ -219,7 +219,7 @@
 											</span>
 										</span>
 
-										<a href="<?php echo $links_contenido['publicaciones'] . '?id='. $post[$i]['id'];?>" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
+										<a href="<?php echo $links_contenido['publicaciones'] . '/'. $post[$i]['id'];?>" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
 											Continua Leyendo...
 											<i class="fas fa-book-open"></i>
 										</a>
@@ -254,8 +254,8 @@
 					<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 						<!-- Block2 -->
 						<div class="p-b-63">
-								<a href="<?php echo $links_contenido['perfil']. "?id=".$servicios[$i]['idUsuario'];?>" class="hov-img0 how-pos5-parent">
-									<img src="Users_images/usuarios/<?php echo $servicios[$i]['imagenServicio'];?>" alt="IMG-BLOG">
+								<a href="<?php echo $ruta . $links_contenido['perfil']. "/".$servicios[$i]['idUsuario'];?>" class="hov-img0 how-pos5-parent">
+									<img src="<?php echo $ruta .'Users_images/usuarios/' . $servicios[$i]['imagenServicio'];?>" alt="IMG-BLOG">
 
 									<div class="flex-col-c-m size-123 bg9 how-pos5">
 										<span class="ltext-107 cl2 txt-center">
@@ -270,7 +270,7 @@
 
 								<div class="p-t-16">
 									<h4 class="p-b-6">
-										<a href="<?php echo $links_contenido['perfil']. "?id=".$servicios[$i]['idUsuario'];?>" class="ltext-96 cl2 hov-cl1 trans-04">
+										<a href="<?php echo $links_contenido['perfil']. "/".$servicios[$i]['idUsuario'];?>" class="ltext-96 cl2 hov-cl1 trans-04">
 											<?php echo $servicios[$i]['servicio'];?>
 										</a>
 									</h4>
@@ -282,7 +282,7 @@
 											</span>
 										</span>
 										
-										<a href="<?php echo $links_contenido['perfil']. "?id=".$servicios[$i]['idUsuario'];?>" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
+										<a href="<?php echo $links_contenido['perfil']. "/".$servicios[$i]['idUsuario'];?>" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
 											Ver Información 
 											<i class="fs-20 fas fa-user-circle"> </i>
 										</a>

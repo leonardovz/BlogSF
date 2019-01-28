@@ -22,7 +22,7 @@
 							$fecha =fechaPub($publicacion[$i]['fecha']);
 							?>
 							<div class="p-b-63">
-								<a href="<?php echo $links_contenido['publicaciones'] .'?idPub='.$publicacion[$i]['idPub'];?>" class="hov-img0 how-pos5-parent">
+								<a href="<?php echo $ruta . $links_contenido['publicaciones'] .'/'.$publicacion[$i]['idPub'];?>" class="hov-img0 how-pos5-parent">
 									<img src="Users_images/usuarios/<?php echo $publicacion[$i]['imagen'];?>" alt="IMG-BLOG">
 
 									<div class="flex-col-c-m size-123 bg9 how-pos5">
@@ -38,7 +38,7 @@
 
 								<div class="p-t-32">
 									<h4 class="p-b-15">
-										<a href="<?php echo $links_contenido['publicaciones'] .'?idPub='.$publicacion[$i]['idPub'];?>" class="ltext-108 cl2 hov-cl1 trans-04">
+										<a href="<?php echo $links_contenido['publicaciones'] .'/'.$publicacion[$i]['idPub'];?>" class="ltext-108 cl2 hov-cl1 trans-04">
 											<?php echo $publicacion[$i]['titulo'];?>
 										</a>
 									</h4>
@@ -71,7 +71,7 @@
 											</span>
 										</span>
 
-										<a href="<?php echo $links_contenido['publicaciones'] .'?idPub='.$publicacion[$i]['idPub'];?>" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
+										<a href="<?php echo $links_contenido['publicaciones'] .'/'.$publicacion[$i]['idPub'];?>" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
 											Ver publicación Completa
 
 											<i class="fa fa-long-arrow-right m-l-9"></i>
@@ -189,7 +189,7 @@
                                 <?php for ($i=0; $i < sizeof($serviciosC); $i++) {
 									$contador=servicioUnico($conexion,$serviciosC[$i]['id']); ?>
 								<li class="p-b-7">
-									<a href="<?php echo $links_contenido['serviciosDetalles'] .'?search='.$serviciosC[$i]['id'];?>" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
+									<a href="<?php echo $links_contenido['serviciosDetalles'] .'/'.$serviciosC[$i]['id'];?>" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
 										<span>
 											<?php echo $serviciosC[$i]['nombre'];?>
 										</span>

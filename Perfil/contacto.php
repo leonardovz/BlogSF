@@ -1,4 +1,4 @@
-<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('Users_images/servicios/<?php echo $perfil['servImagen'];?>');">
+<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('<?php echo $ruta; ?>Users_images/servicios/<?php echo $perfil['servImagen'];?>');">
 	<h2 class="ltext-105 cl0 txt-center">
 		<?php echo $perfil['nombreServicio'];?>
 	</h2>
@@ -8,7 +8,7 @@
 	<section class="acerca-de">
 		<div class="contenedor">
 			<div class="foto">
-				<img src="Users_images/usuarios/<?php echo $perfil['imagenServicio'];?>" width="115" height="115" alt="Carlos Arturo">
+				<img src="<?php echo $ruta; ?>Users_images/usuarios/<?php echo $perfil['imagenServicio'];?>" width="115" height="115" alt="Carlos Arturo">
 			</div>
 	</section>
 	<section class="container-fluid p-t-20 stext-115">

@@ -6,4 +6,16 @@ Options All -Indexes
 
 RewriteEngine On
 
-RewriteRule ^([-a-zA-Z0-9/]+)$ index.php?ruta=$1
+RewriteRule ^([a-zA-Z0-9/]+)$ index.php?ruta=$1
+
+ErrorDocument 400 http://localhost/SanFrancisco/errors
+
+ErrorDocument 401 http://localhost/SanFrancisco/errors
+
+ErrorDocument 403 http://localhost/SanFrancisco/errors
+
+ErrorDocument 404 http://localhost/SanFrancisco/errors
+
+ErrorDocument 500 http://localhost/SanFrancisco/errors
+
+ErrorDocument 503 http://localhost/SanFrancisco/errors

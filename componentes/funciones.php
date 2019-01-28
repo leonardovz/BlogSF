@@ -1,20 +1,21 @@
 <?php 
 	$links_contenido = array(
-		'index' => 'index.php',
-		'blog' => 'Blog.php',
-		'publicaciones' => 'Publicaciones.php',
-		'servicios' => 'Servicios.php',
-		'serviciosDetalles' => 'Servicios_Detalles.php',
-		'compras' => 'Compras.php',
-		'perfil' => 'Perfil.php',
-		'login' => 'Login.php',
-		'registro' => 'Registro.php',
-		'acercade' => 'Acerca_de.php',
-		'contacto' => 'Contacto.php'
+		'index' => '',
+		'blog' => 'blog',
+		'publicaciones' => 'Publicaciones',
+		'servicios' => 'Servicios',
+		'serviciosDetalles' => 'Servicio',
+		'compras' => 'Compras',
+		'planes' => 'planes',
+		'perfil' => 'Perfil',
+		'login' => 'Login',
+		'registro' => 'Registro',
+		'acercade' => 'Informacion',
+		'contacto' => 'Contacto'
 	);
 ?>
 
-<?php function Sidebar($links_contenido){ ?>
+<?php function Sidebar($links_contenido, $ruta){ ?>
     <aside class="wrap-sidebar js-sidebar">
 		<div class="s-full js-hide-sidebar"></div>
 
@@ -29,39 +30,39 @@
 				<ul class="sidebar-link w-full">
 					
 					<li id="loguearse" class="ltext-105 m-b-30">
-						<a href="<?php echo $links_contenido['login'];?>"><button type="button" class="btn btn-outline-dark btn-lg btn-block" >Iniciar Sesión</button></a>
+						<a href="<?php echo $ruta . $links_contenido['login'];?>"><button type="button" class="btn btn-outline-dark btn-lg btn-block" >Iniciar Sesión</button></a>
 					</li>
 					<li class="p-b-13">
-						<a href="<?php echo $links_contenido['index'];?>" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="<?php echo $ruta . $links_contenido['index'];?>" class="stext-102 cl2 hov-cl1 trans-04">
 							Inicio
 						</a>
 					</li>
 					<li class="p-b-13">
-						<a href="<?php echo $links_contenido['blog'];?>" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="<?php echo $ruta . $links_contenido['blog'];?>" class="stext-102 cl2 hov-cl1 trans-04">
 							Blog
 						</a>
 					</li>
 
 					<li class="p-b-13">
-						<a href="<?php echo $links_contenido['perfil'];?>" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="<?php echo $ruta . $links_contenido['perfil'];?>/" class="stext-102 cl2 hov-cl1 trans-04">
 							Mi Cuenta
 						</a>
 					</li>
 
 					<li class="p-b-13">
-						<a href="<?php echo $links_contenido['compras'];?>" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="<?php echo $ruta . $links_contenido['compras'];?>" class="stext-102 cl2 hov-cl1 trans-04">
 							Planes
 						</a>
 					</li>
 
 					<li class="p-b-13">
-						<a href="<?php echo $links_contenido['acercade'];?>" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="<?php echo $ruta . $links_contenido['acercade'];?>" class="stext-102 cl2 hov-cl1 trans-04">
 							¿Qué Somos?
 						</a>
 					</li>
 
 					<li class="p-b-13">
-						<a href="<?php echo $links_contenido['contacto'];?>" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="<?php echo $ruta . $links_contenido['contacto'];?>" class="stext-102 cl2 hov-cl1 trans-04">
 							Contactanos
 						</a>
 					</li>

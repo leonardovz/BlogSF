@@ -166,7 +166,7 @@ function obtenerPostId($conexion,$datos){
 	user.apellidos,
 	Uinf.imagenServicio,
 	pub.id AS idPub,
-	pub.fecha,
+	pub.fecha AS fecha,
 	pub.titulo,
 	pub.imagen,
 	pub.estado,
@@ -322,6 +322,17 @@ function obtenerPerfil($conexion,$idUser){
 	$sentencia->execute();
 	$resultado = $sentencia->fetchAll();
 	return $resultado[0];
+}
+function revisarUsuario($conexion,$iduser){
+	$sql = "SELECT idUsuario FROM usuarios where idUsuario = $idUser";
+	$sentencia = $conexion->prepare($sql);
+	$sentencia->execute();
+	$resultado = $sentencia->fetchAll();
+	if(isset($resultado)){
+		return true;
+	}else{
+		return false;
+	}
 }
 // Aqui se obtienen las fechas de los posts
 function fechaPosts($conexion, $idUser){

@@ -1,19 +1,24 @@
 <?php 
+	require_once 'config/config.php';
+	require_once 'Admin/functions.php';
+
+	$conexion = conexion($bd_config);
 	require_once 'views/header.php';
-	if ($_GET['id']!='') {
-		$perfil = obtenerPerfil($conexion,$_GET['id']);
+	if ($rutas[1]!='') {
+
+		$perfil = obtenerPerfil($conexion,$rutas[1]);
 	} else {
-		$_GET['id']=1;
-		$perfil = obtenerPerfil($conexion,$_GET['id']);	
+		$rutas[1]=1;
+		$perfil = obtenerPerfil($conexion,$rutas[1]);	
 	}
 
-	$sesion= true;
+	$sesion= false;
 	
 	
 ?>
 
 	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');">
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('<?php echo $ruta; ?>images/bg-02.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
 			<?php echo $perfil['nombreServicio'];?>
 		</h2>
@@ -25,7 +30,7 @@
 				<h4 class="fs-50">
 						<?php echo $perfil['rgNombre']?>
 					<span class="style_profile">
-						<img src="images/icons/<?php echo $perfil['rgImagen'];?>" style="width:10vh;">
+						<img src="<?php echo $ruta;?>images/icons/<?php echo $perfil['rgImagen'];?>" style="width:10vh;">
 					</span>
 				</h4>
 			</div>
@@ -36,16 +41,15 @@
 	<!-- breadcrumb -->
 	<div class="container">
 		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-			<a href="index.php" class="stext-109 cl8 hov-cl1 trans-04">
+			<a href="<?php echo $ruta;?>" class="stext-109 cl8 hov-cl1 trans-04">
 				Inicio
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
-
-			<a href="<?php echo $links_contenido['servicios']; ?>" class="stext-109 cl8 hov-cl1 trans-04">
+			<a href="<?php echo $ruta . $links_contenido['servicios']; ?>" class="stext-109 cl8 hov-cl1 trans-04">
 				Servicios
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
-			<a href="<?php echo $links_contenido['serviciosDetalles'] ."?search=". $perfil['id']  ;?>" class="stext-109 cl8 hov-cl1 trans-04">
+			<a href="<?php echo $ruta . $links_contenido['serviciosDetalles'] ."/". $perfil['id']  ;?>" class="stext-109 cl8 hov-cl1 trans-04">
 				<?php echo $perfil['servNombre'];?>
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
@@ -132,12 +136,13 @@
 							</h4>
 
 							<ul>
+								<?php for ($i=0; $i < 4; $i++) :?>
 								<li class="flex-w flex-t p-b-2">
 									<div class="col p-b-30 m-lr-auto">
 										<!-- Block1 -->
 										<div class="block1 wrap-pic-w">
-											<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');"></section>
-											<a href="<?php echo $links_contenido['publicaciones'] .'?idPub=1';?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+											<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('<?php echo $ruta;?>images/bg-02.jpg');"></section>
+											<a href="<?php echo $ruta . $links_contenido['serviciosDetalles'] .'/';?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 												<div class="block1-txt-child1 flex-col-l">
 													<span class="block1-name ltext-102 trans-04 p-b-8">
 														Estilista
@@ -157,81 +162,7 @@
 										</div>
 									</div>
 								</li>
-								<li class="flex-w flex-t p-b-2">
-									<div class="col p-b-30 m-lr-auto">
-										<!-- Block1 -->
-										<div class="block1 wrap-pic-w">
-											<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');"></section>
-											<a href="<?php echo $links_contenido['serviciosDetalles'] .'?Search=1';?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-												<div class="block1-txt-child1 flex-col-l">
-													<span class="block1-name ltext-102 trans-04 p-b-8">
-														Estilista
-													</span>
-
-													<span class="block1-info stext-102 trans-04">
-														Relacionados
-													</span>
-												</div>
-
-												<div class="block1-txt-child2 p-b-4 trans-05">
-													<div class="block1-link stext-101 cl0 trans-09">
-														Información...
-													</div>
-												</div>
-											</a>
-										</div>
-									</div>
-								</li>
-								<li class="flex-w flex-t p-b-2">
-									<div class="col p-b-30 m-lr-auto">
-										<!-- Block1 -->
-										<div class="block1 wrap-pic-w">
-											<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/ADS.jpg');"></section>
-											<a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-												<div class="block1-txt-child1 flex-col-l">
-													<span class="block1-name ltext-102 trans-04 p-b-8">
-														Estilista
-													</span>
-
-													<span class="block1-info stext-102 trans-04">
-														Relacionados
-													</span>
-												</div>
-
-												<div class="block1-txt-child2 p-b-4 trans-05">
-													<div class="block1-link stext-101 cl0 trans-09">
-														Información...
-													</div>
-												</div>
-											</a>
-										</div>
-									</div>
-								</li>
-								<li class="flex-w flex-t p-b-2">
-									<div class="col p-b-30 m-lr-auto">
-										<!-- Block1 -->
-										<div class="block1 wrap-pic-w">
-											<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');"></section>
-											<a href="product.html" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-												<div class="block1-txt-child1 flex-col-l">
-													<span class="block1-name ltext-102 trans-04 p-b-8">
-														SERVICIO
-													</span>
-
-													<span class="block1-info stext-102 trans-04">
-														Fotaneria
-													</span>
-												</div>
-
-												<div class="block1-txt-child2 p-b-4 trans-05">
-													<div class="block1-link stext-101 cl0 trans-09">
-														Información...
-													</div>
-												</div>
-											</a>
-										</div>
-									</div>
-								</li>
+								<?php endfor; ?>
 							</ul>
 						</div>
 
@@ -241,7 +172,7 @@
 							</h4>
 
 							<ul>
-								<?php $fechaP =fechaPosts($conexion, $_GET['id']);
+								<?php $fechaP =fechaPosts($conexion, $perfil['idUsuario']);
 								for ($i=0; $i < sizeof($fechaP); $i++) {
 									$fecha =fechaPub($fechaP[$i]['fecha']);?>
 								<li class="p-b-7">
@@ -275,13 +206,13 @@
 						<div class="col-6 col-sm-6 col-md-4 col-lg-4 p-b-10 isotope-item women">
 							<!-- Block2 -->
 							<div class="p-b-10">
-								<a href="Serv_details.php" class="hov-img0 how-pos5-parent">
-									<img src="images/blog-04.jpg" alt="IMG-BLOG">
+								<a href="<?php echo $ruta . $links_contenido['serviciosDetalles'].'/'.$i; ?>" class="hov-img0 how-pos5-parent">
+									<img src="<?php echo $ruta;?>images/blog-04.jpg" alt="IMG-BLOG">
 								</a>
 
 								<div class="p-t-15">
 									<h4 class="p-b-5">
-										<a href="Serv_details.php" class="ltext-95 cl2 hov-cl1 trans-04">
+										<a href="<?php echo $ruta . $links_contenido['serviciosDetalles'] .'/'.$i; ?>" class="ltext-95 cl2 hov-cl1 trans-04">
 											Construcción
 										</a>
 									</h4>

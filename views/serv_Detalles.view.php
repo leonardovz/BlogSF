@@ -1,11 +1,18 @@
-<?php require 'views/header.php';?>
+<?php 
+require_once 'config/config.php';
+require_once 'Admin/functions.php';
+
+$conexion = conexion($bd_config);
+require 'views/header.php';
+
+?>
 
 	<!-- Title page -->
-	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');">
+	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('<?php echo $ruta;?>images/bg-02.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
 			<?php 
-				$titulo = servicioUnico($conexion,$_GET['search']);
-				if (sizeof($titulo) >0) {
+				$titulo = obtenerServicios($conexion,$rutas[1]);
+				if (false) {
 					echo $titulo['nombre'];
 				} else {
 					echo "Servicios";
@@ -19,12 +26,12 @@
 	<!-- breadcrumb -->
 	<div class="container">
 		<div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-			<a href="<?php echo $links_contenido['index'];?>" class="stext-109 cl8 hov-cl1 trans-04">
+			<a href="<?php echo $ruta . $links_contenido['index'];?>" class="stext-109 cl8 hov-cl1 trans-04">
 				Inicio
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
 
-			<a href="<?php echo $links_contenido['servicios'] ;?>" class="stext-109 cl8 hov-cl1 trans-04">
+			<a href="<?php echo $ruta . $links_contenido['servicios'] ;?>" class="stext-109 cl8 hov-cl1 trans-04">
 				Servicios
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
@@ -45,7 +52,7 @@
 						<!--  -->
 						<div class="row isotope-grid">
 						<?php 
-							$publicacion = obtenerServicios($conexion,$_GET['search']);
+							$publicacion = obtenerServicios($conexion,$rutas[1]);
 							if(sizeof($publicacion)>0){
 							for ($i=0; $i <sizeof($publicacion) ; $i++){
 							$fecha =fechaPub($publicacion[$i]['fechaRegistro']);
@@ -53,15 +60,15 @@
                             <div class="col-sm-12 col-md-6 col-lg-6 p-b-10 isotope-item women">
                                 <!-- Block2 -->
                                 <div class="p-b-10">
-                                    <a href="<?php echo $links_contenido['perfil'] .'?id='.$publicacion[$i]['idUsuario'];?>" class="hov-img0 how-pos5-parent">
-                                        <img src="Users_images/usuarios/<?php echo $publicacion[$i]['imagenServicio'];?>" alt="IMG-BLOG">
+                                    <a href="<?php echo $ruta .$links_contenido['perfil'] .'/'.$publicacion[$i]['idUsuario'];?>" class="hov-img0 how-pos5-parent">
+                                        <img src="<?php echo $ruta . 'Users_images/usuarios/'.$publicacion[$i]['imagenServicio'];?>" alt="IMG-BLOG">
                                     </a>
 
                                     <div class="p-t-15">
                                         <h4 class="p-b-5">
                                             <span class="flex-w flex-m stext-111 cl2 p-b-19">
 												<span>
-													<?php echo $publicacion['servicios'];?>
+													<?php echo $publicacion[$i]['servicio'];?>
 													<span class="cl12 m-l-4 m-r-6">|</span>
 												</span>
 
@@ -74,18 +81,15 @@
 													<?php echo $publicacion[$i]['nameU'] . ", " .$publicacion[$i]['apellidos'];?>
 													<span class="cl12 m-l-4 m-r-6">|</span>
 												</span>
-												<span><a href="<?php echo $links_contenido['perfil'] .'?id=' .$publicacion[$i]['idUsuario'];?>"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a></span>
+												<span><a href="<?php echo $ruta .$links_contenido['perfil'] .'/' .$publicacion[$i]['idUsuario'];?>"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a></span>
 											</span>
                                         </h4>
                                     </div>
                                 </div>
                             </div>
                             <?php } }else{?>
-								<div class="alert alert-success" role="alert">
-									Aun no se encuentran Servicios Registrados como <a href="<?php echo $links_contenido['serviciosDetalles'];?>?search=<?php echo $_GET['search'];?>" class="alert-link"><?php 
-									$titulo = servicioUnico($conexion,$_GET['search']);
-									echo $titulo['nombre'];
-									?></a> Si te gustaria registrar tu servicio Por favor Contactanos
+								<div class="alert alert-success m-auto" role="alert">
+									Aún no se encuentran servicios registrados. <br> </a> Si te gustaria registrar tu servicio por favor contactanos
 								</div>
 							<?php }?>
                         </div>
@@ -149,8 +153,8 @@
 								<?php for ($i=0; $i < 3 ; $i++) :?>
 								<li class="flex-w flex-t p-b-2">
                                     <div class="p-b-10">
-                                        <a href="<?php echo $links_contenido['publicaciones'] .'?idPub='.$i;?>" class="hov-img0 how-pos5-parent">
-                                            <img src="images/blog-04.jpg" alt="IMG-BLOG">
+                                        <a href="<?php echo $ruta .$links_contenido['publicaciones'] .'/'.$i;?>" class="hov-img0 how-pos5-parent">
+                                            <img src="<?php echo $ruta;?>images/blog-04.jpg" alt="IMG-BLOG">
                                         </a>
                                     </div>
 								</li>
@@ -168,7 +172,7 @@
                                 <?php for ($i=0; $i < sizeof($serviciosC); $i++) {
 									$contador=servicioUnico($conexion,$serviciosC[$i]['id']); ?>
 								<li class="p-b-7">
-									<a href="<?php echo $links_contenido['serviciosDetalles'] .'?search='.$serviciosC[$i]['id'];?>" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
+									<a href="<?php echo $ruta .$links_contenido['serviciosDetalles'] .'/'.$serviciosC[$i]['id'];?>" class="flex-w flex-sb-m stext-115 cl6 hov-cl1 trans-04 p-tb-2">
 										<span>
 											<?php echo $serviciosC[$i]['nombre'];?>
 										</span>
@@ -202,13 +206,13 @@
 						<div class="col-6 col-sm-6 col-md-4 col-lg-4 p-b-10 isotope-item women">
 							<!-- Block2 -->
 							<div class="p-b-10">
-								<a href="<?php echo $links_contenido['serviciosDetalles'] .'?Search='.$i;?>" class="hov-img0 how-pos5-parent">
-									<img src="images/blog-04.jpg" alt="IMG-BLOG">
+								<a href="<?php echo $ruta .$links_contenido['serviciosDetalles'] .'/'.$i;?>" class="hov-img0 how-pos5-parent">
+									<img src="<?php echo $ruta;?>images/blog-04.jpg" alt="IMG-BLOG">
 								</a>
 
 								<div class="p-t-15">
 									<h4 class="p-b-5">
-										<a href="<?php echo $links_contenido['serviciosDetalles'] .'?Search='.$i;?>" class="ltext-95 cl2 hov-cl1 trans-04">
+										<a href="<?php echo $ruta .$links_contenido['serviciosDetalles'] .'/'.$i;?>" class="ltext-95 cl2 hov-cl1 trans-04">
 											Construcción
 										</a>
 									</h4>
