@@ -4,10 +4,14 @@
 
 	$conexion = conexion($bd_config);
 	require_once 'views/header.php';
-	if ($rutas[1]!='') {
-
-		$perfil = obtenerPerfil($conexion,$rutas[1]);
-	} else {
+	if (isset($rutas[1])) {
+		if($rutas[1]!="" && $rutas[1]>0){
+			$perfil = obtenerPerfil($conexion,$rutas[1]);
+		}else{
+			$rutas[1]=1;
+		$perfil = obtenerPerfil($conexion,$rutas[1]);	
+		}
+	}else{
 		$rutas[1]=1;
 		$perfil = obtenerPerfil($conexion,$rutas[1]);	
 	}

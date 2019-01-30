@@ -1,4 +1,5 @@
 <?php 
+	session_start();
 	require_once '../config/conexion.php';
 	require_once '../PHPMailer/PHPMailerAutoload.php';
 	require_once '../config/rutas.php';
@@ -10,7 +11,7 @@ if ($conexion->connect_errno){
 	exit;
 } 
 
-if(isset($_POST)) {
+if(isset($_POST['inNombre'])) {
 
 	$nombre 	= $_POST['inNombre'];
 	$apellidos 	= $_POST['inApellidos'];
@@ -40,7 +41,60 @@ if(isset($_POST)) {
 
 	
 
-}else{
+}
+else if(isset($_POST['inCorreoLog'])) {
+	$correo		= $_POST['inCorreoLog'];
+	$pass		= $_POST['inPassLog'];
+
+	
+	$encriptarPass = md5($pass);
+
+	//--------------------------------- //
+	//-----------VALIDACION ----------- //
+	//--------------------------------- //
+	if(preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/',$correo) && preg_match('/^[a-zA-Z0-9]*$/',$pass)){
+		if(revisarCorreo($conexion,$correo)){
+			$resultado = compararUsuario($conexion,$correo,$pass);
+			if($resultado['validar']==1){
+				$respuesta = array(
+					'respuesta'=> 'error',
+					'Texto'=> 'El correo electronico debe de ser validado, revisa tu bandeja de correo'
+				);
+			}else if($encriptarPass==$resultado['password']){
+				$_SESSION['validarSesion']	= 	"ok";
+				$_SESSION['idUsuario']		= 	$resultado['idUsuario'];
+				$_SESSION['nombre']			= 	$resultado['nombre'];
+				$_SESSION['apellidos']		= 	$resultado['apellidos'];
+				$_SESSION['correo']			= 	$resultado['correo'];
+				$_SESSION['tipoUser']		=	$resultado['tipoUser'];
+				$_SESSION['fecha']			= 	$resultado['fecha'];
+				$respuesta = array(
+					'respuesta'=> 'exito',
+					'Texto'=> $_SESSION['validarSesion']
+				);
+			}else{
+				$respuesta = array(
+					'respuesta'=> 'error',
+					'Texto'=> 'correo o contraseña incorrectos'
+				);
+			}
+        }else{
+                $respuesta = array(
+                    'respuesta'=> 'error',
+                    'Texto'=> 'Correo o contraseña incorrectos'
+                );
+		}
+	}else{
+		$respuesta = array(
+			'respuesta'=> 'error',
+			'Texto'=> 'No puede enviar Caracteres especiales Revice la información'
+		);
+	}
+
+	
+
+}
+else{
 	$respuesta = array(
 		'respuesta'=> 'error',
 		'Texto'=> 'El formulario no se envio de forma correcta'
@@ -88,7 +142,7 @@ function registrarUsuarios($conexion){
 	$fecha = NULL;
 
 	$validarCorreo = md5($correo);
-	$encriptarPass= crypt($pass,'$2a$07$usesomesillystringforsalt$');
+	$encriptarPass= md5($pass);
 	
 
 	//---------------------------------------------- //
@@ -163,6 +217,22 @@ function registrarUsuarios($conexion){
 	}
 	return $respuesta;
 }
+
+function compararUsuario($conexion, $correo, $pass){
+	$sql = "SELECT *  FROM usuarios where correo = '$correo';";
+	$resultado = $conexion->query($sql);
+	if($resultado->num_rows){
+		$fila = $resultado->fetch_assoc();
+			return $fila;
+		
+	}else {
+		return $respuesta = array(
+			'respuesta'=> 'error',
+			'Texto'=> 'correo o contraseña incorrectos'
+		);
+	}
+
+} 
 
 die(json_encode($respuesta));
 ?>

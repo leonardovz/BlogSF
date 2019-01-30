@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once 'config/config.php';
 require_once 'Admin/functions.php';
 $conexion = conexion($bd_config);
@@ -7,6 +8,7 @@ if(!isset($conexion)){
     echo "error al conectar a la base de datos" .json_encode($bd_config);
     exit;
 }
+
 if(isset($_GET['ruta'])){
     $rutas = explode("/",$_GET['ruta']);
     //  var_dump($rutas);
@@ -26,12 +28,20 @@ if(isset($_GET['ruta'])){
         require 'views/blog_Detalles.view.php';
     }
     elseif ($rutas[0] == "Login" || $rutas[0] == "login") {
-        require_once 'views/Login.php';
+        if(isset($_SESSION['validarSesion'])){
+            header('Location: http://localhost/SanFrancisco/');
+        }else{
+            require_once 'views/Login.php';
+        }
     }
     elseif ($rutas[0] == "Registro" || $rutas[0] == "registro") {
-        require_once 'views/Registro.php';
+        if(isset($_SESSION['validarSesion'])){
+            header('Location: http://localhost/SanFrancisco/');
+        }else{
+            require_once 'views/Registro.php';
+        }
     }
-    elseif ($rutas[0] == "Perfil" || $rutas[0] == "perfil") {
+    elseif ($rutas[0] == "Perfil" || $rutas[0] == "perfil" || $rutas[0] == "cuenta") {
         require_once 'views/perfil.view.php';
     }
     elseif ($_GET['ruta'] == "Compras" || $_GET['ruta'] == "compras" || $_GET['ruta'] == "planes") {

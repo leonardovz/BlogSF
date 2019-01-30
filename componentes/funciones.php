@@ -11,7 +11,8 @@
 		'login' => 'Login',
 		'registro' => 'Registro',
 		'acercade' => 'Informacion',
-		'contacto' => 'Contacto'
+		'contacto' => 'Contacto',
+		'cerrar' => 'cerrar'
 	);
 ?>
 
@@ -30,7 +31,11 @@
 				<ul class="sidebar-link w-full">
 					
 					<li id="loguearse" class="ltext-105 m-b-30">
-						<a href="<?php echo $ruta . $links_contenido['login'];?>"><button type="button" class="btn btn-outline-dark btn-lg btn-block" >Iniciar Sesión</button></a>
+						<?php if (isset($_SESSION['validarSesion'])) {?>
+							<a href="<?php echo $ruta . $links_contenido['cerrar'];?>"><button type="button" class="btn btn-outline-danger btn-lg btn-block" >Cerrar Sesión</button></a>
+						<?php }else{?>
+						<a href="<?php echo $ruta . $links_contenido['login'];?>"><button type="button" class="btn btn-outline-dark btn-lg btn-block" >Cerrar Sesión</button></a>
+						<?php } ?>
 					</li>
 					<li class="p-b-13">
 						<a href="<?php echo $ruta . $links_contenido['index'];?>" class="stext-102 cl2 hov-cl1 trans-04">

@@ -43,7 +43,7 @@
                     </div>
                     <div class="form-row  m-t-20">
                         <div class="form-group col text-center fs-21">
-                            <p>¿Ya tienes cuenta? <a href="Login.php"> Ingresa </a></p>
+                            <p>¿Ya tienes cuenta? <a href="<?php echo $ruta . $links_contenido['login']?>"> Ingresa </a></p>
                         </div>
                     </div>
                     <div class="form-check m-l-20 fs-18 p-b-8">
