@@ -1,5 +1,5 @@
 $(document).ready(function(e){
-    $("#publicar").on('submit', function(e){
+    $("#sendPub").on('submit', function(e){
         e.preventDefault();
         $.ajax({
             type: 'POST',
@@ -29,7 +29,7 @@ $(document).ready(function(e){
     });
     
     //file type validation
-    $("#thumb").change(function() {
+    $("#file").change(function() {
         var file = this.files[0];
         var imagefile = file.type;
         var match= ["image/jpeg","image/png","image/jpg"];

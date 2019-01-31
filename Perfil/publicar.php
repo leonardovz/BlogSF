@@ -1,4 +1,4 @@
-<form  id="publicar" name="publicar" action="../componentes/crearPublicacion.php" enctype="multipart/form-data" method="post" >
+<form  method= "post" action="../componentes/crearPublicacion.php" enctype="multipart/form-data" id="fupForm" >
     <div class="form-row">
         <div class="col m-t-35 text-right">
             <label for="nombreProducto"><?php echo fechadate();?></label>
