@@ -27,16 +27,16 @@
 			<?php echo $perfil['nombreServicio'];?>
 		</h2>
 	</section>
-	<?php if($sesion){?>
+	<?php if(isset($_SESSION['idUsuario'])&&$_SESSION['idUsuario']==$rutas[1]){?>
 	<section class="bg-img1 txt-center p-t-30" >
-		<h2 class="ltext-105 c9 txt-center">
+		<h2 class="ltext-105 c9 txt-center">  
 			<div class="p-t-2">
 				<h4 class="fs-50">
-						<?php echo $perfil['rgNombre']?>
+						<?php echo $perfil['rgNombre'];?>
 					<span class="style_profile">
 						<img src="<?php echo $ruta;?>images/icons/<?php echo $perfil['rgImagen'];?>" style="width:10vh;">
 					</span>
-				</h4>
+				</h4> 
 			</div>
 		</h2>
 	</section>
@@ -68,7 +68,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-7 col-lg-8 p-b-80">
-					<?php if ($sesion) {?>
+					<?php if (isset($_SESSION['idUsuario'])&&$_SESSION['idUsuario']==$rutas[1]) {?>
 					<div class="p-r-45 p-r-0-lg">
 						<ul class="nav nav-pills mb-3  stext-115" id="pills-tab" role="tablist">
 							<li class="nav-item">
@@ -235,5 +235,5 @@
             </div>
 		</div>
 	</div>
-	
+	<!-- <script src="<?php //echo $ruta;?>js/publicar.js"></script> -->
 	<?php require 'views/footer.php'; ?>

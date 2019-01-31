@@ -36,7 +36,7 @@ if(isset($_GET['ruta'])){
     }
     elseif ($rutas[0] == "Registro" || $rutas[0] == "registro") {
         if(isset($_SESSION['validarSesion'])){
-            header('Location: http://localhost/SanFrancisco/');
+            header("Location:" . "$ruta");
         }else{
             require_once 'views/Registro.php';
         }
@@ -52,6 +52,9 @@ if(isset($_GET['ruta'])){
     }
     elseif ($rutas[0] == "Contacto" || $rutas[0] == "contacto") {
         require_once 'views/Contacto.php';
+    }
+    elseif ($rutas[0] == "cerrar" || $rutas[0] == "Cerrar") {
+        require_once 'componentes/cerrarSesion.php';
     }
     else{
         require_once 'views/error404.php';

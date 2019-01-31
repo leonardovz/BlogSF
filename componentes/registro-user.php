@@ -150,7 +150,7 @@ function registrarUsuarios($conexion){
 	//---------------------------------------------- //
 	$statement->execute();//Ejecutar solo si paso todos los filtros de datos
 	if($conexion->affected_rows >= 1){
-		date_default_timezone_set("America/Bogota");
+		date_default_timezone_set("America/Mexico_City");
 
 		$url = ruta();	
 		$mail = new PHPMailer;

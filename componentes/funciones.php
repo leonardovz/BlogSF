@@ -31,10 +31,8 @@
 				<ul class="sidebar-link w-full">
 					
 					<li id="loguearse" class="ltext-105 m-b-30">
-						<?php if (isset($_SESSION['validarSesion'])) {?>
-							<a href="<?php echo $ruta . $links_contenido['cerrar'];?>"><button type="button" class="btn btn-outline-danger btn-lg btn-block" >Cerrar Sesión</button></a>
-						<?php }else{?>
-						<a href="<?php echo $ruta . $links_contenido['login'];?>"><button type="button" class="btn btn-outline-dark btn-lg btn-block" >Cerrar Sesión</button></a>
+						<?php if (!isset($_SESSION['validarSesion'])) {?>
+						<a href="<?php echo $ruta . $links_contenido['login'];?>"><button type="button" class="btn btn-outline-dark btn-lg btn-block" >Iniciar Sesión</button></a>
 						<?php } ?>
 					</li>
 					<li class="p-b-13">
@@ -71,6 +69,13 @@
 							Contactanos
 						</a>
 					</li>
+					<?php if (isset($_SESSION['validarSesion'])) {?>
+					<li class="p-b-13">
+						<a href="<?php echo $ruta . $links_contenido['cerrar'];?>" class="stext-102 cl2 hov-cl1 trans-04 text-danger">
+							Cerrar Sesión
+						</a>
+					</li>
+					<?php } ?>
 					<li id = "contenedor_alertas" class="p-b-13">
 						
 					</li>

@@ -10,38 +10,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Aquí encontraras los servicios que ofrece San Francisco se Asís, municipio de Atotonilco el alto, Jalisco. Entra y encuentra lo que necesitas">
 	<meta name="keywords" content="Trabajos y Servicios, Construcción, Estilistas en San Francisco,Albañiles, Troqueros, Venta de Terrenos">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
-<!--===============================================================================================-->
+	
+	<link rel="icon" type="image/png" href="<?php echo $ruta?>images/icons/favicon.png"/>
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>fonts/linearicons-v1.0.0/icon-font.min.css">
-<!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/animate/animate.css">
-<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/animate/animate.css">	
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/daterangepicker/daterangepicker.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/slick/slick.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/MagnificPopup/magnific-popup.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/perfect-scrollbar/perfect-scrollbar.css">
-<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>css/util.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>css/main.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>css/estilos.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/sweetalert/sweetalert2.min.css">
-	<!-- Firebase -->
 	<script src="<?php echo $ruta?>vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
+
 </head>
 <body class="animsition">
 	

@@ -160,7 +160,6 @@ $(document).ready(function() {
                             showConfirmButton: false,
                             timer: 1500
                         });
-                        clearInputs();
                         location.reload();
                     } else {
                         swal({
@@ -178,5 +177,4 @@ $(document).ready(function() {
     function clearInputs(){
         $("#loginUser")[0].reset();
     }
-    
 });
