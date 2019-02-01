@@ -187,7 +187,7 @@
 						<!-- Block2 -->
 						<div class="p-b-63">
 								<a href="<?php echo $links_contenido['publicaciones'] . '/'. $post[$i]['id'];?>" class="hov-img0 how-pos5-parent">
-									<img src="<?php echo $ruta .'Users_images/usuarios/' . $post[$i]['imagen'];?>" alt="IMG-BLOG">
+									<img src="<?php echo $ruta .'Users_images/publicacion/' . $post[$i]['imagen'];?>" alt="IMG-BLOG">
 
 									<div class="flex-col-c-m size-123 bg9 how-pos5">
 										<span class="ltext-107 cl2 txt-center">

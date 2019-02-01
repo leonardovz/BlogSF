@@ -58,7 +58,7 @@ if (isset($rutas[1])) {
 						<div class="p-r-45 p-r-0-lg">
 							<!--  -->
 							<div class="wrap-pic-w how-pos5-parent">
-								<img src="<?php echo $ruta;?>Users_images/usuarios/<?php echo $publicacion['imagen'];?>" alt="IMG-BLOG">
+								<img src="<?php echo $ruta;?>Users_images/publicacion/<?php echo $publicacion['imagen'];?>" alt="IMG-BLOG">
 
 								<div class="flex-col-c-m size-123 bg9 how-pos5">
 									<span class="ltext-107 cl2 txt-center">

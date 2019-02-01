@@ -7,7 +7,7 @@
         <!-- Block2 -->
         <div class="p-b-10">
             <a href="<?php echo $ruta . $links_contenido['publicaciones'] .'/'.$publicaciones[$i]['idPub'];?>" class="hov-img0 how-pos5-parent">
-                <img src="<?php echo $ruta; ?>Users_images/usuarios/<?php echo $publicaciones[$i]['imagen'];?>" alt="IMG-BLOG">
+                <img src="<?php echo $ruta; ?>Users_images/publicacion/<?php echo $publicaciones[$i]['imagen'];?>" alt="IMG-BLOG">
             </a>
 
             <div class="p-t-15">

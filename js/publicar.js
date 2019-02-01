@@ -1,28 +1,29 @@
 $(document).ready(function(e){
-    $("#sendPub").on('submit', function(e){
+    $("#fupForm").on('submit', function(e){
         e.preventDefault();
         $.ajax({
             type: 'POST',
             url: $(this).attr('action'),
             data: new FormData(this),
+            dataType: 'json',
             contentType: false,
             cache: false,
             processData:false,
             success: function (data) {
-                // if (data.respuesta == 'exito') {
-                //     Swal.fire({
-                //         type: 'success',
-                //         title: 'Registrado',
-                //         text: data.Texto
-                //       });
-                //       clearInputs();
-                // } else {
-                //     swal({
-                //         type: 'error',
-                //         title: 'Oops...',
-                //         text: data.Texto
-                //     });
-                // }
+                if (data.respuesta == 'exito') {
+                    Swal.fire({
+                        type: 'success',
+                        title: 'Registrado',
+                        text: data.Texto
+                      });
+                      clearInputs();
+                } else {
+                    swal({
+                        type: 'error',
+                        title: 'Oops...',
+                        text: data.Texto
+                    });
+                }
                 console.log(data);
             }
         });

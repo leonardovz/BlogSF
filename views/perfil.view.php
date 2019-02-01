@@ -235,5 +235,5 @@
             </div>
 		</div>
 	</div>
-	<!-- <script src="<?php //echo $ruta;?>js/publicar.js"></script> -->
+	<script src="<?php echo $ruta;?>js/publicar.js"></script>
 	<?php require 'views/footer.php'; ?>

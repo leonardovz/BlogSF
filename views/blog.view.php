@@ -23,7 +23,7 @@
 							?>
 							<div class="p-b-63">
 								<a href="<?php echo $ruta . $links_contenido['publicaciones'] .'/'.$publicacion[$i]['idPub'];?>" class="hov-img0 how-pos5-parent">
-									<img src="Users_images/usuarios/<?php echo $publicacion[$i]['imagen'];?>" alt="IMG-BLOG">
+									<img src="Users_images/publicacion/<?php echo $publicacion[$i]['imagen'];?>" alt="IMG-BLOG">
 
 									<div class="flex-col-c-m size-123 bg9 how-pos5">
 										<span class="ltext-107 cl2 txt-center">
