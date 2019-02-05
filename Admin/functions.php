@@ -83,7 +83,7 @@ function obtenerMes($mes){
 }
 function conexion($bd_config){
     try {
-		$conexion = new PDO('mysql:host='.$bd_config['host'].';dbname='.$bd_config['database'], $bd_config['usuario'], $bd_config['pass']);
+		$conexion = new PDO('mysql:host='.$bd_config['host'].';dbname='.$bd_config['database'], $bd_config['usuario'], $bd_config['pass'],array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES  \'UTF8\''));
 		return $conexion;
 	} catch (PDOException $e) {
 		return false;
@@ -400,6 +400,8 @@ function fechaPub($fecha){
 	$anio = $date[0];
 	$mes  = $date[1];
 	$dia  = $date[2];
+	$dia = explode(" ",$dia);
+	$dia = $dia[0];
 	$fecha = array($anio,$mes,$dia);
 	return $fecha;
 }
@@ -407,16 +409,51 @@ function fechaPub($fecha){
 // ===========  ANUNCIOS ================
 
 function searchADDS($conexion,$usuario){
- $sql ="";
+	$sql ="";
 }
 function addADDS($conexion,$servicio){
- $sql ="";
+	$sql ="";
 }
 function modADDS($conexion,$servicio){
- $sql ="";
+	$sql ="";
 }
 function delADDS($conexion,$idservicio){
- $sql ="";
+	$sql ="";
+}
+
+// ===========  ANUNCIOS ================
+
+
+function validarCorreo($conexion,$codCorreo){
+	if(comprobarCodigo($conexion,$codCorreo)&&preg_match('/^[a-zA-Z0-9]*$/',$codCorreo)){
+		$sql= "UPDATE usuarios SET  validar = 0 WHERE encriptado = '$codCorreo';";
+		$conexion->query($sql);
+		if($conexion->affected_rows >= 1){
+			return $respuesta = array(
+				'respuesta'=> 'exito',
+				'Texto'=> 'Tu correo ha sido verificado ya puedes iniciar sesión' 
+			);
+		}else {
+			return $respuesta = array(
+				'respuesta'=> 'error',
+				'Texto'=> 'El correo electronico ya ha sido verificado'
+			);
+		}
+	}else{
+		return $respuesta = array(
+			'respuesta'=> 'error',
+			'Texto'=> 'Los datos de validación no son correctos'
+		);
+	}
+}
+function comprobarCodigo($conexion,$codCorreo){
+	$sql = "SELECT encriptado FROM usuarios where encriptado = '$codCorreo';";
+	$resultado = $conexion->query($sql);
+	if($resultado->num_rows){
+		return true;
+	}else {
+		return false;
+	}
 }
 
 ?>

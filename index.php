@@ -53,8 +53,18 @@ if(isset($_GET['ruta'])){
     elseif ($rutas[0] == "Contacto" || $rutas[0] == "contacto") {
         require_once 'views/Contacto.php';
     }
+    elseif ($rutas[0] == "Restablecer" || $rutas[0] == "restablecer") {
+        require_once 'views/cambioPass.view.php';
+    }
     elseif ($rutas[0] == "cerrar" || $rutas[0] == "Cerrar") {
         require_once 'componentes/cerrarSesion.php';
+    }
+    elseif ($rutas[0] == "validar" || $rutas[0] == "Validar") {
+        if(isset($rutas[1])){
+            require_once 'views/validar.view.php';
+        }else{
+            header("Location:" . "error");
+        }
     }
     else{
         require_once 'views/error404.php';

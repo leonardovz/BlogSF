@@ -174,6 +174,60 @@ $(document).ready(function() {
             });
         }
     });
+
+    $('#restablecer').on('submit',function(e){
+        e.preventDefault();
+        console.log("click to click");
+        $(".alert").remove();
+        var errores = 0;
+        var formulario = $(this).serializeArray();
+        var correo = $("#sendCorreo").val();
+
+        // ------------------------ //
+        //-----Validar correo------ //
+        // ------------------------ //
+        if(correo != ""){
+            var expresion = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+            if(!expresion.test(correo)){
+                errores +=1;
+                $("#sendCorreo").parent().parent().after('<div class="alert alert-warning fs-16" role="alert"> <small class="fs-18">ERROR: </small> El correo no esta escrito de forma correcta</div>');
+            }
+        }else{
+            errores +=1;
+            $("#sendCorreo").parent().parent().after('<div class="alert alert-warning fs-16" role="alert"> <small class="fs-18">ERROR: </small> Correo obligatoria </div>');
+        }
+        
+        if(errores == 0){ 
+            console.log("Entro a AJAX");
+            var formulario = $(this).serializeArray();
+            $.ajax({
+                type: $(this).attr('method'),
+                url: $(this).attr('action'),
+                data: formulario,
+                dataType: 'json',
+                success: function (data) {
+                    if (data.respuesta == 'exito') {
+                        swal({
+                            position: 'top-end',
+                            type: 'success',
+                            title: data.Texto,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        location.reload();
+                    } else {
+                        swal({
+                            type: 'error',
+                            title: 'Oops...',
+                            text: data.Texto
+                        });
+                    }
+                    console.log(data);
+                }
+            
+            });
+        }
+    });
     function clearInputs(){
         $("#loginUser")[0].reset();
     }

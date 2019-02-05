@@ -22,7 +22,7 @@ if(isset($_POST['inNombre'])) {
 	//--------------------------------- //
 	//-----------VALIDACION ----------- //
 	//--------------------------------- //
-	if(preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$/',$nombre) && preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$/',$apellidos) && preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/',$correo)&& preg_match('/^[a-zA-Z0-9]*$/',$pass)){
+	if(preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$/',$nombre) && preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$/',$apellidos) && preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/',$correo)&& preg_match('/^[a-zA-Z0-9@]*$/',$pass)){
 		if(revisarCorreo($conexion,$correo)){
 			$respuesta = array(
 				'respuesta'=> 'error',
@@ -94,6 +94,96 @@ else if(isset($_POST['inCorreoLog'])) {
 	
 
 }
+else if(isset($_POST['sendCorreo'])){
+	if(preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/',$_POST['sendCorreo'])){
+		if(revisarCorreo($conexion,$_POST['sendCorreo'])){
+			$newPassword = cambioPassAuto($conexion,$_POST['sendCorreo']);
+			if ($newPassword['pass']!='error') {
+				date_default_timezone_set("America/Mexico_City");
+
+				$url = ruta();	
+				$mail = new PHPMailer;
+				$mail->CharSet = 'UTF-8';
+				$mail->isMail();
+				$mail->setFrom('Serviciosanfco@gmail.com', 'SF noticias y servicios');
+				$mail->addReplyTo('Serviciosanfco@gmail.com', 'SF noticias y servicios');
+				$mail->Subject = "Solicitud de cambio de contraseña";
+				$mail->addAddress($_POST['sendCorreo']);
+				$mail->msgHTML('
+					<div style="width:100%; background:#eee; position:relative; font-family:sans-serif; padding-bottom:40px">
+						
+						<center>
+							
+							<img style="padding:20px; width:50%" src="http://drive.google.com/uc?export=view&id=1VMXji0nuInMduFaI5RC7R97RUa0YeT6w">
+
+						</center>
+
+						<div style="position:relative; margin:auto; width:600px; background:white; padding:20px">
+						
+							<center>
+							
+							<img style="padding:20px; width:15%" src="http://tutorialesatualcance.com/tienda/icon-pass.png">
+
+							<h3 style="font-weight:100; color:#999">SOLICITUD DE NUEVA CONTRASEÑA</h3>
+
+							<hr style="border:1px solid #ccc; width:80%">
+
+							<h4 style="font-weight:100; color:#999; padding:0 20px"><strong>Su nueva contraseña: </strong>'.$newPassword['pass'].'</h4>
+
+							<a href="http://localhost/frontend/" target="_blank" style="text-decoration:none">
+
+							<div style="line-height:60px; background:#0aa; width:60%; color:white">Ingrese nuevamente al sitio</div>
+
+							</a>
+
+							<br>
+
+							<hr style="border:1px solid #ccc; width:80%">
+
+							<h5 style="font-weight:100; color:#999">Si no se inscribió en esta cuenta, puede ignorar este correo electrónico y la cuenta se eliminará.</h5>
+
+							</center>
+
+						</div>
+
+					</div>
+				');
+				$envio = $mail->Send();
+
+				if(!$envio){
+					$respuesta = array(
+						'respuesta'=> 'error',
+						'Texto'=> 'No es posible enviar validacion intentelo más tarde'
+					);
+				}else{
+					$respuesta = array(
+						'respuesta'=> 'exito',
+						'Texto'=> 'Registro realizado Satisfactoriamente,por favor revise la bandeja de entrada o la carpeta de SPAM de su correo electronico '. $_POST['sendCorreo'] .' para verificar su correo '
+					);
+				}
+				var_dump($newPassword);
+			}else{
+				$respuesta = array(
+					'respuesta'=> 'error',
+					'Texto'=> 'No se pudo hacer el cambio de contraseña'
+				);
+			}
+			
+		}
+		else{
+			$respuesta = array(
+				'respuesta'=> 'error',
+				'Texto'=> 'El correo no esta registrado'
+			);
+		}
+	}
+	else{
+		$respuesta = array(
+			'respuesta'=> 'error',
+			'Texto'=> 'Escriba Correctamente el correo electronico'
+		);
+	}
+}
 else{
 	$respuesta = array(
 		'respuesta'=> 'error',
@@ -123,7 +213,7 @@ function revisarCorreo($conexion,$correo){
 	//----------- Registrar USUARIOS --------------- //
 	//---------------------------------------------- //
 function registrarUsuarios($conexion){
-	$statement = $conexion->prepare("INSERT INTO usuarios(idUsuario, nombre, apellidos, correo, password, tipoUser, validar, encriptado, fecha) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+	$statement = $conexion->prepare("INSERT INTO usuarios(idUsuario, nombre, apellidos, correo, password, tipoUser, validar, encriptado, fecha, modo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 	
 	// Remplazamos los placeholder ? con los valores que queremos usar.
 		// Una S por placeholder que tengamos.
@@ -131,12 +221,13 @@ function registrarUsuarios($conexion){
 		// i = integer
 		// d = double
 
-	$statement->bind_param('sssssiiss', $id,$nombre,$apellidos,$correo,$encriptarPass,$tipoUser,$validar,$validarCorreo,$fecha); // Mandamos los parametros para preparar la consulta y protejer de inyeccion SQL
+	$statement->bind_param('sssssiisss', $id,$nombre,$apellidos,$correo,$encriptarPass,$tipoUser,$validar,$validarCorreo,$fecha,$modo); // Mandamos los parametros para preparar la consulta y protejer de inyeccion SQL
 	$id 		= NULL;
 	$nombre 	= $_POST['inNombre'];
 	$apellidos 	= $_POST['inApellidos'];
 	$correo		= $_POST['inCorreo'];
 	$pass		= $_POST['inPass'];
+	$modo		= 'directo';
 	$tipoUser = 5;
 	$validar = 1;
 	$fecha = NULL;
@@ -162,40 +253,40 @@ function registrarUsuarios($conexion){
 		$mail->addAddress($correo);
 		$mail->msgHTML('<div style="width:100%; background:#eee; position:relative; font-family:sans-serif; padding-bottom:40px">
 	
-		<center>
-			
-			<img style="padding:20px; width:50%" src="http://drive.google.com/uc?export=view&id=1VMXji0nuInMduFaI5RC7R97RUa0YeT6w">
-	
-		</center>
-	
-		<div style="position:relative; margin:auto; width:600px; background:white; padding:20px">
-		
 			<center>
-			
-			<img style="padding:20px; width:15%" src="http://tutorialesatualcance.com/tienda/icon-email.png">
-	
-			<h3 style="font-weight:100; color:#999">VERIFIQUE SU DIRECCIÓN DE CORREO ELECTRÓNICO</h3>
-	
-			<hr style="border:1px solid #ccc; width:80%">
-	
-			<h4 style="font-weight:100; color:#999; padding:0 20px">Para comenzar a usar su cuenta, debe confirmar su dirección de correo electrónico</h4>
-	
-			<a href="'.$url.'verificar/'.$validarCorreo.'" target="_blank" style="text-decoration:none">
-	
-			<div style="line-height:60px; background:#0aa; width:60%; color:white">Verifique su dirección de correo electrónico</div>
-	
-			</a>
-	
-			<br>
-	
-			<hr style="border:1px solid #ccc; width:80%">
-	
-			<h5 style="font-weight:100; color:#999">Si no se inscribió en esta cuenta, puede ignorar este correo electrónico y la cuenta se eliminará.</h5>
-	
+				
+				<img style="padding:20px; width:50%" src="http://drive.google.com/uc?export=view&id=1VMXji0nuInMduFaI5RC7R97RUa0YeT6w">
+		
 			</center>
-		</div>
+		
+			<div style="position:relative; margin:auto; width:600px; background:white; padding:20px">
+			
+				<center>
+				
+				<img style="padding:20px; width:15%" src="http://tutorialesatualcance.com/tienda/icon-email.png">
+		
+				<h3 style="font-weight:100; color:#999">VERIFIQUE SU DIRECCIÓN DE CORREO ELECTRÓNICO</h3>
+		
+				<hr style="border:1px solid #ccc; width:80%">
+		
+				<h4 style="font-weight:100; color:#999; padding:0 20px">Para comenzar a usar su cuenta, debe confirmar su dirección de correo electrónico</h4>
+		
+				<a href="'.$url.'verificar/'.$validarCorreo.'" target="_blank" style="text-decoration:none">
+		
+				<div style="line-height:60px; background:#0aa; width:60%; color:white">Verifique su dirección de correo electrónico</div>
+		
+				</a>
+		
+				<br>
+		
+				<hr style="border:1px solid #ccc; width:80%">
+		
+				<h5 style="font-weight:100; color:#999">Si no se inscribió en esta cuenta, puede ignorar este correo electrónico y la cuenta se eliminará.</h5>
+		
+				</center>
+			</div>
 	
-	</div>');
+		</div>');
 		$envio = $mail->Send();
 
 		if(!$envio){
@@ -218,7 +309,7 @@ function registrarUsuarios($conexion){
 	return $respuesta;
 }
 
-function compararUsuario($conexion, $correo, $pass){
+function compararUsuario($conexion, $correo){
 	$sql = "SELECT *  FROM usuarios where correo = '$correo';";
 	$resultado = $conexion->query($sql);
 	if($resultado->num_rows){
@@ -232,7 +323,40 @@ function compararUsuario($conexion, $correo, $pass){
 		);
 	}
 
-} 
+}
+function cambioPassAuto($conexion,$correo){
+	$newPassword = generarPassword(11);
+	$cryptPassword = md5($newPassword);
+	$sql = "UPDATE usuarios SET password = '$cryptPassword' WHERE correo = '$correo'";
+	$conexion->query($sql);
+
+	if ($conexion->affected_rows >= 1) {
+		return $respuesta = array(
+			'pass'=> $newPassword,
+			'bycript'=> $cryptPassword,
+			'sql'=> $sql
+		);
+	}else{
+		return $respuesta = array(
+			'pass'=> 'error',
+			'bycript'=> 'error',
+			'sql'=> 'error'
+		);
+
+	}
+	
+}
+function generarPassword($longitud){
+	$key = "";
+	$pattern = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	$max = strlen($pattern)-1;
+	for ($i=0; $i < $longitud ; $i++) { 
+		$key .= $pattern{mt_rand(0,$max)};
+	}
+	return $key;
+
+	
+}
 
 die(json_encode($respuesta));
 ?>

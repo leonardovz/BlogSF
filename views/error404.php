@@ -1,9 +1,9 @@
 <?php require 'views/header.php';?>
 <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('<?php echo $ruta?>images/bg-02.jpg');">
-		<h2 class="ltext-105 cl0 txt-center">
-			ERROR 404
-		</h2>
-	</section>
+    <h2 class="ltext-105 cl0 txt-center">
+        ERROR 404
+    </h2>
+</section>
 
 <div class="container">
     <div class="row">
