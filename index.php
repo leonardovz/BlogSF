@@ -59,7 +59,7 @@ if(isset($_GET['ruta'])){
     elseif ($rutas[0] == "cerrar" || $rutas[0] == "Cerrar") {
         require_once 'componentes/cerrarSesion.php';
     }
-    elseif ($rutas[0] == "validar" || $rutas[0] == "Validar") {
+    elseif ($rutas[0] == "validar" || $rutas[0] == "Validar"|| $rutas[0] == "verificar" || $rutas[0] == "Verificar") {
         if(isset($rutas[1])){
             require_once 'views/validar.view.php';
         }else{

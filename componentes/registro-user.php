@@ -158,10 +158,9 @@ else if(isset($_POST['sendCorreo'])){
 				}else{
 					$respuesta = array(
 						'respuesta'=> 'exito',
-						'Texto'=> 'Registro realizado Satisfactoriamente,por favor revise la bandeja de entrada o la carpeta de SPAM de su correo electronico '. $_POST['sendCorreo'] .' para verificar su correo '
+						'Texto'=> 'Cambio realizado satisfactoriamente,por favor revise la bandeja de entrada o la carpeta de SPAM de su correo electronico '. $_POST['sendCorreo'] .' para ingresar en su cuenta '
 					);
 				}
-				var_dump($newPassword);
 			}else{
 				$respuesta = array(
 					'respuesta'=> 'error',

@@ -207,14 +207,12 @@ $(document).ready(function() {
                 dataType: 'json',
                 success: function (data) {
                     if (data.respuesta == 'exito') {
-                        swal({
+                        Swal.fire({
                             position: 'top-end',
                             type: 'success',
-                            title: data.Texto,
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                        location.reload();
+                            title: 'Registrado',
+                            text: data.Texto
+                          });
                     } else {
                         swal({
                             type: 'error',

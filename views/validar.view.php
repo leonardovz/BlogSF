@@ -16,7 +16,7 @@
             <div class="error-template">
                 <?php
                  $validar = validarCorreo($conexion,$rutas[1]);
-                if($validar['Texto']=='exito'){?>
+                if($validar['respuesta']=='exito'){?>
                 <h1>
                     ¡Genial!</h1>
                 <h2>
@@ -34,7 +34,8 @@
                     <h1>
                     ¡Oops!</h1>
                     <h2>
-                       <?php echo $validar['Texto'];?></h2>
+                       <?php echo $validar['Texto'];?>
+                    </h2>
                     <div class="error-details">
                         Lo sentimos, ha ocurrido un error, <br>  ¡Intenta más tarde o intenta registrar de nuevo tu correo!
                     </div>
