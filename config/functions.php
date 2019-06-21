@@ -139,7 +139,7 @@ function delPost($conexion,$Post){
 
 }
 function searchPost($conexion){
-	$sql = "SELECT pub.*,user.idUsuario, user.nombre,user.apellidos FROM publicacion AS pub INNER JOIN usuarios AS user ON pub.iduser=user.idUsuario ORDER BY pub.fecha DESC;";
+	$sql = "SELECT pub.*,user.idUsuario, user.nombre,user.apellidos FROM publicacion AS pub INNER JOIN usuarios AS user ON pub.iduser=user.idUsuario GROUP BY iduser  ORDER BY pub.id DESC;";
 	$sentencia = $conexion->prepare($sql);
 	$sentencia->execute();
 	$resultado = $sentencia->fetchAll();
@@ -321,7 +321,12 @@ function obtenerPerfil($conexion,$idUser){
 	$sentencia = $conexion->prepare($sql);
 	$sentencia->execute();
 	$resultado = $sentencia->fetchAll();
-	return $resultado[0];
+	
+	if(isset($resultado[0])){
+		return $resultado[0];
+	}else{
+		return false;
+	}
 }
 function revisarUsuario($conexion,$iduser){
 	$sql = "SELECT idUsuario FROM usuarios where idUsuario = $idUser";

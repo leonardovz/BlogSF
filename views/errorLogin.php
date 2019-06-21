@@ -1,4 +1,4 @@
-<?php require 'views/header.php';?>
+<?php require 'templates/header.php';?>
 <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('<?php echo $ruta?>images/bg-02.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
 			ERROR 404
@@ -24,4 +24,4 @@
         </div>
     </div>
 </div>
-<?php require 'views/footer.php';?>
+<?php require 'templates/footer.php';?>

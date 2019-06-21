@@ -1,7 +1,7 @@
 <?php 
-require_once 'views/header.php';
+require_once 'templates/header.php';
 require_once 'config/config.php';
-require_once 'Admin/functions.php';
+require_once 'config/functions.php';
 
 $conexion = conexion($bd_config);
 $servicios = searchService($conexion);
@@ -183,4 +183,4 @@ $servicios = searchService($conexion);
 	</section>	
 	
 		
-<?php require 'views/footer.php'; ?>
+<?php require 'templates/footer.php'; ?>

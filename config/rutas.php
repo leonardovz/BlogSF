@@ -1,7 +1,8 @@
 <?php
 
 function ruta(){
-    return "http://localhost/SanFrancisco/";
+    $ruta = $_SERVER['HTTP_HOST'];
+    return 'http://'.$ruta.'/lacteosaltenos/';
 }
 
 

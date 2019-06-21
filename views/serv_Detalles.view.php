@@ -1,9 +1,9 @@
 <?php 
 require_once 'config/config.php';
-require_once 'Admin/functions.php';
+require_once 'config/functions.php';
 
 $conexion = conexion($bd_config);
-require 'views/header.php';
+require 'templates/header.php';
 
 ?>
 
@@ -225,4 +225,4 @@ require 'views/header.php';
 		</div>
 	</section>
 	
-	<?php require 'views/footer.php'; ?>
+	<?php require 'templates/footer.php'; ?>

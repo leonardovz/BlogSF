@@ -1,4 +1,4 @@
-<?php require 'views/header.php';?>
+<?php require 'templates/header.php';?>
 
 <!-- Title page -->
 <section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');">
@@ -24,5 +24,5 @@
         </div>
     </div>
 </section>
-<script src="js/login.js"></script>
-<?php require 'views/footer.php'; ?>
+<script src="<?php echo $ruta;?>js/login.js"></script>
+<?php require 'templates/footer.php'; ?>

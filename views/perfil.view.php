@@ -1,33 +1,35 @@
 <?php 
 	require_once 'config/config.php';
-	require_once 'Admin/functions.php';
+	require_once 'config/functions.php';
 
 	$conexion = conexion($bd_config);
-	require_once 'views/header.php';
-	if (isset($rutas[1])) {
-		if($rutas[1]!="" && $rutas[1]>0){
-			$perfil = obtenerPerfil($conexion,$rutas[1]);
-		}else{
-			$rutas[1]=1;
-		$perfil = obtenerPerfil($conexion,$rutas[1]);	
-		}
+	require_once 'templates/header.php';
+	
+	
+	
+	if (isset($rutas[1])&&$rutas[1]>=1) {
+		$perfil = obtenerPerfil($conexion,$rutas[1]);
+	}else if(isset($_SESSION['idUsuario'])){
+		$perfil = obtenerPerfil($conexion,$_SESSION['idUsuario']);
+		$rutas[1] = $_SESSION['idUsuario'];
 	}else{
-		$rutas[1]=1;
-		$perfil = obtenerPerfil($conexion,$rutas[1]);	
+		$perfil = false;
 	}
-
-	$sesion= false;
-	
-	
 ?>
-
+	
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('<?php echo $ruta; ?>images/bg-02.jpg');">
 		<h2 class="ltext-105 cl0 txt-center">
-			<?php echo $perfil['nombreServicio'];?>
+			<?php if($perfil!=false){
+				echo $perfil['nombreServicio'];
+			}else{
+				echo "Perfil Error";
+			}
+			?>
 		</h2>
 	</section>
-	<?php if(isset($_SESSION['idUsuario'])&&$_SESSION['idUsuario']==$rutas[1]){?>
+	
+	<?php if((isset($_SESSION['idUsuario'])&&$_SESSION['idUsuario']==$rutas[1])&&$perfil!=false){?>
 	<section class="bg-img1 txt-center p-t-30" >
 		<h2 class="ltext-105 c9 txt-center">  
 			<div class="p-t-2">
@@ -53,6 +55,7 @@
 				Servicios
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
 			</a>
+			<?php if($perfil!=false){?>
 			<a href="<?php echo $ruta . $links_contenido['serviciosDetalles'] ."/". $perfil['id']  ;?>" class="stext-109 cl8 hov-cl1 trans-04">
 				<?php echo $perfil['servNombre'];?>
 				<i class="fa fa-angle-right m-l-9 m-r-10" aria-hidden="true"></i>
@@ -61,6 +64,7 @@
 			<span class="stext-109 cl4">
 				Datos del Perfil
 			</span>
+			<?php } ?>
 		</div>
 	</div>
 	<!-- Content page -->
@@ -68,7 +72,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-7 col-lg-8 p-b-80">
-					<?php if (isset($_SESSION['idUsuario'])&&$_SESSION['idUsuario']==$rutas[1]) {?>
+					
+					<?php if($perfil!=false){
+						if (isset($_SESSION['idUsuario'])&&$_SESSION['idUsuario']==$rutas[1]) {?>
 					<div class="p-r-45 p-r-0-lg">
 						<ul class="nav nav-pills mb-3  stext-115" id="pills-tab" role="tablist">
 							<li class="nav-item">
@@ -80,25 +86,47 @@
 							<li class="nav-item">
 								<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Contacto</a>
 							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="pills-edit-tab" data-toggle="pill" href="#pills-edit" role="tab" aria-controls="pills-edit" aria-selected="false">Editar Perfil</a>
+							</li>
 						</ul>
 						<div class="tab-content" id="pills-tabContent">
 							<div class="tab-pane fade show active p-t-45" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab"><?php require_once 'Perfil/publicaciones.php';?></div>
 							<div class="tab-pane fade stext-115" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"><?php require_once 'Perfil/publicar.php';?></div>	
 							<div class="tab-pane fade " id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab"><?php require_once 'Perfil/contacto.php'; ?></div>
+							<div class="tab-pane fade stext-115" id="pills-edit" role="tabpanel" aria-labelledby="pills-edit-tab"><?php require_once 'Perfil/editar.php'; ?></div>
 						</div>
 					</div>
 					<?php } else{ ?>
 						<?php require_once 'Perfil/contacto.php'; ?>
 						<h4 class="m-t-15 p-b-20 text-center fs-30">Publicaciones</h4>
 						<?php require_once 'Perfil/publicaciones.php'; ?>
-					<?php }?>
+					<?php }}else{
+						echo '<div class="alert alert-success text-center" role="alert">
+								No se ha encontrado el perfil que estas buscando
+							  </div> ';
+						if(isset($_SESSION['idUsuario'])){
+							echo '
+							<div class="card col-md-8 mx-auto">
+								<div class="card-body text-center">
+									<h5 class="card-title">Puedes Registrar tu Servicio Aquí</h5>
+									<p class="card-text">Para poder mostrar tu información es necesario que registres alguno de los planes que te ofrecemos</p><br><br>
+									<a href="'. $ruta . $links_contenido['compras'] .'" class="btn btn-primary">Registralo Aquí</a>
+								</div>
+							</div>';
+						}
+
+
+					}?>
 				</div>
 
 				<div class="col-md-5 col-lg-4 p-b-80 float-right" >
 					<div class="side-menu">
                         <div class="p-t-2">
 							<h4 class="mtext-112 cl2 p-b-33">
-								<?php echo $perfil['nombreServicio']?>
+								<?php if($perfil != false){
+									echo $perfil['nombreServicio'];
+									}?>
 							</h4>
 
 							<ul>
@@ -235,5 +263,8 @@
             </div>
 		</div>
 	</div>
+
+
+
 	<script src="<?php echo $ruta;?>js/publicar.js"></script>
-	<?php require 'views/footer.php'; ?>
+	<?php require 'templates/footer.php'; ?>

@@ -1,5 +1,5 @@
 <?php 
-    require 'views/header.php';
+    require 'templates/header.php';
 ?>
 
 <!-- Title page -->
@@ -45,6 +45,6 @@
     </div>
 </section>
 
-<script src="js/login.js"></script>
 
-<?php require 'views/footer.php'; ?>
+<?php require 'templates/footer.php'; ?>
+<script src="<?php echo $ruta;?>js/login.js"></script>

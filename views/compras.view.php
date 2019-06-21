@@ -1,4 +1,4 @@
-<?php require 'views/header.php';?>
+<?php require 'templates/header.php';?>
 
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');">
@@ -119,4 +119,4 @@
 		</section>
 	</section>
 		
-<?php require 'views/footer.php'; ?>
+<?php require 'templates/footer.php'; ?>

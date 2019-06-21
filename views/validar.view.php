@@ -1,5 +1,5 @@
 <?php 
-    require_once 'views/header.php';
+    require_once 'templates/header.php';
     require_once 'config/conexion.php';
     require_once 'Admin/functions.php';
 ?>
@@ -48,4 +48,4 @@
         </div>
     </div>
 </div>
-	<?php require 'views/footer.php';?>
+	<?php require 'templates/footer.php';?>

@@ -1,10 +1,10 @@
 <?php 
 require_once 'config/config.php';
-require_once 'Admin/functions.php';
+require_once 'config/functions.php';
 
 $conexion = conexion($bd_config);
 
-require 'views/header.php';
+require 'templates/header.php';
 if (isset($rutas[1])) {
 	if($rutas[1]!="" && $rutas[1]>0){
 		$publicacion = obtenerPostId($conexion,$rutas[1]);
@@ -220,4 +220,4 @@ if (isset($rutas[1])) {
 	</section>	
 	
 		
-<?php require 'views/footer.php';?> 
+<?php require 'templates/footer.php';?> 

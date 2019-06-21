@@ -1,4 +1,4 @@
-<?php require 'views/header.php';?>
+<?php require 'templates/header.php';?>
 
 
 	
@@ -208,4 +208,4 @@
 		</div>
 	</section>	
 	
-<?php require 'views/footer.php';?>
+<?php require 'templates/footer.php';?>
