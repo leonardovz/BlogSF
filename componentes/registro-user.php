@@ -1,5 +1,6 @@
 <?php 
 	session_start();
+	require_once '../config/config.php';
 	require_once '../config/conexion.php';
 	require_once '../PHPMailer/PHPMailerAutoload.php';
 	require_once '../config/rutas.php';

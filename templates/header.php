@@ -17,7 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>fonts/linearicons-v1.0.0/icon-font.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/animate/animate.css">	
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/css-hamburgers/hamburgers.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/animsition/css/animsition.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/select2/select2.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/daterangepicker/daterangepicker.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/slick/slick.css">
@@ -31,6 +31,9 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-142536673-1"></script>
 	<script>
+	function ruta(){
+		return '<?php echo $ruta;?>';
+	}
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
 	gtag('js', new Date());

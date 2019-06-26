@@ -1,17 +1,19 @@
 <?php 
 session_start();
+// require_once "config.php";
 require_once 'config/config.php';
 require_once 'config/functions.php';
 require_once 'config/rutas.php';
 $conexion = conexion($bd_config);
 $ruta=ruta();
 if(!isset($conexion)){
-    echo "error al conectar a la base de datos" .json_encode($bd_config);
+    // echo "error al conectar a la base de datos" .json_encode($bd_config);
+    echo "Por el momento no se puede acceder a la plataforma";
     exit;
 }
 
 if(isset($_GET['ruta'])){
-    $rutas = explode("/",$_GET['ruta']);
+    $rutas = explode("/",strtolower($_GET['ruta']));
     //  var_dump($rutas);
     if($rutas[0] == "inicio"){
         require_once 'views/index.view.php';
@@ -30,7 +32,7 @@ if(isset($_GET['ruta'])){
     }
     elseif ($rutas[0] == "Login" || $rutas[0] == "login") {
         if(isset($_SESSION['validarSesion'])){
-            header('Location: http://localhost/SanFrancisco/');
+            header('Location: '.$ruta);
         }else{
             require_once 'views/Login.php';
         }
@@ -50,6 +52,9 @@ if(isset($_GET['ruta'])){
     }
     elseif ($rutas[0] == "informacion" || $rutas[0] == "Informacion") {
         require_once 'views/Acerca_de.php';
+    }
+    elseif ($rutas[0] == "ayuda" ) {
+        require_once 'views/ayuda.view.php';
     }
     elseif ($rutas[0] == "Contacto" || $rutas[0] == "contacto") {
         require_once 'views/Contacto.php';

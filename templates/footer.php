@@ -41,25 +41,25 @@
 
 				<ul>
 					<li class="p-b-10">
-						<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+						<a href="<?php echo $ruta;?>Ayuda/#RegistrodeNegocio" class="stext-107 cl7 hov-cl1 trans-04">
 							Registro de Negocio
 						</a>
 					</li>
 
 					<li class="p-b-10">
-						<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+						<a href="<?php echo $ruta;?>Ayuda/#Servicios" class="stext-107 cl7 hov-cl1 trans-04">
 							Servicios
 						</a>
 					</li>
 
 					<li class="p-b-10">
-						<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+						<a href="<?php echo $ruta;?>Ayuda/#Publicaciones" class="stext-107 cl7 hov-cl1 trans-04">
 							Publicaciones
 						</a>
 					</li>
 
 					<li class="p-b-10">
-						<a href="#" class="stext-107 cl7 hov-cl1 trans-04">
+						<a href="<?php echo $ruta;?>Ayuda/#Patrocinar" class="stext-107 cl7 hov-cl1 trans-04">
 							Patrocinar
 						</a>
 					</li>
@@ -151,7 +151,7 @@
 
 	<script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
 
-	<script src="<?php echo $ruta?>vendor/animsition/js/animsition.min.js"></script>
+	<script src="<?php echo $ruta?>vendor/animsition/js/animsition.js"></script>
 	<script src="<?php echo $ruta?>vendor/bootstrap/js/popper.js"></script>
 	<script src="<?php echo $ruta?>vendor/bootstrap/js/bootstrap.min.js"></script>
 	<script src="<?php echo $ruta?>vendor/select2/select2.min.js"></script>

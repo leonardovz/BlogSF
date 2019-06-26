@@ -1,14 +1,18 @@
+var ruta = ruta();
 $(document).ready(function(e){
     $("#fupForm").on('submit', function(e){
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: $(this).attr('action'),
+            url: ruta+'componentes/crearPublicacion.php',
             data: new FormData(this),
             dataType: 'json',
             contentType: false,
             cache: false,
             processData:false,
+            error: function (xhr,status) {
+                console.log(JSON.stringify(xhr));
+            },
             success: function (data) {
                 if (data.respuesta == 'exito') {
                     Swal.fire({
@@ -16,7 +20,7 @@ $(document).ready(function(e){
                         title: 'Registrado',
                         text: data.Texto
                       });
-                      clearInputs();
+                    //   clearInputs();
                 } else {
                     swal({
                         type: 'error',
@@ -24,7 +28,7 @@ $(document).ready(function(e){
                         text: data.Texto
                     });
                 }
-                console.log(data);
+                // console.log(data);
             }
         });
     });

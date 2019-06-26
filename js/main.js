@@ -6,7 +6,7 @@
     $(".animsition").animsition({
         inClass: 'fade-in',
         outClass: 'fade-out',
-        inDuration: 1500,
+        inDuration: 5,
         outDuration: 800,
         linkElement: '.animsition-link',
         loading: true,
@@ -14,7 +14,7 @@
         loadingClass: 'animsition-loading-1',
         loadingInner: '<div class="loader05"></div>',
         timeout: false,
-        timeoutCountdown: 5000,
+        timeoutCountdown: 55,
         onLoadEvent: true,
         browser: [ 'animation-duration', '-webkit-animation-duration'],
         overlay : false,

@@ -17,7 +17,9 @@ if((isset($_POST['nombrePub']) && isset($_POST['descripcionPub']))&&isset($_SESS
     
     if(preg_match('/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]*$/',$_POST['nombrePub'])){
         if(isset($_FILES["file"]["type"])){
-            $fileName = time().'_'.$_SESSION['idUsuario'].'_'.$_FILES['file']['name'];
+            $tipo = explode("/",$_FILES["file"]['type']);
+            $tipo= $tipo[1];
+            $fileName = $_SESSION['idUsuario'].'_'.time().'.'.$tipo;
             $valid_extensions = array("jpeg", "jpg", "png");
             $temporary = explode(".", $_FILES["file"]["name"]);
             $file_extension = end($temporary);

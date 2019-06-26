@@ -151,6 +151,9 @@ $(document).ready(function() {
                 url: $(this).attr('action'),
                 data: formulario,
                 dataType: 'json',
+                error:function(xhr,status){
+                    console.log(JSON.stringify(xhr));
+                },
                 success: function (data) {
                     if (data.respuesta == 'exito') {
                         swal({

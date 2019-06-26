@@ -176,63 +176,7 @@
 					Articulos más Recientes
 				</h3>
 			</div>
-			<div class="row isotope-grid">
-				
-				<?php  
-				$post = searchPost($conexion);
-				if (sizeof($post)>0) {
-				for ($i = 0; $i < sizeof($post) ;$i++) {
-				$fecha =fechaPub($post[$i]['fecha']);?>
-					<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-						<!-- Block2 -->
-						<div class="p-b-63">
-								<a href="<?php echo $links_contenido['publicaciones'] . '/'. $post[$i]['id'];?>" class="hov-img0 how-pos5-parent">
-									<img src="<?php echo $ruta .'Users_images/publicacion/' . $post[$i]['imagen'];?>" alt="IMG-BLOG">
-
-									<div class="flex-col-c-m size-123 bg9 how-pos5">
-										<span class="ltext-107 cl2 txt-center">
-											<?php echo $fecha[2];?>
-										</span>
-
-										<span class="stext-109 cl3 txt-center">
-										<?php echo $fecha[1] .'-'. $fecha[0];?>
-										</span>
-									</div>
-								</a>
-
-								<div class="p-t-32">
-									<h4 class="p-b-15">
-										<a href="<?php echo $links_contenido['publicaciones'] . '/'. $post[$i]['id'];?>" class="ltext-108 cl2 hov-cl1 trans-04">
-											<?php echo $post[$i]['titulo'];?>
-										</a>
-									</h4>
-
-									<div class="flex-w flex-sb-m p-t-18">
-										<span class="flex-w flex-m stext-111 cl2 p-r-30 m-tb-10">
-											<span>
-												<span class="cl4">By</span> <?php echo $post[$i]['nombre'];?>
-												<span class="cl12 m-l-4 m-r-6">|</span>
-											</span>
-
-											<span>
-												<?php echo $post[$i]['apellidos'];?>
-											</span>
-										</span>
-
-										<a href="<?php echo $links_contenido['publicaciones'] . '/'. $post[$i]['id'];?>" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
-											Continua Leyendo...
-											<i class="fas fa-book-open"></i>
-										</a>
-									</div>
-								</div>
-							</div>
-					</div>
-				<?php }}else{ ?>
-					<div class="alert alert-danger" role="alert">
-						No se encuentra ningun Servicio Registrado aún
-					</div>
-				<?php } ?>
-				
+			<div class="row isotope-grid" id="publicaciones">
 				
 			</div>
 		</div>
@@ -242,61 +186,13 @@
 		<div class="container">
 			<div class="p-b-55">
 				<h3 class="ltext-103 cl5">
-					Servicios Más Buscados
+					Servicios
 				</h3>
 			</div>
-			<div class="row isotope-grid">
-				<?php 
-				$servicios= searchUserService($conexion);
-				if (sizeof($servicios)>0) {
-				for ($i=0; $i < sizeof($servicios) && $i< 8; $i++){
-					$fecha =fechaPub($servicios[$i]['fechaRegistro']);?>
-					<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-						<!-- Block2 -->
-						<div class="p-b-63">
-								<a href="<?php echo $ruta . $links_contenido['perfil']. "/".$servicios[$i]['idUsuario'];?>" class="hov-img0 how-pos5-parent">
-									<img src="<?php echo $ruta .'Users_images/usuarios/' . $servicios[$i]['imagenServicio'];?>" alt="IMG-BLOG">
-
-									<div class="flex-col-c-m size-123 bg9 how-pos5">
-										<span class="ltext-107 cl2 txt-center">
-											<?php echo $fecha[2];?>
-										</span>
-
-										<span class="stext-109 cl3 txt-center">
-											<?php echo $fecha[1] .'-'. $fecha[0];?>
-										</span>
-									</div>
-								</a>
-
-								<div class="p-t-16">
-									<h4 class="p-b-6">
-										<a href="<?php echo $links_contenido['perfil']. "/".$servicios[$i]['idUsuario'];?>" class="ltext-96 cl2 hov-cl1 trans-04">
-											<?php echo $servicios[$i]['servicio'];?>
-										</a>
-									</h4>
-
-									<div class="flex-w flex-sb-m p-t-8">
-										<span class="flex-w flex-m stext-111 cl2 p-r-30 m-tb-10">
-											<span>
-												<?php echo $servicios[$i]['nameU'] . " " . $servicios[$i]['apellidos'];?>
-											</span>
-										</span>
-										
-										<a href="<?php echo $links_contenido['perfil']. "/".$servicios[$i]['idUsuario'];?>" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
-											Ver Información 
-											<i class="fs-20 fas fa-user-circle"> </i>
-										</a>
-									</div>
-								</div>
-							</div>
-					</div>
-				<?php }
-				}else{?>
-					<div class="alert alert-danger" role="alert">
-						No se encuentra ningun Servicio Registrado aún
-					</div>
-				<?php }?>
+			<div class="row isotope-grid" id="usuariosServicio">
+				
 			</div>
 		</div>
 	</section>
 	<?php require 'templates/footer.php';?>
+	<script src="<?php echo $ruta;?>js/recursos/inicio.js"></script>
