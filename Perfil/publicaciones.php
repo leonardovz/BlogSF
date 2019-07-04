@@ -5,7 +5,7 @@
             $fecha =fechaPub($publicaciones[$i]['fecha']);?>
     <div class="col-sm-6 col-md-6 col-lg-6 p-b-10 isotope-item women">
         <!-- Block2 -->
-        <div class="p-b-10">
+        <div class="p-b-10" idpublicacion="<?php echo $publicaciones[$i]['idPub'];?>">
             <a href="<?php echo $ruta . $links_contenido['publicaciones'] .'/'.$publicaciones[$i]['idPub'];?>" class="hov-img0 how-pos5-parent">
                 <img src="<?php echo $ruta; ?>Users_images/publicacion/<?php echo $publicaciones[$i]['imagen'];?>" alt="IMG-BLOG">
             </a>
@@ -27,7 +27,11 @@
                             <?php echo $publicaciones[$i]['nameU'] . ", " .$publicaciones[$i]['apellidos'];?>
                             <span class="cl12 m-l-4 m-r-6">|</span>
                         </span>
-                        <span><a href="<?php echo $ruta . $links_contenido['publicaciones'] .'/'.$publicaciones[$i]['idPub'];?>"><i class="fs-23 fab fa-readme"></i></a></span>
+                        <span><a href="<?php echo $ruta . $links_contenido['publicaciones'] .'/'.$publicaciones[$i]['idPub'];?>"><i class="fa fa-book text-muted" aria-hidden="true"></i></a></span>
+                        <?php if((isset($_SESSION['idUsuario'])&&$_SESSION['idUsuario']==$rutas[1]) ) {?>
+
+                            <span><a href="<?php echo $ruta . $links_contenido['publicaciones'] .'/'.$publicaciones[$i]['idPub'];?>"><i class="fa fa-book text-muted" aria-hidden="true"></i></a></span> 
+                        <?php } ?>
                     </span>
                 </h4>
             </div>

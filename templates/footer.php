@@ -77,7 +77,7 @@
 
 				<div class="p-t-27">
 					<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-						<i class="fa fa-facebook"></i>
+						F
 					</a>
 
 					<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">

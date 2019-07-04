@@ -110,7 +110,6 @@
 						</a>
 					</div>
 				</div>
-				
 				<div class="col-md-6 p-b-30 m-lr-auto">
 					<!-- Block1 -->
 					<div class="block1 wrap-pic-w">
@@ -135,18 +134,38 @@
 						</a>
 					</div>
 				</div>
-				<?php 
-				$servicios = searchService($conexion);
-				for ($i=0; $i < 3; $i++):?>
-					<div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
-						<!-- Block1 -->
-						<div class="block1 wrap-pic-w">
-							<img src="<?php echo $ruta .'Users_images/servicios/' . $servicios[$i]['imagen'];?>" alt="IMG-BANNER">
 
-							<a href="<?php echo $links_contenido['serviciosDetalles'] . '/'. $servicios[$i]['nombre'];?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+				<!-- ADS -->
+				<div class="col-md-6 p-b-30 m-lr-auto">
+					<!-- Block1 -->
+					<div class="block1 wrap-pic-w">
+						<amp-auto-ads type="adsense"
+									data-ad-client="ca-pub-8919176516978480">
+						</amp-auto-ads>
+					</div>
+				</div>
+				<!-- ADS -->
+				<div class="col-md-6 p-b-30 m-lr-auto">
+					<!-- Block1 -->
+					<div class="block1 wrap-pic-w">
+						<amp-auto-ads type="adsense"
+									data-ad-client="ca-pub-8919176516978480">
+						</amp-auto-ads>
+					</div>
+				</div>
+				
+				
+				<?php 
+				//$servicios = searchService($conexion);
+				//for ($i=0; $i < 3; $i++):?>
+					<!-- <div class="col-md-6 col-lg-4 p-b-30 m-lr-auto">
+						<div class="block1 wrap-pic-w">
+							<img src="<?php //echo $ruta .'Users_images/servicios/' . $servicios[$i]['imagen'];?>" alt="IMG-BANNER">
+
+							<a href="<?php //echo $links_contenido['serviciosDetalles'] . '/'. $servicios[$i]['nombre'];?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 								<div class="block1-txt-child1 flex-col-l">
 									<span class="block1-name ltext-102 trans-04 p-b-8">
-										<?php echo $servicios[$i]['nombre'];?>
+										<?php //echo $servicios[$i]['nombre'];?>
 									</span>
 
 									<span class="block1-info stext-102 trans-04">
@@ -161,8 +180,8 @@
 								</div>
 							</a>
 						</div>
-					</div>
-				<?php endfor?>
+					</div> -->
+				<?php //endfor?>
 			</div>
 		</div>
 	</div>
@@ -194,5 +213,6 @@
 			</div>
 		</div>
 	</section>
+
 	<?php require 'templates/footer.php';?>
 	<script src="<?php echo $ruta;?>js/recursos/inicio.js"></script>

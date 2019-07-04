@@ -144,36 +144,38 @@
 
 						<div class="p-t-65">
 							<h4 class="mtext-112 cl2 p-b-33">
-								ADS
+								<!-- ADS -->
 							</h4>
 
 							<ul>
 								<li class="flex-w flex-t p-b-2">
                                     <div class="p-b-10">
-                                        <a href="blog-detail.html" class="hov-img0 how-pos5-parent">
+										<amp-auto-ads type="adsense"
+													data-ad-client="ca-pub-8919176516978480">
+										</amp-auto-ads>
+                                        <!-- <a href="blog-detail.html" class="hov-img0 how-pos5-parent">
                                             <img src="images/blog-04.jpg" alt="IMG-BLOG">
-                                        </a>
+                                        </a> -->
                                     </div>
 								</li>
-                                <li class="flex-w flex-t p-b-2">
+								<li class="flex-w flex-t p-b-2">
                                     <div class="p-b-10">
-                                        <a href="blog-detail.html" class="hov-img0 how-pos5-parent">
+										<amp-auto-ads type="adsense"
+													data-ad-client="ca-pub-8919176516978480">
+										</amp-auto-ads>
+                                        <!-- <a href="blog-detail.html" class="hov-img0 how-pos5-parent">
                                             <img src="images/blog-04.jpg" alt="IMG-BLOG">
-                                        </a>
+                                        </a> -->
                                     </div>
 								</li>
-                                <li class="flex-w flex-t p-b-2">
+								<li class="flex-w flex-t p-b-2">
                                     <div class="p-b-10">
-                                        <a href="blog-detail.html" class="hov-img0 how-pos5-parent">
+										<amp-auto-ads type="adsense"
+													data-ad-client="ca-pub-8919176516978480">
+										</amp-auto-ads>
+                                        <!-- <a href="blog-detail.html" class="hov-img0 how-pos5-parent">
                                             <img src="images/blog-04.jpg" alt="IMG-BLOG">
-                                        </a>
-                                    </div>
-								</li>
-                                <li class="flex-w flex-t p-b-2">
-                                    <div class="p-b-10">
-                                        <a href="blog-detail.html" class="hov-img0 how-pos5-parent">
-                                            <img src="images/blog-04.jpg" alt="IMG-BLOG">
-                                        </a>
+                                        </a> -->
                                     </div>
 								</li>
 							</ul>

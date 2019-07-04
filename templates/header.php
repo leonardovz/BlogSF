@@ -5,19 +5,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>San Francisco de Asis</title>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Servicios y Noticias | San Francisco de Asis  | Jalisco </title>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+	<meta http-equiv="Cache-control" content="no-cache">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" Content="0">
+	<meta name="keywords" content="Trabajos y Servicios, Construcción, Estilistas en San Francisco ,Albañiles, Troqueros, Papeleria, Arquitectos, San Francisco de Asís, Servicios y Noticias">
 	<meta name="description" content="Aquí encontraras los servicios que ofrece San Francisco se Asís, municipio de Atotonilco el alto, Jalisco. Entra y encuentra lo que necesitas">
-	<meta name="keywords" content="Trabajos y Servicios, Construcción, Estilistas en San Francisco,Albañiles, Troqueros, Venta de Terrenos">
-	
+	<meta name="robots" content="all">
+	<meta name="author" content="Ingeniero - Leonardo Vázquez Angulo">
+
+	<!-- Open Graph protocol -->
+	<meta property="og:title" content="Servicios y Noticias" />
+	<meta property="og:site_name" content="SnSanfrancisco" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://www.snsanfrancisco.com" />
+	<meta property="og:image" content="https://www.snsanfrancisco.com/images/icons/favicon.png" />
+	<meta property="og:image:type" content="image/png" />
+	<meta property="og:image:width" content="200" />
+	<meta property="og:image:height" content="200" />
+	<meta property="og:description" content="Trabajos y Servicios, Construcción, Estilistas en San Francisco ,Albañiles, Troqueros, Papeleria, Arquitectos, San Francisco de Asís, Servicios y Noticias" />
+	<meta name="twitter:title" content="Servicios y Noticias | San Francisco de Asis  | Jalisco" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="<?php echo $ruta;?>" />
+	<meta name="twitter:card" content="" />
+
+	<!-- -------------------------------------------------------------------------------------------- -->
 	<link rel="icon" type="image/png" href="<?php echo $ruta?>images/icons/favicon.png"/>
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>fonts/iconic/css/material-design-iconic-font.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>fonts/linearicons-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/animate/animate.css">	
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/css-hamburgers/hamburgers.min.css">
-	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/animsition/css/animsition.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/animsition/css/animsition.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/select2/select2.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/daterangepicker/daterangepicker.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo $ruta?>vendor/slick/slick.css">
@@ -46,6 +69,9 @@
 		google_ad_client: "ca-pub-8919176516978480",
 		enable_page_level_ads: true
 	});
+	</script>
+	<script async custom-element="amp-auto-ads"
+			src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
 	</script>
 
 </head>
