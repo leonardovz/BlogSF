@@ -73,7 +73,6 @@
 
 										<a href="<?php echo $links_contenido['publicaciones'] .'/'.$publicacion[$i]['idPub'];?>" class="stext-101 cl2 hov-cl1 trans-04 m-tb-10">
 											Ver publicación Completa
-
 											<i class="fa fa-long-arrow-right m-l-9"></i>
 										</a>
 									</div>
@@ -211,3 +210,9 @@
 	</section>	
 	
 <?php require 'templates/footer.php';?>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- IzquierdoBlog -->
+<
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>

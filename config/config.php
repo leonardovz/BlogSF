@@ -7,7 +7,7 @@ $pass="data1122";
 $bd_config = array(
     'host' => 'localhost',
 	'database' => 'sanfrancisco',
-	'usuario' => 'root',
+	'usuario' => 'rootLeo',
 	'pass' => 'data1122'
 );
 // $bd_config = array(
